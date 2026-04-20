@@ -20,5 +20,5 @@ Ezekhez nem kell semmi más, csak a böngésző. Minden logikát én írok meg:
 9.  Drawing App: A HTML5 canvas elemét fogod használni.
 10. Parallax Website: CSS görgetési trükkök és egy kis JS pozíció-figyelés.
 11. Chess Game: Komolyabb logikai kihívás, de tisztán JS.
-12. To-Do List App: A klasszikus alapgyakorlat. -> <!--TODO link hiányzik-->
+12. To-Do List App: A klasszikus alapgyakorlat. -> [Itt](https://nagraggini.github.io/web-projects/apps/questlog/index.html)
 13. Typing Speed Test: Időmérő és szövegösszehasonlító logika.
