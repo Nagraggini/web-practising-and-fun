@@ -466,40 +466,53 @@ webServer: {
 
 A kapcsos zárójelek utáni vesszőre figyelj.
 
+**package.json**-ben is be kell állítani.
+
+Ezt módosítsd:
+```json
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint ."
+  },
+```
+Erre:
+
+```json
+   "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "preview": "vite preview",
+        "lint": "eslint .",
+        "test": "npx playwright test"
+    },
+```
+A kapcsos zárójelek utáni vesszőre figyelj.
+
+
+
 Tesztelt le, hogy mindent jól beállítottál-e.
 Terminálban: npx playwright test
 
-
-
-
-
-
-----------------------
-
-**Teljes teszthez**
+# Playwright használata
 
 [https://github.com/Nagraggini/playwright-playground](Részletes útmutatót a playwright használatáról itt találsz.)
+
+
+**Teljes teszthez**
 
 Terminálban: 
 Ezzel csak a chromium típusú böngészőben futtatod a tesztet.
 npx playwright test --project=chromium
 
-npm run start
-
-Miután elindult minden a leállításhoz a terminálban nyomd meg a ctrl+C-t.
+Miután elindult minden, a leállításhoz a terminálban nyomd meg a ctrl+C-t.
 npx playwright test
 
 Többi hasznos terminál parancs a teszteléshez:
 npx playwright test --headed
 npx playwright test --ui
 npx playwright test --debug
-
-# Github branch
-
-A Settingben állj át az új branchre és a Pages-en is.
-
-Pages -> build and deployment -> source -> GitHub Actions -> Static HTML
-A branch névre figyelj, hogy megfelelő legyen beállítva.
 
 # Források
 
@@ -509,61 +522,6 @@ https://www.youtube.com/watch?v=HmaQwuKUYTc
 https://www.freecodecamp.org/learn/javascript-v9/lecture-working-with-the-dom-click-events-and-web-apis/how-do-you-create-new-nodes-using-innerhtml-and-createelement
 [10 CSS PRO Tips and Tricks you NEED to know](https://www.youtube.com/watch?v=44FTAS-qT8Q&list=WL&index=11)
 [How to create a Responsive Navigation Bar (for beginners)](https://www.youtube.com/watch?v=U8smiWQ8Seg)
-
-
-
-
-# Mappa Struktúra
-
-web-practising-and-fun/
-├── index.html                  # Főoldal (alkalmazás választó)
-├── README.md                   # Projekt leírás
-├── package.json                # Node.js függőségek és szkriptek
-├── playwright.config.js        # Tesztelési konfiguráció
-├── .gitignore                  # (Ajánlott: node_modules, test-results elrejtésére)
-│
-├── components/                 # HTML sablonok (újrafelhasználható darabok)
-│   ├── header-component.html
-│   ├── footer-component.html
-│   └── sidebar-navigation.html
-│
-├── pages/                      # Fix információs oldalak
-│   ├── about-me.html
-│   └── settings.html
-│
-├── apps/                       # MINI ALKALMAZÁSOK (A projekt szíve)
-│   ├── blog/                   # Blog motor
-│   ├── questlog/               # Quest log (saját JS mappával)
-│   ├── student-list/           # Hallgatói listák (Beginner, Modern, Pro szintek)
-│   ├── js-zero-to-expert/      # Tanfolyami feladatok (pl. Guess My Number)
-│   ├── calc / calc-2 / feladat8 # Számológép variációk
-│   ├── rock-band / counter     # Kisebb interaktív appok
-│   └── ... (további gyakorló mappák: form, localstore, responsive-design)
-│
-├── css/                        # STÍLUSOK
-│   ├── main-style.css          # Globális stílus
-│   └── components/             # Komponensek egyedi CSS fájljai (footer, header, theme)
-│
-├── js/                         # JAVASCRIPT
-│   ├── common.js               # Általános logikák
-│   └── components/             # JS komponensek (firework-ui, header-script, model)
-│
-├── assets/                     # ERŐFORRÁSOK
-│   ├── fonts/                  # Egyedi betűtípusok (Momo_Signature)
-│   ├── icons/                  # Ikonok és gifek
-│   └── images/                 # Képek, ábrák és cheat-sheetek
-│
-├── tests/                      # AUTOMATIZÁLT TESZTEK (Playwright)
-│   ├── example.spec.js
-│   └── set-name-and-create-one-quest.spec.ts
-│
-├── docs/                       # DOKUMENTÁCIÓ
-│   └── main-site-plan.png      # Tervezési vázlatok
-│
-└── node_modules/               # Telepített könyvtárak (Playwright, Servor)
-
-
----------------------------------------------------------------------------------------------------------------
 
 # Lefedettség ellenőrzése
 

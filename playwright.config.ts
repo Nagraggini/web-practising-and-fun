@@ -69,11 +69,15 @@ export default defineConfig({
     // },
   ],
 
-webServer: {
-        command: "npm run build && npm run preview",
-        url: "http://localhost:4173/web-projects/",
+  webServer: {
+  //Biztosítja, hogy a tesztek futtatása előtt a legfrissebb kódod kerüljön bebundlázva a dist mappába, és azt szolgálja ki a szerver.
+    command: "npm run build && npm run preview",
+    //Ez a Vite alapértelmezett preview portja, így nem ütközik az 5173-as fejlesztői (dev) szerverrel.
+    url: "http://localhost:4173/web-projects/",
+        //Mindig tiszta lappal indul és új szervert indít, ahogy kell.
         reuseExistingServer: !process.env.CI,
-        stdout: 'ignore',
+    stdout: 'ignore',
+        //Ha valami hiba történik az indításnál, azt látni fogod a terminálban, így könnyebb javítani.
         stderr: 'pipe',
     },
 });
