@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css" />
+        <title>Tanulói névsor</title>
+    </head>
+
+    <!--Készítsünk egy egyszerű tanulói névsor oldalt:
+Az oldalon legyen egy fejléc címsorral, egy leírás, majd egy táblázat 3 tanuló adataival:
+Név, Kor, Kedvenc tantárgy.
+A táblázat fejléc legyen kiemelve, a sorok váltakozó háttérszínt kapjanak.
+A táblázat legyen középre igazítva, a cellák köré legyen szegély és belső margó.
+Az oldal teljes szélességében legyen max. 800px tartalomdoboz, középre igazítva, árnyékkal.
+A címsor legyen középre igazítva, nagybetűs és kicsit több betűközzel.
+Legyen egy külön kiemelt tanuló, akit id szelektorral más színnel formázunk.
+A táblázat alatt legyen egy űrlap, amiben egy új tanuló adatait lehet megadni.
+Az űrlap legyen formázva (doboz, padding, border).
+A címkék (label) igazodjanak a mezőkhöz.
+A gomb legyen feltűnő, hover effektussal.-->
+    <body>
+        <div class="container">
+            <h1>Tanuló</h1>
+            <p class="intro">
+                A táblázatban tanulók adatait jelenítjük meg. A formázás a css
+                fájlban lesz.
+            </p>
+            <p>Modern JS-ben nem kell az onclick.</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Név</th>
+                        <th>Kor</th>
+                        <th>Kedvenc tantárgy</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Harry Potter</td>
+                        <td>11</td>
+                        <td>Sötét varázslatok kivédése</td>
+                    </tr>
+                    <tr id="kiemelt">
+                        <td>Hermione Granger</td>
+                        <td>12</td>
+                        <td>Bájitaltan</td>
+                    </tr>
+                    <tr>
+                        <td>Ron Weasley</td>
+                        <td>11</td>
+                        <td>Kviddics</td>
+                    </tr>
+                    <tr>
+                        <td>Draco Malfoy</td>
+                        <td>11</td>
+                        <td>Sötét varázslatok kivédése</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>Új tanuló hozzáadása</h2>
+            <form>
+                <div class="form-group">
+                    <label for="nev">Név:</label>
+                    <input type="text" id="nev" name="nev" required />
+                </div>
+                <div class="form-group">
+                    <label for="kor">Kor:</label>
+                    <input
+                        type="number"
+                        id="kor"
+                        name="kor"
+                        min="6"
+                        max="99"
+                        step="1"
+                        required
+                    />
+                </div>
+
+                <div class="form-group">
+                    <label for="tantargy">Kedvenc tantárgy:</label>
+                    <select name="tantargy" id="tantargy" required>
+                        <option value="">-- Válassz tantárgyat</option>
+                        <option value="Bájitaltan">Bájitaltan</option>
+                        <option value="Kviddics">Kviddics</option>
+                        <option value="Sötét varázslatok kivédése">
+                            Sötét varázslatok kivédése
+                        </option>
+                        <option value="Ősvarázslat">Ősvarázslat</option>
+                    </select>
+                </div>
+                <button type="sumbit" class="submit-button">Hozzáadás</button>
+            </form>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>

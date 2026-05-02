@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="questlog-style.css" />
+        <link
+            rel="icon"
+            type="image/png"
+            href="../../assets/icons/unicorn.png"
+        />
+        <title>Questlog</title>
+    </head>
+    <body>
+        <header>
+            <h1>Gamer/Geek Quest List</h1>
+            <!--A bekért nevet írjuk ki.-->
+            <!-- TODO a bekért nevet írjuk ki toastban. -> https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_snackbar-->
+            <h2 class="welcome"></h2>
+            <section class="inputSection">
+                <form id="nameForm">
+                    <div class="form-group-new-user">
+                        <label for="name">Your name: </label>
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            class="name"
+                            placeholder="Pls write your name"
+                            required
+                        />
+                        <button type="sumbit" class="btn nameSubmit">
+                            Submit
+                        </button>
+                    </div>
+                </form>
+                <form id="questForm">
+                    <div class="form-group-new-quest">
+                        <!--Megnevezés, Dátum, Fontosság {nem fontos, normál, fontos}  -->
+                        <label for="description">Quest name: </label>
+                        <input
+                            type="text"
+                            id="description"
+                            name="description"
+                            class="description"
+                            placeholder="Pls describe"
+                            required
+                        />
+                        <input
+                            type="date"
+                            id="quest-date"
+                            class="date"
+                            name="deadline"
+                            required
+                        />
+                        <!--TODO cserél le erre az optiont taget.:
+                        https://www.w3schools.com/howto/howto_css_dropdown.asp-->
+                        <select
+                            name="priority"
+                            id="priority"
+                            class="priority"
+                            required
+                        >
+                            <option value="">Choose priority</option>
+                            <option value="Low">Low</option>
+                            <option value="Medium">Medium</option>
+                            <option value="High">High</option>
+                        </select>
+                        <button type="sumbit" class="btn questSubmit">
+                            Accept
+                        </button>
+                    </div>
+                </form>
+            </section>
+        </header>
+        <main>
+            <section class="mainSection">
+                <!--Nem minden esetben kell.-->
+                <!--<article></article>-->
+                <h2>Active quests</h2>
+                <table class="quest-list">
+                    <thead>
+                        <tr>
+                            <th>Undone/Done</th>
+                            <th>Description</th>
+                            <th>Date</th>
+                            <th>Priority</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </section>
+            <section class="funcSection">
+                <!-- TODO ez a két gomb még nem működik.
+                <button type="sumbit" class="btn doneButton">
+                    Done selected
+                </button>
+                <button type="reset" class="btn deleteButton">
+                    Delete selected
+                </button>
+
+                -->
+                <!-- TODO Kéne még mentés és a régi komment szerkesztésének lehetősége is.-->
+                <button onclick="window.print()">Print this page</button>
+                <button type="reset" class="btn deleteAllButton">
+                    Delete all (name&history)
+                </button>
+            </section>
+
+            <div class="testDiv">
+                <button class="btn randomQuestButton">
+                    Generate test data
+                </button>
+            </div>
+        </main>
+        <footer>
+            <!--TODO túl nagy a láthatatlan kattintható szövegdoboz.-->
+            <a
+                href="https://github.com/Nagraggini/web-projects/tree/main/apps/questlog"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <img src="../../assets/icons/small-link.png" alt="link" />
+                My source code</a
+            >
+
+            <p>
+                &copy; <span id="year"></span> Nagraggini (Andrea Freud)
+                <br class="mobile-break" />
+                — All rights reserved.
+            </p>
+        </footer>
+    </body>
+    <!--Ahhoz, hogy a böngésző kezelni tudja ezeket a modulokat (a "csomagokat"), kell a : type="module"-->
+    <script src="js/main-script.js" type="module" defer></script>
+</html>

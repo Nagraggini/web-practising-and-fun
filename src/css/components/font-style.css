@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Special+Elite&display=swap");
+/*
+* {
+    font-family: "Special Elite", serif;
+}
+    */
+
+/*
+system-ui: Ez a modern szabvány. Azt mondja a böngészőnek: "Használd azt, amit az OS használ a menükhöz."
+
+-apple-system / BlinkMacSystemFont: Speciális jelölések az Apple eszközöknek (iOS, macOS), hogy a San Francisco betűtípust használják.
+
+"Segoe UI": A Windows alapértelmezett betűtípusa.
+
+Roboto: Az Android alapértelmezett betűtípusa.
+
+sans-serif: A végső mentőöv. Ha semmit nem talál, a böngésző saját beállításaiban megadott alapértelmezett talpatlan betűtípust fogja betölteni.
+*/
+
+* {
+    font-family:
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif,
+        "Apple Color Emoji",
+        "Segoe UI Emoji",
+        "Segoe UI Symbol";
+}

@@ -1,0 +1,21 @@
+legend {
+    background-color: rgb(132, 61, 137);
+    color: white;
+    padding: 3px 6px;
+}
+
+input {
+    margin: 0.4rem;
+}
+
+h1,
+h2,
+h3,
+p {
+    margin-top: 5px;
+}
+
+form {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}

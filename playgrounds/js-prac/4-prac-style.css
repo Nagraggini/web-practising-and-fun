@@ -1,0 +1,40 @@
+ul,
+li {
+    list-style-type: square;
+    color: blueviolet;
+}
+body {
+    background-color: black;
+}
+
+h1,
+h2,
+h3,
+p,
+label,
+section,
+article {
+    color: blueviolet;
+    padding: 4px;
+    margin: 4px;
+}
+
+a {
+    padding: 4px;
+    margin: 4px;
+    margin-bottom: 2px;
+}
+
+button {
+    color: white;
+    background-color: blueviolet;
+    padding: 5px;
+    margin: 5px;
+}
+input {
+    margin: 4px;
+}
+
+.kiemeltCikk {
+    background-color: aqua;
+}

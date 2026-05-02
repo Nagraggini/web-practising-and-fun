@@ -1,0 +1,101 @@
+body {
+    background-color: #f8f1f7;
+}
+
+h1 {
+    color: darkblue;
+    text-align: left; /*Balra igazítás*/
+}
+
+p {
+    font-size: 18px;
+    color: black;
+}
+
+img {
+    border: 1.5px solid black; /* pixel vastag fekete keret */
+    border-radius: 10px; /* Lekerekített sarkok */
+}
+
+table {
+    margin-left: left; /* Bal szélre rakjuk ezzel a táblázatot.*/
+    border-collapse: collapse; /* Egyesítjük a szegélyeket */
+}
+
+th,
+td {
+    border: 1px solid black; /* Szegély a cellák köré */
+    padding: 8px; /* Térköz a cellák belsejében */
+    text-align: left; /* Balra igazított szöveg */
+}
+
+th {
+    background-color: #ff00ff; /* Szürke háttér a fejlécben */
+}
+
+tr:nth-child(even) {
+    background-color: #ffe6ff; /* Minden második sor színezése */
+}
+
+body {
+    /* Teljes oldal hátterének beállítása */
+    background-image: url("https://wallscloud.net/en/wallpaper/abstract/abstract-background/0xBX/3200x2400");
+    /* A kép URL-je */
+    background-repeat: no-repeat; /* Nem ismétli a képet */
+    background-size: cover; /* A kép kitölti a teljes hátteret */
+    background-position: center; /* A kép középre igazítása */
+}
+
+.myclass-1 {
+    border: 3px #116a2d solid;
+    margin-bottom: 20px;
+    background-color: rgb(44, 187, 99);
+    color: rgb(231, 231, 50);
+    padding: 5px;
+
+    border-radius: 10px; /*Lekerekíti a sarkokat.*/
+}
+
+.list {
+    border: 3px #4523a3 solid;
+    background-color: #6ec7d5;
+    padding: 5px;
+
+    border-radius: 10px; /*Lekerekíti a sarkokat.*/
+}
+
+/*Az adott id-n belül lévő tagnek is lehet adni más stílust.
+*/
+.list h1 {
+    text-align: center;
+}
+
+.list ul {
+    list-style-type: square;
+}
+
+.list li:first-child {
+    /*A lista első elemének a színét változtatjuk meg.*/
+    background-color: magenta;
+}
+
+.list li:last-child {
+    /*A lista utolsó elemének a színét változtatjuk meg.*/
+    background-color: #5733bb;
+}
+
+.list li:nth-child(5) {
+    /*A lista 5. elemének a színét változtatjuk meg.*/
+    background-color: #2aa4d1;
+}
+
+.box-2 {
+    border: 3px #1a8a3d solid;
+    padding: 5px;
+    background-color: rgb(200, 222, 93);
+
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    border-radius: 10px; /*Lekerekíti a sarkokat.*/
+}

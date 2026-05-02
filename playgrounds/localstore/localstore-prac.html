@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <!--Csak a html body-ban tud le futni.-->
+        <script>
+            document.open();
+            document.write("<h1>Hello World</h1>");
+            document.writeln("Hello World!");
+            document.close();
+        </script>
+
+        <button onclick="myFunction()">Open</button>
+        <script>
+            function myFunction() {
+                const myWindow = window.open();
+                myWindow.document.write("<h1>New Window</h1>");
+                myWindow.document.write("<p>Hello World!</p>");
+            }
+        </script>
+        <button onclick="window.print()">Print this page.</button>
+        <br />
+        <a href="https://www.w3schools.com/jsref/met_doc_write.asp"
+            >HTML DOM Document write()</a
+        ><br />
+        <a
+            href="https://www.geeksforgeeks.org/javascript/javascript-localstorage/"
+        >
+            JavaScript localStorage</a
+        >
+        <p>
+            Nézd meg a console log-ot és az Applications részt a webtoolban
+            (F12).
+        </p>
+        <button class="randomQuestButton">
+            Random quest generálása a localStorage-ba.
+        </button>
+        <hr />
+        <section class="inputSection">
+            <form id="nameForm">
+                <div class="form-group-new-user">
+                    <label for="name">Your name: </label>
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        class="name"
+                        placeholder="Pls write your name"
+                        required
+                    />
+                    <button type="sumbit" class="btn nameSubmit">Submit</button>
+                </div>
+            </form>
+            <form id="questForm">
+                <div class="form-group-new-quest">
+                    <!--Megnevezés, Dátum, Fontosság {nem fontos, normál, fontos}  -->
+                    <label for="description">Quest name: </label>
+                    <input
+                        type="text"
+                        id="description"
+                        name="description"
+                        class="description"
+                        placeholder="Pls describe"
+                        required
+                    />
+                    <input
+                        type="date"
+                        id="quest-date"
+                        class="date"
+                        name="deadline"
+                        required
+                    />
+                    <select
+                        name="priority"
+                        id="priority"
+                        class="priority"
+                        required
+                    >
+                        <option value="">Choose priority</option>
+                        <option value="Low">Low</option>
+                        <option value="Normal">Normal</option>
+                        <option value="High">High</option>
+                    </select>
+                    <button type="sumbit" class="btn questSubmit">
+                        Accept
+                    </button>
+                </div>
+            </form>
+        </section>
+        <hr />
+        <h2>Active quests</h2>
+
+        <form action="get" class="questForm"></form>
+        <table class="quest-list">
+            <thead>
+                <tr>
+                    <th>Undone/Done</th>
+                    <th>Description</th>
+                    <th>Date</th>
+                    <th>Priority</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr id="1774976649108">
+                    <td><input type="checkbox" id="" /></td>
+                    <td>Check my mail box.</td>
+                    <td>2026. 04. 06</td>
+                    <td class="high">High</td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+    <script src="localstore-prac.js" defer></script>
+</html>

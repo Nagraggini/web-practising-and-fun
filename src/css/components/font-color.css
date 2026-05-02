@@ -1,0 +1,7 @@
+:root {
+    --primary-color: #090910; /*Betűszín.*/
+}
+
+html {
+    color: var(--primary-color);
+}

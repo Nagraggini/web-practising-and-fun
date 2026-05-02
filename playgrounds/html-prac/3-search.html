@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!--/Web_Development/Practising/1-HTML%20Practising/3-Search.html-->
+        <title>Google alapú kereső táblázatban</title>
+    </head>
+    <!--https://nagraggini.github.io/Web-practising-and-fun/Web_Development/Practising/1-HTML%20Practising/3-Search.html-->
+    <body>
+        <!--get= lekérünk -->
+        <form
+            method="get"
+            action="https://www.google.com/search"
+            autocomplete="off"
+        >
+            <table>
+                <caption>
+                    Keresés Google-ben
+                </caption>
+
+                <thead>
+                    <tr>
+                        <th>Megnevezés</th>
+                        <th>Érték</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Keresett szöveg:</td>
+                        <td>
+                            <!--A googleben q a kereső mező neve-->
+                            <input
+                                type="text"
+                                name="q"
+                                placeholder="Írja ide a keresett kifejezést!"
+                                maxlength="120"
+                            />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <button type="submit">Keresés</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+
+        
+    </body>
+</html>

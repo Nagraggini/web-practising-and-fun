@@ -1,0 +1,69 @@
+<!--Feladatok:-->
+
+<!--Azámláló weboldal. Kezdetben 0-ról indul. 
+Két gomb vezérli a számlálót. Növeli illetve csökkenti.
+A gombok kattintásakor változik a számláló értéke.-->
+
+<!--Tegyük lehetővé, hogy a felhasználó megadhassa, mennyivel növeljen, vagy csökkentsen a számláló.
+Kell egy figyelmeztető üzenet, ha nem számot ad meg.-->
+
+<!--Számlálási határok (minimum és maximum)-->
+
+<!--Hang vagy animáció kattintáskor
+Amikor nő vagy csökken a szám, adhatnál hozzá:
+kis "pop" hangot (pl. Audio objektummal), vagy
+animációt CSS-sel (pl. a szám „ugrik” egyet).
+
+Fejlesztési cél:
+CSS-animáció vagy classList.add() használata,
+vizuális visszajelzés-->
+
+<!--Számlálási előzmények megjelenítése-->
+
+<!--Téma váltás (világos/sötét mód)
+Egy gomb, amivel a felhasználó átválthat világos témára.
+Itt gyakorolhatod a classList.toggle() használatát.-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="Counter_Styles.css" />
+
+        <title>Counter</title>
+    </head>
+
+    <body>
+        <h1>Counter website</h1>
+
+        <div id="Description_div">
+            <p>
+                Simple counter app: <br /><br />It asks you to “Pls give me a
+                scale number” — you set the starting value. Then you have ”+”
+                and ”-” buttons to increase or decrease the counter. There’s
+                also a Reset button to bring the counter back to zero (or its
+                starting value).
+            </p>
+        </div>
+        <div class="Counter_div">
+            <label>Pls give me a scale number:</label>
+        </div>
+
+        <div class="Counter_div">
+            <input id="input_scale" type="number" value="1" />
+        </div>
+
+        <div class="Counter_div">
+            <button onclick="Plus()">+</button>
+            <label id="counter_label" name="counter_label"><b>0</b></label>
+            <button onclick="Minus()">-</button>
+        </div>
+
+        <div class="Counter_div">
+            <button onclick="Reset_function()">Reset</button>
+        </div>
+
+        <script src="Counter_Script.js"></script>
+    </body>
+</html>

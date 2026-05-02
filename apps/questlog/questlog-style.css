@@ -1,0 +1,267 @@
+/*Retro betűtípus.*/
+@import url("https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap");
+
+/*Színek*/
+:root {
+    --primary-color: rgb(124, 41, 155); /*Gomboknak pl.*/
+    --background-color: black;
+    --font-color: blueviolet;
+    --font-color-button: white;
+    --link-color: aqua;
+    --low-color: lightgrey;
+    --medium-color: DodgerBlue;
+    --high-color: tomato;
+}
+
+html {
+    /* A REM MÉRTÉKEGYSÉG ALAPJA: 
+     A böngészők alapmérete 16px. Ha ezt 62.5%-ra állítjuk, akkor 1rem pontosan 10px lesz. 
+     Így fejszámolással tudunk váltani: pl. 4.5rem = 45px. Nagyon kényelmes! */
+    font-size: 62.5%;
+
+    /* BORDER-BOX: 
+     Ezzel azt mondjuk meg, hogy ha egy doboznak keretet vagy paddingot adunk, 
+     az ne növelje meg a doboz teljes szélességét, hanem "befelé" terjeszkedjen. */
+    box-sizing: border-box;
+}
+
+body {
+    font-family:
+        "Press Start 2P", sans-serif; /* Beállítjuk a retró betűtípust az egész oldalra. */
+    font-size: 13px;
+    color: var(--font-color);
+    background-color: var(--background-color);
+    line-height: 2.5rem; /* Az alapértelmezett ~1.2 helyett nagyobb térközt állítunk be.*/
+    padding: 9px;
+    white-space: normal; /*Több space → egy lesz*/
+}
+
+input,
+button,
+select {
+    color: var(--font-color);
+    font-family: "Press Start 2P", sans-serif;
+}
+
+/*
+A TELJES OLDAL SZERKEZETE (LAYOUT):
+A fejléc (header) a képernyő x %-át, a fő rész (main) az x %-át foglalja el, a footernek pedig x % helye lesz.
+*/
+header {
+    min-height: auto; /* A viewport (látható képernyő) magasságának 35%-a. */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /*Ezt együtt kell használni pl.: flex/grid-el*/
+    border-bottom: 5px solid #eee; /* Vastag alsó vonal a stílus kedvéért. */
+    padding-bottom: 20px; /* Így lesz egy kis fix távolság az elválasztó vonal felett */
+}
+
+/*A headerben lévő összes gyerek kap párnázást. Csillag az univerzális választó.*/
+header > * {
+    /*alsó és felső, jobb és bal belső távolságok*/
+    padding: 1px 0px;
+}
+h1 {
+    margin-bottom: 1px; /*A h1 és h2 közti távolság.*/
+}
+
+h1,
+h2 {
+    text-shadow: 2px 2px #5d1955; /*Árnyék.*/
+}
+
+.form-group-new-user {
+    display: flex;
+    flex-direction: row;
+    gap: 20px; /*Vízszintes távolság a flex:row miatt.*/
+    padding: 8px; /*Függőleges távolság.*/
+}
+
+.form-group-new-quest {
+    display: flex;
+    flex-direction: row;
+    gap: 9px; /*Vízszintes távolság a flex:row miatt.*/
+    padding: 2px; /*Függőleges távolság.*/
+}
+
+option[value="Low"] {
+    background-color: var(--low-color);
+}
+option[value="Medium"] {
+    background-color: var(--medium-color);
+}
+option[value="High"] {
+    background-color: var(--high-color);
+}
+
+main {
+    min-height: 55vh;
+    /*TODO if mediaquery helyett*/
+    /*min-height: if(media(max-width: 768px) ? 55vh: 70vh);*/
+}
+
+/*A mainben lévő összes gyerek kap párnázást. Csillag az univerzális választó.*/
+main > * {
+    /*alsó és felső, jobb és bal belső távolságok*/
+    padding: 10px 10px;
+}
+
+/*class-ra hivatkozunk, id-ra -el kell.*/
+.quest-list {
+    width: 100%;
+}
+
+.quest-list,
+th,
+td {
+    border: 3px dashed rgba(255, 255, 255, 0.584); /*dashed=szagatott vonal; dotted=pontozott vonal*/
+    border-collapse: collapse; /*Így nem lesz mindenhol duplán a szagatott vonal.*/
+    padding: 5px;
+    text-align: center; /*Alapból is középre van igazítva.*/
+}
+
+.funcSection {
+    text-align: right; /*Jobb szélre igazítás.*/
+}
+
+.testDiv {
+    text-align: right !important; /*Jobb szélre igazítás.*/
+}
+
+footer {
+    height: 10vh;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /*A linkek közti távolság.*/
+}
+
+/* Alapból ne törjön meg a sor (Asztali nézet) */
+.mobile-break {
+    display: none;
+}
+
+a {
+    color: var(--link-color);
+    text-decoration-thickness: 2px;
+}
+
+button {
+    background-color: var(--primary-color);
+    color: var(--font-color-button);
+    padding: 5px 5px;
+    height: 30px;
+    cursor: crosshair;
+
+    border: none; /* Nincs keret */
+    padding: 10px 20px; /* Belső margó */
+    text-align: center; /* Szöveg középre igazítása */
+    text-decoration: none; /* Nincs aláhúzás */
+    display: inline-block; /* Inline blokk elem */
+
+    border-radius: 5px; /* Lekerekített sarkok */
+    transition:
+        background-color 0.3s ease,
+        box-shadow 0.3s ease; /* Áttűnés a háttérszín és árnyék változásakor */
+    font-weight: bold; /* Félkövér szöveg */
+    position: relative; /* Relatív pozíció a fénycsíkhoz */
+    overflow: hidden; /* Elrejtjük a túlcsorduló tartalmat */
+}
+
+/*Filterezés.*/
+button:hover {
+    background-color: rgb(213, 119, 224);
+}
+
+button::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -200%; /* Kezdetben rejtve */
+    width: 200%;
+    height: 20px; /* Vékony csík */
+    background: rgba(255, 255, 255, 0.8); /* Fényes csík színe */
+    transform: rotate(45deg);
+    transition: all 0.5s ease;
+}
+
+button:hover::before {
+    left: 100%; /* Mozgás hover esetén */
+    transition: all 0.5s ease;
+}
+
+button:hover {
+    transform: scale(1.05); /* Nagyítás hover esetén */
+    background-color: #b5a9a9; /* Háttérszín változás hover esetén */
+    box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.8); /* Csillogó hatás */
+}
+
+/*Ide csak azt kell írni, ami változik.*/
+
+/*TODO mobilos nézet. MediaQuery helyett if lesz majd.*/
+@media (max-width: 768px) {
+    html {
+        /* A REM MÉRTÉKEGYSÉG ALAPJA: 
+     A böngészők alapmérete 16px. Ha ezt 62.5%-ra állítjuk, akkor 1rem pontosan 10px lesz. 
+     Így fejszámolással tudunk váltani: pl. 4.5rem = 45px. Nagyon kényelmes! */
+        font-size: 30.5%;
+    }
+
+    body {
+        font-size: 8px;
+        padding: 0px;
+    }
+
+    /*
+A TELJES OLDAL SZERKEZETE (LAYOUT):
+A fejléc (header) a képernyő x %-át, a fő rész (main) az x %-át foglalja el, a footernek pedig x % helye lesz.
+*/
+    header {
+        height: auto;
+        padding-bottom: 20px;
+    }
+
+    .form-group-new-user,
+    .form-group-new-quest {
+        flex-direction: column; /* Sor helyett oszlop! */
+        align-items: center; /* Középre igazítja az inputokat */
+        gap: 5px; /* Kisebb távolság az elemek között */
+        width: 100%; /* Vegye fel a teljes szélességet */
+    }
+
+    label {
+        font-size: 10px;
+        padding: 6px; /*Függőleges távolság.*/
+    }
+
+    main {
+        min-height: auto;
+    }
+
+    main > * {
+        /*alsó és felső, jobb és bal belső távolságok*/
+        padding: 10px 0px;
+    }
+
+    .funcSection {
+        display: flex;
+        flex-direction: column;
+        text-align: center; /*Jobb szélésre igazítás.*/
+        gap: 5px;
+    }
+
+    .testDiv {
+        text-align: center !important; /*Jobb szélre igazítás.*/
+    }
+
+    button {
+        font-size: 8px; /* Betűméret */
+    }
+
+    footer {
+        text-align: center;
+        text-wrap: pretty;
+    }
+    .mobile-break {
+        display: block; /* Itt már kényszeríti az új sort */
+    }
+}

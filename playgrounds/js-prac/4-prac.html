@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="4-Prac.js" defer></script>
+
+        <link rel="stylesheet" href="4-Prac.css" />
+
+        <title>Gyakorlas</title>
+    </head>
+
+    <body>
+        <section>
+            <h1 id="page_title">Gyakorlás</h1>
+
+            <article class="kiemeltCikk">
+                <h2>0. feladat:</h2>
+                <button id="elsoGomb">Első gomb</button>
+                <button class="masodikGomb">Második gomb</button>
+            </article>
+
+            <article>
+                <h2>1. feladat:</h2>
+                <p>Van egy gomb. Kattintáskor:</p>
+                <ul>
+                    <li>írja ki a gomb szövegét a konzolra</li>
+                    <li>változtassa meg a gomb színét</li>
+                </ul>
+                <button id="harmadikGomb">Kattints</button>
+            </article>
+
+            <article>
+                <h2>2. feladat</h2>
+                <p>
+                    A segítségével kiválasztható a szín. Az input esemény
+                    figyeli a változást. Amint változik a szín, a háttér színe
+                    azonnal frissül.
+                </p>
+                <input type="color" id="kivalasztottSzinHatterhez" />
+            </article>
+
+            <article>
+                <h2>3. feladat</h2>
+                <p>
+                    A felhasználó kiválaszt egy színt és írd ki a rgb kódját,
+                    amíg nem választ színt addig ne is írj ki semmit sem.
+                </p>
+                <a href="https://www.w3schools.com/colors/colors_picker.asp"
+                    >HTML Color Picker</a
+                ><br /><br />
+                <label>Válassz színt:</label>
+                <br />
+
+                <input type="color" id="kivalasztottSzin" />
+                <br />
+                <label id="szinMutatasaLabel"> </label>
+            </article>
+
+            <article>
+                <ul class="ingredients">
+                    <li>Liszt</li>
+                    <li>Tojás</li>
+                </ul>
+
+                <ul>
+                    <li>Ez egy másik lista</li>
+                </ul>
+
+                <button id="negyedikGomb">Negyedik gomb</button>
+            </article>
+        </section>
+    </body>
+</html>

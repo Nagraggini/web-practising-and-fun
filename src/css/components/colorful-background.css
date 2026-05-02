@@ -1,0 +1,20 @@
+:root {
+    --primary-color: #dddde4; /*Betűszín.*/
+    --gradient-start: rgba(86, 165, 238, 0.9);
+    --gradient-stop-2: rgba(28, 8, 97, 0.9);
+    --gradient-stop-3: rgba(222, 70, 208, 0.9);
+    --gradient-end: rgba(7, 3, 21, 0.9);
+}
+
+html {
+    background-color: rgb(217, 241, 250); /*régi böngészőknek*/
+    min-height: 100%;
+    background-image: linear-gradient(
+        130deg,
+        var(--gradient-start),
+        var(--gradient-stop-2),
+        var(--gradient-stop-3),
+        var(--gradient-end)
+    );
+    color: var(--primary-color);
+}

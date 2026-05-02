@@ -1,17 +1,146 @@
 <!doctype html>
-<html lang="hu">
+<html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+        <title>Main site</title>
         <link rel="stylesheet" href="/src/css/main.css" />
-
-        <title>Projektjeim</title>
     </head>
-    <body>
-        <div id="app"></div>
 
+    <body>
+        <!--HEADER-->
+        <header class="header">
+            <nav>
+                <ul class="sidebar">
+                    <li onclick="hideSidebar()">
+                        <a href="#"
+                            ><svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                height="26"
+                                viewBox="0 96 960 960"
+                                width="26"
+                            >
+                                <path
+                                    d="m249 849-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z"
+                                /></svg
+                        ></a>
+                    </li>
+                    <li><a href="./index.html">Projects</a></li>
+                    <li><a href="./pages/about-me.html">About me</a></li>
+                    <!--TODO<li><a href="#">Settings</a></li>-->
+                </ul>
+
+                <ul>
+                    <img
+                        src="./assets/icons/unicorn.png"
+                        alt="Unicorn"
+                        class="unicorning"
+                    />
+                    <li class="page-name-container">
+                        <a href="#">Nagraggini's page</a>
+                    </li>
+                    <li class="hideOnMobile">
+                        <a href="./index.html">Projects</a>
+                    </li>
+                    <li class="hideOnMobile">
+                        <a href="./pages/about-me.html">About me</a>
+                    </li>
+
+                    <!--TODO <li class="hideOnMobile"><a href="#">Settings</a></li>-->
+
+                    <li class="menu-button" onclick="showSidebar()">
+                        <a href="#"
+                            ><svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                height="26"
+                                viewBox="0 96 960 960"
+                                width="26"
+                            >
+                                <path
+                                    d="M120 816v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z"
+                                /></svg
+                        ></a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <!--MAIN-->
+        <main class="main">
+            <section class="inside-main">
+                <h1>Main site</h1>
+                <section class="hero">
+                    <p>My frontend development journey and projects.</p>
+                </section>
+
+                <h3>My modern projects</h3>
+
+                <section class="modern-projects">
+                    <!--Nem minden esetben kell.-->
+                    <!--<article></article>-->
+
+                    <a
+                        class="btn colorful-animated-effect"
+                        href="./playgrounds/js-zero-to-expert/guess-my-number/guess-my-number.html"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Guess my number
+                    </a>
+
+                    <a
+                        class="btn colorful-animated-effect"
+                        href="./apps/questlog/index.html"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Questlog
+                    </a>
+
+                    <a
+                        class="btn colorful-animated-effect"
+                        href="https://nagraggini.github.io/project-showcase/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Portfolio
+                    </a>
+                </section>
+                <hr />
+                <h3>My old-school projects</h3>
+                <section class="old-school-projects">
+                    <a
+                        class="btn shine-effect"
+                        href="https://codepen.io/Nagraggini"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        My works on codepen</a
+                    >
+                </section>
+                <hr />
+            </section>
+        </main>
+
+        <footer>
+            <!--TODO túl nagy a láthatatlan kattintható szövegdoboz.-->
+            <div>
+                <a
+                    href="https://github.com/Nagraggini/web-practising-and-fun/tree/main"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <img src="./src/assets/icons/small-link.png" alt="link" />
+                    My source code</a
+                >
+
+                <p>
+                    &copy; <span id="year"></span> Nagraggini (Andrea Freud) —
+                    All rights reserved.
+                </p>
+            </div>
+        </footer>
         <script type="module" src="/src/js/main.js"></script>
     </body>
 </html>
+<!--TODO: https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-custom-404-page-for-your-github-pages-site-->

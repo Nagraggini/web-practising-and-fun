@@ -1,0 +1,60 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+li,
+ol {
+    color: rgb(45, 173, 228);
+
+    /*A betűk árnyékát sötét kékre állítjuk: */
+    text-shadow: 2px 2px #22096b;
+}
+
+/*Saját betűkészlet importálása:*/
+@font-face {
+    font-family: "Momo Signature";
+    src: url("../../assets/fonts/Momo_Signature/MomoSignature-Regular.ttf")
+        format("truetype");
+}
+
+body {
+    background-color: black;
+    /*Saját betűkészlet használata:*/
+    font: normal 16px "Momo Signature";
+    /*Sorok közötti magasság megadása:*/
+    line-height: 1.6em;
+    /*A sorok mekkora távolságra legyenek az oldal szélétől.*/
+    margin: 10px;
+    background-image: url("../../assets/images/guitar.jpg");
+    background-repeat: no-repeat;
+    background-position: center top;
+}
+
+.box-2 img {
+    margin: 10px;
+    border: 10px solid #875033;
+}
+
+.box-1 {
+    opacity: 0.9;
+}
+.container {
+    width: 960px;
+
+    /*A szélétől való távolság növelése. Felül, jobb szélen, alul, meg bal oldalt. */
+    /* margin: 20px 20px 20px 20px ;*/
+
+    padding: 5 px;
+    margin: auto;
+}
+
+@media (max-width: 600px) {
+    .container {
+        width: 100%;
+        margin: 20px;
+    }
+}

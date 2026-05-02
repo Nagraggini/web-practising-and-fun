@@ -1,0 +1,27 @@
+/*Lehet html kéne ide.*/
+body {
+    /* background-color: rgb(217, 241, 250);*/ /*régi böngészőknek*/
+    background: linear-gradient(
+        -45deg,
+        #2e0249,
+        #570a57,
+        #a91079,
+        #4e31aa,
+        #17ead9
+    );
+    background-size: 400% 400%;
+    animation: gradient-move 15s ease infinite;
+    height: 100vh;
+}
+
+@keyframes gradient-move {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}

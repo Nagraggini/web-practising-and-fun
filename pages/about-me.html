@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>About me</title>
+        <link rel="stylesheet" href="./../src/css/main.css" />
+    </head>
+
+    <body>
+        <!--HEADER-->
+        <header class="header">
+            <nav>
+                <img
+                    src="./../assets/icons/unicorn.png"
+                    alt="Unicorn"
+                    class="unicornImg"
+                    width="5%"
+                />
+                <ul class="sidebar">
+                    <li onclick="hideSidebar()">
+                        <a href="#"
+                            ><svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                height="26"
+                                viewBox="0 96 960 960"
+                                width="26"
+                            >
+                                <path
+                                    d="m249 849-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z"
+                                /></svg
+                        ></a>
+                    </li>
+                    <li><a href="./../index.html">Projects</a></li>
+                    <li><a href="./about-me.html">About me</a></li>
+                    <!--TODO<li><a href="#">Settings</a></li>-->
+                </ul>
+                <ul>
+                    <li><a href="#">Nagraggini's page</a></li>
+                    <li class="hideOnMobile">
+                        <a href="./../index.html">Projects</a>
+                    </li>
+                    <li class="hideOnMobile">
+                        <a href="./about-me.html">About me</a>
+                    </li>
+
+                    <!--TODO <li class="hideOnMobile"><a href="#">Settings</a></li>-->
+
+                    <li class="menu-button" onclick="showSidebar()">
+                        <a href="#"
+                            ><svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                height="26"
+                                viewBox="0 96 960 960"
+                                width="26"
+                            >
+                                <path
+                                    d="M120 816v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z"
+                                /></svg
+                        ></a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <!--MAIN-->
+        <main class="main">
+            <section class="inside-main">
+                <h1>About me</h1>
+
+                <h2>Hello 🖐️ I'm Andrea Freud</h2>
+
+                <h3>Junior Backend Developer • Java • Spring Boot</h3>
+
+                <p>
+                    I started this journey to become a backend developer — not
+                    just by watching tutorials, but by building real systems and
+                    solving practical problems.
+                </p>
+
+                <p>
+                    I am focused on mastering server-side logic, database
+                    management, and building scalable REST APIs. My goal is to
+                    design and maintain robust backend systems.
+                </p>
+
+                <p>
+                    Success does not come from doing something once. It comes
+                    from showing up every day, even when it feels difficult.
+                    Small steps, repeated consistently, create real progress.
+                    Keep learning, keep improving, and trust that your effort
+                    will pay off.
+                </p>
+            </section>
+            <hr />
+        </main>
+
+        <footer>
+            <!--TODO túl nagy a láthatatlan kattintható szövegdoboz.-->
+            <div>
+                <a
+                    href="https://github.com/Nagraggini/web-practising-and-fun/tree/main"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <img
+                        src="./../src/assets/icons/small-link.png"
+                        alt="link"
+                    />
+                    My source code</a
+                >
+
+                <p>
+                    &copy; <span id="year"></span> Nagraggini (Andrea Freud) —
+                    All rights reserved.
+                </p>
+            </div>
+        </footer>
+        <script type="module" src="./../src/js/main.js"></script>
+    </body>
+</html>

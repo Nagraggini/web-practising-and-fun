@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="Styles.css" />
+    <title>Reszponzív dizájn</title>
+  </head>
+  <body>
+    <h1>📱 Reszponzív oldalak kialakítása</h1>
+
+    <div>
+      Mit jelent?
+      <br /><br />
+      A reszponzív weboldal olyan honlap, ami minden eszközön jól néz ki és
+      használható marad: asztali gépen, laptopon, tableten és mobiltelefonon is.
+      Miért fontos? Mert ma már sokan mobilról böngésznek. Ha egy oldal csak
+      nagy képernyőre van optimalizálva, mobilon nehéz olvasni, sokat kell
+      zoomolni vagy görgetni. A reszponzív design ezt oldja meg.
+      <br /><br />
+      📏Reszponzív weboldalak kialakításának elve A reszponzivitás kulcsa:
+      <ul>
+        <li>
+          Rugalmas elrendezés, arányok használata, médiakérdések (media
+          queries), és rugalmas képek
+        </li>
+        <li>
+          Rugalmas elrendezés: a méretek százalékos arányokkal vannak megadva,
+          nem fix pixelben.
+        </li>
+        <li>Rugalmas képek: a képek mérete is alkalmazkodik a képernyőhöz.</li>
+        <li>
+          Media Query: olyan CSS szabály, ami azt mondja meg, hogy adott
+          képernyőméret esetén hogyan változzon a stílus.
+        </li>
+      </ul>
+
+      Rugalmas képek: a képek mérete is alkalmazkodik a képernyőhöz. Media
+      Query: olyan CSS szabály, ami azt mondja meg, hogy adott képernyőméret
+      esetén hogyan változzon a stílus.
+      <br /><br />
+      📚 Weboldal megjelenési helyének kiválasztása — Media Query A media query
+      a CSS egyik eszköze. Segít meghatározni, hogy adott képernyőméret esetén
+      milyen stílust használjon az oldal.
+      <br />
+      <br />
+    </div>
+    Példa: css<br />
+    <br />/* Alapértelmezett stílus */ <br />body { background: white; } /*
+    Mobiltelefonokra */
+    <br />
+    @media (max-width: 600px) { body { background: lightblue; } }
+    <p>
+      /* Nagy kijelzőkre */
+      <br />@media (min-width: 1200px) { body { background: lightgreen; } }
+    </p>
+
+    📐 Felépítési típusok magyarázata Most nézzük a konkrét layout típusokat:
+    <br />
+    <!--Az ul a nem rendezett lista. Az ol a rendezett lista.-->
+    <ul>
+      <li>
+        1️⃣ Single Column Egyoszlopos elrendezés. Minden tartalom egymás alatt
+        helyezkedik el. Mobilon gyakori, de blogoknál, cikkeknél is elterjedt.
+      </li>
+      <li>
+        2️⃣ Split Screen Képernyő két részre van osztva (függőlegesen vagy
+        vízszintesen). Gyakran használják landing page-eknél: egyik oldalon kép,
+        másikon szöveg vagy CTA (Call To Action)
+      </li>
+      <li>
+        3️⃣ Aszimmetrikus Layout Nem szimmetrikus elrendezés. Képek, szövegek
+        aszimmetrikusan helyezkednek el. Modern, dinamikus hatást kelt.
+      </li>
+      <li>
+        4️⃣ Grid Rácsszerű elrendezés. A tartalmat sorokba és oszlopokba rendezi.
+        A CSS Grid segít ezt könnyen kialakítani.
+      </li>
+      <li>
+        5️⃣ Masonry Layout Tégla-szerű, szabálytalan rács. A dobozok (például
+        képek) nem egyforma magasak, mégis szépen illeszkednek egymás mellé.
+        Pinterest tipikus példa.
+      </li>
+      <li>
+        6️⃣ Magazine Magazin jellegű: nagy képek, kiemelt cikkek, szövegdobozok
+        kombinációja. Gyakran összetett gridre épül.
+      </li>
+      <li>
+        7️⃣ Boxes Dobozokból álló elrendezés. Minden tartalom egy-egy „kártyán”
+        jelenik meg. Kártya design a Material Design-ból is ismert.
+      </li>
+      <li>
+        8️⃣ Fixed Sidebar Fix oldalsáv. Az oldalsáv helyben marad görgetés közben
+        is. Gyakran menü vagy navigáció kerül ide.
+      </li>
+      <li>
+        9️⃣ Featured Image Nagyméretű kiemelt kép a tartalom tetején. Főleg
+        blogoknál, cikkeknél használatos
+      </li>
+      <li>
+        🔤 F-shape Layout Kutatások szerint az emberek „F” alakban olvassák a
+        tartalmat: balról jobbra, majd lejjebb bal oldalon újra. Ennek
+        megfelelően a fontos tartalmak bal oldalon és a felső sorban vannak.
+      </li>
+      <li>
+        🔠 Z-shape Layout A szem mozgása „Z” alakot ír le: bal felső sarok →
+        jobb felső sarok → bal alsó sarok → jobb alsó sarok. Landing page-eknél
+        és reklám oldalakon gyakori.
+      </li>
+    </ul>
+
+    📝 Összegzés
+    <br />
+    <ul>
+      <li>✅ A reszponzív design rugalmas, alkalmazkodik a képernyőhöz.</li>
+      <li>
+        ✅ A media query a CSS-ben segít különböző stílust beállítani különböző
+        eszközökhöz.
+      </li>
+      <li>
+        ✅ A layoutok különböző célokra alkalmasak — attól függően választják ki
+        őket, milyen élményt akarnak nyújtani.
+      </li>
+    </ul>
+    <br />
+    <button onclick="location.href='../../../Main.html'">
+      <!-- onclick esemény: kattintásra átirányít a főoldalra -->
+      Vissza
+    </button>
+  </body>
+</html>

@@ -1,0 +1,190 @@
+/*===============================================*/
+
+:root {
+    --btn-text-color: #dbdbe6; /*Betűszín.*/
+}
+
+.btn {
+    color: var(--btn-text-color);
+    font-weight: 550;
+    text-decoration: none;
+    cursor: pointer;
+} /*===============================================*/
+
+/*https://www.youtube.com/watch?v=8SeFSmvx3AA*/
+@property --deg {
+    syntax: "<angle>";
+    inherits: false;
+    initial-value: 0deg;
+}
+
+.colorful-animated-effect {
+    /*Ezt a hátteret látod majd a gomb közepén*/
+    background: #1a1a1a;
+    /*Méretezésésel rendezés*/
+    padding: 15px 30px;
+    border: none;
+    border-radius: 30px;
+    position: relative;
+    cursor: pointer;
+    z-index: 1;
+    /*Ezfontosarétegekmiatt*/
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -ms-border-radius: 30px;
+    -o-border-radius: 30px;
+}
+
+.colorful-animated-effect::before {
+    content: "";
+    position: absolute;
+    /*A trükk:;
+    negatív inset-tel "kilógatjuk" a gomb alól*/
+    inset: -3px;
+    border-radius: 30px;
+
+    background: conic-gradient(
+        from var(--deg) at center,
+        #0000ff,
+        #ff00ff,
+        #00ffff,
+        #ff00ff,
+        #0000ff
+            /* Újra meg kell adni a kezdő szint, így tökéletes a körbeérés */
+    );
+
+    /* 🔥 EZ VÁGJA KI A KÖZEPÉT → csak a szélén marad */
+    padding: 3px; /*Ez határozza meg a keret vastagságát(pl.-3px)*/
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+
+    z-index: -1;
+    /*Belemegy a gomb alá*/
+    animation: autoRotate 3s linear infinite;
+    -webkit-animation: autoRotate 3s linear infinite;
+}
+
+/*Ha nem kell fényudvar, kikapcsoljuk*/
+.colorful-animated-effect::after {
+    display: none;
+}
+
+@keyframes autoRotate {
+    to {
+        --deg: 360deg; /*Ezzel fog mozogni körbe körbe.*/
+    }
+}
+
+/*===============================================*/
+
+/* Gomb stílusa */
+.simple-blue {
+    background: #4cc9f0;
+    padding: 1rem 1.5rem; /*Első érték a függőleges a második érték a vízszintes.*/
+    border-radius: 30px;
+    border: none;
+    box-shadow: 0 0 15px rgba(76, 201, 240, 0.4);
+    transition: 0.3s;
+}
+
+.simple-blue:hover {
+    color: white;
+    background: #081965;
+    transform: scale(1.05);
+}
+
+/*===============================================*/
+
+.shine-effect {
+    background-color: #be55b0; /* Gomb háttérszíne */
+    border: none; /* Nincs keret */
+    padding: 10px 20px; /* Belső margó */
+    text-align: center; /* Szöveg középre igazítása */
+    display: inline-block; /* Inline blokk elem */
+    border-radius: 5px; /* Lekerekített sarkok */
+    transition:
+        background-color 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.3s ease; /* Kiegészítve transform-mal a sima nagyításért */
+    position: relative; /* Relatív pozíció a fénycsíkhoz */
+    overflow: hidden; /* Elrejtjük a túlcsorduló tartalmat - Ez tartja belül a csíkot */
+}
+
+/* Fénycsík alaphelyzete - Javítva a kijelölés és a pozíció */
+.shine-effect::before {
+    content: "";
+    position: absolute;
+    /* A top: 50% helyett 0-ra tettem, hogy ne csak a gomb felétől induljon */
+    top: 0;
+    /* A csík hossza miatt messzebbről kell indítani, hogy ne látszódjon alapból */
+    left: -250%;
+    width: 200%;
+    height: 20px; /* Eredeti vékony csík vastagság */
+    background: rgba(255, 255, 255, 0.8); /* Eredeti fényes csík szín */
+    transform: translateY(10px) rotate(45deg); /* Eredeti dőlésszög, finomhangolt eltolással */
+    transition: all 0.5s ease; /* Eredeti gyorsaság */
+    pointer-events: none;
+}
+
+/* Mozgás hover esetén - Javítva a hiányzó pont a submit-button előtt */
+.shine-effect:hover::before {
+    left: 150%; /* Végigfut a gombon */
+    transition: all 0.5s ease;
+}
+
+.shine-effect:hover {
+    transform: scale(1.05);
+    /*Nagyításhoveresetén*/
+    background-color: #b5a9a9;
+    /*Háttérszínváltozáshoveresetén*/
+    box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.8);
+    /* Csillogó hatás */
+    -webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    -o-transform: scale(1.05);
+}
+
+.shine-effect:focus {
+    background-color: #b5a9a9;
+    box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.8);
+    outline: none;
+}
+
+/*===============================================*/
+
+.colorful-border {
+    border: 4px solid transparent; /* Vastagság és stílus */
+    padding: 10px;
+    border-image: linear-gradient(to right, blue, DeepPink) 1 1 1 1; /* top right botton left*/
+}
+
+/*===============================================*/
+.pink-btn {
+    background-color: #ed34ed; /*Háttér */
+    padding: 9px 20px; /* Párnázás */
+    border: none; /* Nincs keret */
+    border-radius: 5px; /* Lekerekített sarkok */
+}
+
+/*===============================================*/
+.purple-btn {
+    display: block;
+    padding: 15px;
+    background-color: #6c63ff;
+    text-align: center;
+    border-radius: 8px;
+}
+
+/*===============================================*/
+/*EFFECT*/
+/*===============================================*/
+
+/* Gomb hover animáció */
+.zoom-effect:hover {
+    transform: scale(1.1);
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.3);
+}

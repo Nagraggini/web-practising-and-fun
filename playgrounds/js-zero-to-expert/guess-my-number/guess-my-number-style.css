@@ -1,0 +1,284 @@
+/* Külső betűtípus importálása: a Google szervereiről kérjük le a retró stílust. */
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap');
+
+/* GLOBÁLIS ALAPHELYZETBE ÁLLÍTÁS (RESET) */
+* {
+  margin: 0; /* Minden alapértelmezett külső margót nullázunk, hogy mi uraljuk a terepet. */
+  padding: 0; /* Minden belső margót kiveszünk. */
+  box-sizing: inherit; /* A dobozméretezési szabályt örököljük a szülőtől (html-től). */
+}
+
+html {
+  /* A REM MÉRTÉKEGYSÉG ALAPJA: 
+     A böngészők alapmérete 16px. Ha ezt 62.5%-ra állítjuk, akkor 1rem pontosan 10px lesz. 
+     Így fejszámolással tudunk váltani: pl. 4.5rem = 45px. Nagyon kényelmes! */
+  font-size: 62.5%;
+
+  /* BORDER-BOX: 
+     Ezzel azt mondjuk meg, hogy ha egy doboznak keretet vagy paddingot adunk, 
+     az ne növelje meg a doboz teljes szélességét, hanem "befelé" terjeszkedjen. */
+  box-sizing: border-box;
+}
+
+body {
+  font-family:
+    'Press Start 2P', sans-serif; /* Beállítjuk a retró betűtípust az egész oldalra. */
+  color: #eee;
+  background-color: #222;
+}
+
+/*
+A TELJES OLDAL SZERKEZETE (LAYOUT):
+Azzal kalkulálunk, hogy a fejléc (header) a képernyő 35%-át, 
+a fő rész (main) pedig a 60%-át foglalja el, a footernek 5%-a lesz.
+*/
+
+header {
+  /* A 'relative' pozíció azért kell, mert a benne lévő elemeket (cím, gombok) 
+     majd ehhez a dobozhoz képest tudjuk elhelyezni (absolute pozícióval). */
+  position: relative;
+  height: 35vh; /* A viewport (látható képernyő) magasságának 35%-a. */
+  border-bottom: 7px solid #eee; /* Vastag alsó vonal a stílus kedvéért. */
+}
+
+main {
+  /* Itt történik a játék: legalább a képernyő 60%-át elfoglalja. */
+  min-height: 60vh;
+  color: #eee;
+
+  /* FLEXBOX: 
+     Ezzel tudjuk a két fő részt (.left és .right) szépen egymás mellé tenni 
+     és függőlegesen is középre igazítani. */
+  display: flex;
+  align-items: center; /* Függőlegesen középre igazítunk mindent a main-en belül. */
+  justify-content: space-around; /* Vízszintesen egyenlő helyet hagyunk az elemek között. */
+} /* Megjegyzés: 5 vh marad a footernek, így lesz meg a 100vh összesen. */
+
+.left {
+  /* A bal oldalra (tippelő rész) fix 520px-nek megfelelő szélességet adunk. */
+  width: 52rem;
+  display: flex;
+  flex-direction: column; /* Az input és a gomb egymás alatt legyen. */
+  align-items: center; /* Középre rendezzük őket. */
+}
+
+.right {
+  /* A jobb oldal (statisztika) is 520px széles, hogy egyensúlyban legyen az oldal. */
+  width: 52rem;
+  font-size: 2rem; /* Itt 20px-es betűméretet használunk. */
+}
+
+/* ELEMENTS STYLE - AZ EGYYES ELEMEK FORMÁZÁSA */
+
+h1 {
+  font-size: 4rem; /* 40px-es óriási cím. */
+  text-align: center;
+
+  /* ABSOLUTE POZÍCIÓ: 
+     Kivesszük a címet a normál folyamból, és pontosan a header közepére "szögezzük". */
+  position: absolute;
+  width: 100%;
+  top: 52%;
+  left: 50%;
+  transform: translate(
+    -50%,
+    -50%
+  ); /* Ezzel a trükkel lesz tökéletesen középen. */
+}
+
+.number {
+  background: #eee;
+  color: #333;
+  font-size: 6rem;
+  width: 15rem;
+  padding: 3rem 0rem; /*Az első érték (3rem): A felső és az alsó belső margót állítja be. (A mi esetünkben $3 \times 10 = \text{30px}$).A második érték (0rem): A bal és a jobb oldali belső margót állítja be. (Itt nincs távolság).*/
+  text-align: center;
+
+  /* Ez a doboz a header alján "ül", félig lelógva róla (ezért az 50%-os eltolás). */
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
+}
+
+/* FELSŐ VEZÉRLŐK: 
+   Ezeket a fejléc különböző sarkaiba tudjuk rakni az absolute pozícióval. */
+.between {
+  font-size: 1.4rem;
+  position: absolute;
+  top: 2rem;
+  right: 2rem; /* Jobb felső sarok. */
+}
+
+.again {
+  position: absolute;
+  top: 2rem;
+  left: 2rem; /* Bal felső sarok. */
+}
+
+.clear {
+  /* A Clear gombot az Again mellé tudjuk tolni (220px-re a bal széltől). */
+  position: absolute;
+  top: 2rem;
+  left: 22rem;
+}
+
+.guess {
+  /* A beviteli mező (input) stílusa: átlátszó háttér, kerettel. */
+  background: none;
+  border: 4px solid #eee;
+  font-family: inherit; /* Hogy itt is a retró betű legyen! */
+  color: inherit;
+  font-size: 5rem;
+  padding: 2.5rem;
+  width: 25rem;
+  text-align: center;
+  display: block; /* Hogy külön sorba kerüljön és kezelhető legyen a margója. */
+  margin-bottom: 3rem;
+}
+
+.btn {
+  /* Általános gomb stílus: gombnyomásra ösztönző kinézet. */
+  border: none;
+  background-color: #eee;
+  color: #222;
+  font-size: 2rem;
+  font-family: inherit;
+  padding: 2rem 3rem;
+  cursor: pointer; /* Mutatja az egérrel, hogy ez kattintható. */
+}
+
+.btn:hover {
+  /* Ha az egér fölé ér, kicsit besötétítjük a színt, hogy reagáljon ránk a gomb. */
+  background-color: #ccc;
+}
+
+.clear:hover {
+  /* A Clear (törlés) gombnál egy egyedi piros színt tudunk beállítani hover esetén. */
+  background-color: #d51515;
+}
+
+.message {
+  /* A visszajelző szöveg (pl. "Túl magas!") alatti távolságot tudjuk itt növelni. */
+  margin-bottom: 8rem;
+  height: 3rem; /* Fix magasság, hogy ne ugráljon az oldal, ha változik a szöveg. */
+}
+
+.label-score {
+  /* A pontszámok közötti függőleges távolságot állítjuk be. */
+  margin-bottom: 2rem;
+}
+
+footer {
+  /* A footerben az elemeket (pl. készítő neve, linkek) egymás alá tudjuk rendezni. */
+  display: flex;
+  gap: 5px; /* Apró közök az elemek között. */
+  flex-direction: column;
+}
+
+/*Ide csak azt kell írni, ami változik.*/
+@media (max-width: 800px) {
+  /* 1. A REM ÉS AZ ALAP MÉRETEZÉS */
+  html {
+    /* FONT RESET - Hogy ne legyen minden óriási */
+    /* A 'rem' az a root em (gyökér elem), vagyis a <html> font-méretét jelenti.
+       Alapból 1rem = 16px. Ha 62.5%-ra állítod, akkor 1rem = 10px lesz (könnyű számolni).
+       Mobilon ezt levesszük 50%-ra (1rem = 8px), így minden, amit rem-ben adtunk meg, 
+       automatikusan összebb megy (zsugorodik), nem kell minden betűméretet külön állítani.
+    */
+    font-size: 50%;
+  }
+
+  /* 2. LAYOUT - A KERETEK ÁTRENDEZÉSE */
+  header {
+    /* Mobilon a fix vh (viewport height) veszélyes, mert ha nem fér el a tartalom, 
+       egymásra csúsznak az elemek. Az 'auto' hagyja, hogy a tartalom tágítsa a dobozt. */
+    height: auto;
+    min-height: 25vh;
+    padding: 2rem;
+
+    /* Flex helyett Grid-et használunk a fejlécben, hogy precízen 
+       beosszuk a helyet az Again, a Clear és a szám között. */
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Két egyenlő oszlop */
+    justify-items: center;
+    align-items: center;
+    gap: 2rem;
+    border-bottom: 4px solid #eee;
+  }
+
+  main {
+    /* Asztalin egymás mellett voltak (row), mobilon egymás alá kényszerítjük őket (column). */
+    flex-direction: column;
+    min-height: auto;
+    padding: 4rem 2rem;
+    gap: 4rem; /* Távolság az input rész és a stat (score) között */
+  }
+
+  /* 3. AZ ABSZOLÚT POZÍCIÓK FELOLDÁSA */
+  /* Asztalin a 'position: absolute' kirángatja az elemet a sorból és ráfekteti a többire. 
+     Mobilon ez káoszt okoz, ezért visszaállítjuk 'static'-ra, hogy szépen kövessék egymást. */
+  h1 {
+    position: static;
+    transform: none; /* A translate(-50%, -50%) már nem kell, mert nem absolute */
+    font-size: 2.5rem;
+    margin: 2rem 0;
+    grid-column: span 2; /* A cím foglalja el mindkét oszlopot a gridben */
+    order: 2; /* Megmondjuk, hanyadik legyen a sorrendben */
+  }
+
+  .number {
+    position: static;
+    transform: none;
+    margin: 0 auto;
+    width: 12rem;
+    font-size: 4rem;
+    grid-column: span 2;
+    order: 4;
+    /* Kicsit "kilógatjuk" a fejléc alján, hogy stílusos legyen */
+    margin-bottom: -4rem;
+    z-index: 10;
+  }
+
+  /* GOMBOK ELHELYEZÉSE */
+  .again {
+    order: 1;
+    justify-self: start; /* Bal szélre tapad a grid cellájában */
+    position: static;
+  }
+
+  .clear {
+    order: 1;
+    justify-self: end; /* Jobb szélre tapad a grid cellájában */
+    position: static;
+  }
+
+  .between {
+    order: 3;
+    grid-column: span 2;
+    position: static;
+    font-size: 1.6rem;
+  }
+
+  /* 4. BEVITELI MEZŐ ÉS GOMBOK */
+  .left,
+  .right {
+    /* Mobilon ne legyen fix 52rem széles, hanem töltse ki a kijelzőt */
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .guess {
+    /* A margin: 0 auto; középre helyezi a block elemet */
+    margin: 0 auto 3rem auto;
+    width: 100%;
+    max-content: 20rem; /* Ne legyen batár nagy a beviteli mező */
+  }
+
+  .message {
+    /* Csökkentjük a margót, hogy ne kelljen annyit görgetni */
+    margin-bottom: 3rem;
+    height: auto;
+  }
+}

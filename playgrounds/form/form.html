@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="form-style.css" />
+        <title>Document</title>
+    </head>
+    <body>
+        <a
+            href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/fieldset"
+            >MDN</a
+        >
+
+        <form>
+            <fieldset>
+                <legend>Choose your favorite monster</legend>
+
+                <input type="radio" id="kraken" name="monster" value="K" />
+                <label for="kraken">Kraken</label><br />
+
+                <input type="radio" id="sasquatch" name="monster" value="S" />
+                <label for="sasquatch">Sasquatch</label><br />
+
+                <input type="radio" id="mothman" name="monster" value="M" />
+                <label for="mothman">Mothman</label>
+            </fieldset>
+        </form>
+
+        <p>Form attribútumok:</p>
+
+        <ul>
+            <li>action (Megadja, hova küldi az adatokat az űrlap.)</li>
+            <li>
+                method (Meghatározza, hogyan küldi az adatokat. pl.: get/post)
+            </li>
+            <li>enctype (Meghatározza az adatok kódolását küldéskor.)</li>
+            <li>
+                autocomplete (A böngésző automatikus kitöltését szabályozza.)
+            </li>
+            <li>novalidate (Kikapcsolja a HTML beépített validációt.)</li>
+        </ul>
+
+        <form action="feldolgoz.php">
+            <fieldset>
+                <label><b>action</b></label
+                ><br />
+                <input type="text" name="nev" placeholder="Név" />
+                <button type="submit">Küldés</button>
+            </fieldset>
+        </form>
+
+        <form method="GET" action="">
+            <fieldset>
+                <label><b>method = GET</b></label
+                ><br />
+                <input type="text" name="kereses" placeholder="Keresés" />
+                <button type="submit">Keres</button>
+            </fieldset>
+        </form>
+
+        <form method="POST" action="">
+            <fieldset>
+                <label><b>method = POST</b></label
+                ><br />
+                <input type="password" name="jelszo" placeholder="Jelszó" />
+                <button type="submit">Belépés</button>
+            </fieldset>
+        </form>
+
+        <form action="" method="POST" enctype="multipart/form-data">
+            <fieldset>
+                <label><b>enctype (fájlfeltöltés)</b></label
+                ><br />
+                <input type="file" name="fajl" />
+                <button type="submit">Feltöltés</button>
+            </fieldset>
+        </form>
+
+        <form autocomplete="off">
+            <fieldset>
+                <label><b>autocomplete = off</b></label
+                ><br />
+                <input type="text" name="nev" placeholder="Név" />
+                <input type="email" name="email" placeholder="Email" />
+                <button type="submit">Küldés</button>
+            </fieldset>
+        </form>
+
+        <form novalidate>
+            <fieldset>
+                <label><b>novalidate (nincs ellenőrzés)</b></label
+                ><br />
+                <input type="email" name="email" required placeholder="Email" />
+                <button type="submit">Küldés</button>
+            </fieldset>
+        </form>
+
+        <form action="login.php" method="POST" autocomplete="on">
+            <fieldset>
+                <label><b>Kombinált (action + method + autocomplete)</b></label
+                ><br />
+                <input
+                    type="text"
+                    name="username"
+                    placeholder="Felhasználónév"
+                    required
+                />
+                <input
+                    type="password"
+                    name="password"
+                    placeholder="Jelszó"
+                    required
+                />
+                <button type="submit">Bejelentkezés</button>
+            </fieldset>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,71 @@
+<!--
+Készítsünk egy alapvető számológépet megvalósító weboldalt
+A felhasználó két beviteli mezőbe tudja felvinni a két számot, és egy legördülő menüből tudja kiválasztani a műveletet, és egy gomb segítségével tudja elindítani a számolást.
+Egy JavaScript program végezze el a számítást, és írja vissza az eredményt az oldalon egy felsorolásba, ahol az összes eddigi művelet és eredmény is látszik.
+Az oldalon legyen két link, az egyik egy reset, a másik vigyen át az előző feladatra.
+Az oldalnak adjunk egy alap design-t is.
+-->
+<!DOCTYPE HTML>
+<html lang="hu">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Számológép</title>
+		<link rel="stylesheet" href="feladat8.css">		
+		<script src="szamologep.js"></script>
+	</head>
+	<body>
+		<section id="oldal">
+			<header id="fejléc">
+				<div id="logo"></div>
+				<nav id="navigacio">
+					<ul>
+						<li><a href="feladat08.html">Főoldal</a></li>
+						<li><a href="feladat07.html">Előző feladat</a></li>
+					</ul>
+				</nav>
+			</header>
+
+			<section id="Fotartalom">
+				<h1>Számológép</h1>
+				<table>
+					<tr>
+						<td>Első operandus:</td>
+						<td class="adatbevitel">
+							<input type="number" id="a" placeholder="Első operandus">
+						</td>
+					</tr>
+					<tr>
+						<td>Második operandus:</td>
+						<td class="adatbevitel">
+							<input type="number" id="b" placeholder="Második operandus">
+						</td>
+					</tr>
+					<tr>
+						<td>Művelet:</td>
+						<td class="adatbevitel"> 
+							<select id="muvelet">
+								<option value="+">Összead</option>
+								<option value="-">Kivon</option>
+								<option value="*">Szoroz</option>
+								<option value="/">Oszt</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<input type="button" id="szamol" value="Számol!" onclick="szamitas()"
+						</td>
+					</tr>
+				</table>	
+				<h2>Előző eredmények</h2>
+				<ul id="elozo"></ul>			
+			</section>
+
+			<footer id="footer">
+				<p id="author">2026 Ruander260117</p>
+			</footer>
+
+		</section>		
+	</body>	
+</html>

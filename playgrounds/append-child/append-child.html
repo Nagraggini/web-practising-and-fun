@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>appendChild</title>
+    </head>
+    <body>
+        <h1>Összes módszer egy elem hozzáadására</h1>
+        <p>Bevásárlólista:</p>
+        <ul id="myList">
+            <li>Kakaó</li>
+            <li>Tea</li>
+        </ul>
+
+        <p>
+            Ha rányomsz a hozzáadás gombra akkor felülre hozzáad egy elemet a
+            listához.
+        </p>
+
+        <p>Az első innerHTML elem:</p>
+        <p id="demo"></p>
+
+        <button class="appendButton1">
+            Víz hozzáadása (TextNode-os módszer)
+        </button>
+        <button class="appendButton2">
+            Víz hozzáadása (textContent módszer)
+        </button>
+        <button class="appendButton3">
+            Víz hozzáadása (insertAdjacentHTML módszer)
+        </button>
+        <button class="appendButton4">Víz hozzáadása (append módszer)</button>
+        <button class="appendButton5">
+            Víz hozzáadása (e.target.textContent módszer)
+        </button>
+        <button class="plusButton">
+            Az első innerHTML elem megjelenítése külön listában
+        </button>
+        <hr />
+    </body>
+    <script src="script.js"></script>
+</html>

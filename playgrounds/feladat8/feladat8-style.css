@@ -1,0 +1,111 @@
+/*TODO css átnézése*/
+
+body {
+    background-color: azure;
+    font-size: 12pt;
+}
+
+#oldal {
+    width: 1280px;
+    min-height: 800px;
+    padding: 5px;
+    margin: 0px auto;
+}
+
+#fejléc,
+#Fotartalom,
+#mainFooter {
+    width: 100%;
+    margin: 5px 0px;
+    background-color: rgb(230, 230, 230);
+}
+
+#fejléc #logo,
+#fejléc nav {
+    margin: 0px auto;
+}
+
+#fejléc nav {
+    text-align: center;
+}
+
+#fejléc nav ul li {
+    text-decoration: none;
+    display: inline;
+    margin: 0px 5px;
+}
+
+#fejléc nav ul li a {
+    text-decoration: none;
+    color: blueviolet;
+}
+
+#fejléc nav ul li a:hover {
+    color: darkcyan;
+    font-weight: bold;
+}
+
+#logo {
+    background-image: url(szamologep.png);
+    width: 64px;
+    height: 64px;
+}
+
+#Fotartalom {
+    min-height: 600px;
+}
+
+#footer {
+    min-height: 70px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 26pt;
+    font-weight: bolder;
+}
+
+h2 {
+    font-size: 22pt;
+    font-style: italic;
+}
+
+h1,
+h2 {
+    text-align: center;
+    color: coral;
+    margin: 10px 0px;
+}
+
+#Fotartalom table {
+    border: 2px solid black;
+    margin: 0px auto;
+    font-weight: bold;
+}
+
+#Fotartalom table td {
+    border: 1px solid black;
+    padding: 0px 5px;
+}
+
+#Fotartalom table .adatbevitel input {
+    width: 180px;
+}
+
+#Fotartalom table .adatbevitel select {
+    width: 100%;
+}
+
+#Fotartalom table #szamol {
+    width: 100%;
+}
+
+#elozo {
+    text-align: center;
+}
+
+#elozo li {
+    text-decoration: none;
+    display: block;
+    font-weight: bold;
+}

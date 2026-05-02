@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="calc.html" />
+        <title>Számológép</title>
+    </head>
+
+    <body>
+        <h1>Navigáció</h1>
+        <p class="intro">
+            A táblázatban tanulók adatait jelenítjük meg. A formázás a css
+            fájlban lesz.
+        </p>
+        <section id="tartalom">
+            <header id="fejléc">
+                <div id="logo">Ide jöhet a logó</div>
+                <nav id="navigacio">
+                    <ul>
+                        <li><a href="Calc.html">Főoldal</a></li>
+                        <li>
+                            <a href="../Student-list/Student-list.html"
+                                >Tanulók listája</a
+                            >
+                        </li>
+                        <li>
+                            <a href="../Pro-student-list/Student-list.html"
+                                >Tanulók listája (Pro)</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                href="../Pro-student-list-with-modern-JS/Student-list.html"
+                                >Tanulók listája (with modern JS)</a
+                            >
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+
+            <section id="Fotartalom">
+                <h1>Számológép</h1>
+
+                <table>
+                    <tr>
+                        <td>Első operandus:</td>
+                        <td class="adatbevitel">
+                            <input
+                                type="number"
+                                id="a"
+                                placeholder="Első operandus"
+                            />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Második operandus:</td>
+                        <td class="adatbevitel">
+                            <input
+                                type="number"
+                                id="b"
+                                placeholder="Második operandus"
+                            />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Művelet:</td>
+                        <td class="adatbevitel">
+                            <select name="" id="muvelet">
+                                <option value="+">+</option>
+                                <option value="-">-</option>
+                                <option value="*">*</option>
+                                <option value="/">/</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <input
+                                type="button"
+                                id="szamol"
+                                value="Számol!"
+                                onclick="szamitas()"
+                            />
+                        </td>
+                    </tr>
+                </table>
+                <h2>Előző eredmények</h2>
+                <ul id="elozo"></ul>
+            </section>
+
+            <footer id="footer">
+                <p id="author">2026 Nagraggini</p>
+            </footer>
+        </section>
+    </body>
+    <script src="../assets/js/calc-script.js" defer></script>
+</html>

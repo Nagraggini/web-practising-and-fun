@@ -1,0 +1,41 @@
+body {
+    background-color: black;
+}
+
+.scale {
+    /* Automatikusan a tartalomhoz igazítja a szélességet és magasságot */
+    field-sizing: content;
+}
+
+.Counter_div,
+.Description_div {
+    padding-top: 20px; /* 20px térköz az elem tetején */
+    padding: 10px;
+    gap: 10px; /*Megnöveli a gombok közti távolságot.*/
+    /*Flexbox*/
+    display: flex;
+
+    /*Ez vízszintesen középre igazítja a flexbox gyerekeit (a gombokat és a számlálót).
+Tehát a teljes sor a középre kerül a képernyőn.*/
+    justify-content: center;
+
+    /*Ez függőlegesen igazítja középre a gyerek elemeket — vagyis ha az egyik gomb magasabb lenne, mint a másik, akkor is szépen egy vonalban lennének középen.*/
+    align-items: center;
+}
+
+h1,
+h2,
+h3,
+label,
+p {
+    color: pink;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+}
+
+button,
+input {
+    font-size: 25px;
+}

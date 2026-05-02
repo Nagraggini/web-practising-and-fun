@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="hu">
+    <head>
+        
+        <!--Külső CSS fájl -->
+
+        <link rel="stylesheet" href="../../../assets/css/first-style.css">
+
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <title>A teszt oldalam</title>
+    </head>
+    <!--komment-->
+    <body>
+        <h1>Üdvözöllek!</h1>
+
+        <p><strong>English idioms that everyone should know:</strong></p>
+        <!-- div: dobozka; Css-ben myclass a neve. -->
+        <div class="myclass-1">
+            <ul>
+                <li>Under the weather</li>
+                <li>The ball is in your court</li>
+                <li>Spill the beans</li>
+                <li>Break a leg</li>
+            </ul>
+        </div>
+        <div class="list">
+            <h1>Szoftvertesztelői kifejezések (QA / testing phrases)</h1>
+
+            <h3>Angol kifejezés Magyar jelentés</h3>
+            <ul>
+                <li>I’ve found a bug. Találtam egy hibát.</li>
+                <li>I’m reproducing the issue. Újra előidézem a hibát.</li>
+                <li>
+                    I can’t reproduce the issue. Nem tudom újra előidézni a
+                    hibát.
+                </li>
+                <li>
+                    The issue occurs only sometimes. A hiba csak néha
+                    jelentkezik.
+                </li>
+                <li>The bug is still open. A hiba még nyitott.</li>
+                <li>The bug has been fixed. A hibát javították.</li>
+                <li>Please verify the fix. Kérlek, ellenőrizd a javítást.</li>
+                <li>The test passed. A teszt sikeres volt.</li>
+                <li>The test failed. A teszt sikertelen volt.</li>
+                <li>
+                    I’m running regression tests. Regressziós teszteket
+                    futtatok.
+                </li>
+            </ul>
+        </div>
+
+        <!--Pszeudó class:-->
+        <div class="box-2">
+            <p><strong>Other ways to say “I agree”</strong></p>
+            <ol>
+                <li>absolutely</li>
+                <li>definitely</li>
+                <li>exactly</li>
+                <li>sure</li>
+            </ol>
+        </div>
+
+        <img src="../../../assets/images/unicorn.jpg" alt="Unikornis" />
+        <br />
+        <table>
+            <thead>
+                <tr>
+                    <th>Kifejezés</th>
+                    <th>Jelentése</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Under the weather</td>
+                    <td>feeling sick or unwell</td>
+                </tr>
+            </tbody>
+        </table>
+        <br />
+        <form action="#">
+            <div>
+                <label>Keresztnév: </label>
+                <input type="text name="firstname" placeholder="Keresztnév"
+                required>
+            </div>
+            <div>
+                <label>Jelszó: </label>
+                <input
+                    type="password"
+                    name="password"
+                    placeholder="Jelszó"
+                    required
+                />
+            </div>
+            <input type="submit" value="Küldés" />
+        </form>
+        <br />
+        <br />
+        <button href="https://nagraggini.github.io/web-practising-and-fun/">
+            <!-- onclick esemény: kattintásra átirányít a főoldalra -->
+            Vissza
+        </button>
+        <!-- 
+    <h1>Rajzolás a canvas-en</h1>
+    <canvas id="myCanvas" width="400" height="300" style="border:1px solid #000;"></canvas>
+
+    <script>
+        var canvas = document.getElementById("myCanvas");
+        var ctx = canvas.getContext("2d");
+
+        // Téglalap rajzolása
+        ctx.fillStyle = "#FF0000"; // Szín megadása
+        ctx.fillRect(50, 50, 150, 100); // Téglalap rajzolása (x, y, szélesség, magasság)
+
+        // Kör rajzolása
+        ctx.beginPath();
+        ctx.arc(200, 150, 40, 0, 2 * Math.PI); // (x, y, sugár, kezdő szög, vég szög)
+        ctx.stroke(); // Vonalrajz
+    </script>
+     -->
+    </body>
+
+    <!-- Külső Javascript fájl -->
+        <script src="../../../assets/js/first-script.js" defer></script>
+</html>
