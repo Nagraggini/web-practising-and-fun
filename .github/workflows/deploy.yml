@@ -1,0 +1,40 @@
+name: Deploy to GitHub Pages
+
+on:
+    push:
+        branches: [main] # A fenti branch névvel egyeznie kell!
+
+permissions: # Engedélyek: olvasás, írás meg a token írás, ha van.
+    contents: read
+    pages: write
+    id-token: write
+
+jobs:
+    build-and-deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4 # Marketplace-ről: Letölti a kódot.
+
+            - name: Set up Node
+              uses: actions/setup-node@v4 # Marketplace-ről: Beállítja a Node.js-t.
+              with:
+                  node-version: 22 # Verziót csekkold le. LTS-t használj.
+                  cache: "npm"
+
+            - name: Install dependencies
+              run: npm install
+
+            - name: Build
+              run: npm run build # Ez hozza létre a 'dist' mappát.
+
+            - name: Setup Pages
+              uses: actions/configure-pages@v4 # Beállítja a környezetet.
+
+            - name: Upload artifact
+              uses: actions/upload-pages-artifact@v3 # Feltölti az újonnan létrehozott 'dist' mappát.
+              with:
+                  path: "./dist"
+            - name: Deploy to GitHub Pages
+              id: deployment
+              uses: actions/deploy-pages@v4 # Publikálja az oldalt.
