@@ -10,8 +10,8 @@
 .old-school-projects {
     display: flex;
     flex-wrap: wrap; /*Ha nem férnek el egy sorban, törjenek új sorba*/
-    gap: 20px; /* Ez a kulcs: fix távolság a gombok között minden irányban*/
-    padding: 30px 0; /*Kis hely alul-felül*/
+    gap: 1rem; /* Ez a kulcs: fix távolság a gombok között minden irányban*/
+    padding: 0.6rem 0; /*Kis hely alul-felül*/
     align-items: center; /*Függőlegesen középre igazítja a különböző magasságú gombokat*/
 }
 
@@ -92,13 +92,21 @@ nav a:hover {
 .menu-button {
     display: none;
 }
+.inside-main {
+    margin: 0.5rem 0.5rem;
+}
+
+:root {
+    --gap-md: 1rem;
+}
+
+:is(h1, h2, h3, h4, h5, h6, p) {
+    margin: var(--gap-md);
+    line-height: 1.2;
+}
 
 a {
     color: rgb(73, 176, 205);
-}
-
-p {
-    padding: 1.5rem;
 }
 
 @media (max-width: 800px) {

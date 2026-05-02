@@ -8,6 +8,15 @@ function hideSidebar() {
     sidebar.style.display = "none";
 }
 
+// Eseménykezelők hozzárendelése
+document.addEventListener("DOMContentLoaded", () => {
+    const menuBtn = document.querySelector(".menu-button");
+    const closeBtn = document.querySelector(".sidebar li:first-child");
+
+    if (menuBtn) menuBtn.addEventListener("click", showSidebar);
+    if (closeBtn) closeBtn.addEventListener("click", hideSidebar);
+});
+
 //Footerben lévő évszám beállítása.
 const yearEl = document.getElementById("year");
 if (yearEl) yearEl.textContent = new Date().getFullYear();
