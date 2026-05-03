@@ -62,7 +62,7 @@ Tartalomjegyzék
 - [Playwright beállítása](#playwright-beállítása)
 - [Playwright használata](#playwright-használata)
 - [Lefedettség ellenőrzése](#lefedettség-ellenőrzése)
-- [Multi pages beállítása](#multi-pages-beállítása)
+- [Multi pages beállítása (MPA)](#multi-pages-beállítása-mpa)
 - [Local teszthez](#local-teszthez)
 
 # Források
@@ -567,7 +567,7 @@ A böngésző újratölti az oldalt, és elemzi a fájlokat.
 
 Látni fogsz egy listát a fájljaidról. A Unused Bytes oszlop mutatja meg, mennyi kód nem lett felhasználva, egy piros/kék csík pedig vizuálisan is jelzi az arányt. Kattints a style.css ás fájlodra és meg fog jelenni bal oldalt. Zöld csík lesz amellett, amit használtál, szürke meg amit nem. 
 
-# Multi pages beállítása
+# Multi pages beállítása (MPA)
 
 vite.config.js-t írd át erre:
 
