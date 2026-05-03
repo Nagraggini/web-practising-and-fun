@@ -29,26 +29,15 @@ jobs:
             - name: Install dependencies
               run: npm ci # Continuous Integration
 
-            - name: Build all apps
+            - name: Install and Build
               run: |
-                  # 1. Létrehozzuk a dist mappát és az apps almappát benne
-                  mkdir -p dist/apps
+                  npm install
+                  npm run build
 
-                  # 2. Átmásoljuk a főoldalt és annak esetleges függőségeit a gyökérből
-                  cp index.html dist/
-                  # Ha vannak egyéb fájlok a gyökérben (pl. style.css, képek), azokat is:
-                  # cp -r assets dist/ 2>/dev/null || echo "Nincs assets mappa"
-
-                  # 3. Buildeljük az al-alkalmazásokat az apps mappába
-                  for dir in apps/*; do
-                    if [ -d "$dir" ]; then
-                      app=$(basename "$dir")
-                      echo "Building $app..."
-                      # Belépünk, buildelünk a dist/apps/app-neve mappába, majd visszalépünk
-                      cd $dir && APP_NAME=$app npm run build -- --outDir ../../dist/apps/$app
-                      cd ../..
-                    fi
-                  done
+            - name: Upload artifact
+              uses: actions/upload-pages-artifact@v3
+              with:
+                  path: ./dist
 
             - name: Setup Pages
               uses: actions/configure-pages@v5 # Beállítja a környezetet. v5 a verzió száma. Mindig használd az újabbat ebből legalábbis.

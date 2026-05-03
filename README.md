@@ -573,21 +573,34 @@ vite.config.js-t írd át erre:
 
 ```js
 import { defineConfig } from "vite";
+import { resolve } from "path";
+import { readdirSync } from "fs";
 
-const appName = process.env.APP_NAME || '';
+// Automatikusan megkeressük az összes mappát az apps alatt
+const getAppInputs = () => {
+    const appsDir = resolve(__dirname, "apps");
+    const appFolders = readdirSync(appsDir, { withFileTypes: true })
+        .filter((dirent) => dirent.isDirectory())
+        .map((dirent) => dirent.name);
+
+    const inputs = {
+        main: resolve(__dirname, "index.html"), // A főoldal
+    };
+
+    appFolders.forEach((app) => {
+        inputs[app] = resolve(__dirname, `apps/${app}/index.html`);
+    });
+
+    return inputs;
+};
 
 export default defineConfig({
-  // Dinamikus bázis útvonal a GitHub Pages-hez
-  base: appName ? `/web-projects/apps/${appName}/` : '/',
-
-  // Itt javítjuk a változókat:
-  root: appName ? `apps/${appName}` : '.',
-  
-  build: {
-    // Itt is a process.env-ből származó appName-et használjuk
-    outDir: appName ? `../../dist/apps/${appName}` : './dist',
-    emptyOutDir: false,
-  },
+    base: "/web-projects/", // A GitHub Pages elérése
+    build: {
+        rollupOptions: {
+            input: getAppInputs(), // Itt adjuk át az összes talált HTML-t
+        },
+    },
 });
 ```
 Ha nem apps mappában vannak a projektjeid, akkor írd át a konfigban. 
@@ -600,26 +613,15 @@ Ha nem apps mappában vannak a projektjeid, akkor írd át a konfigban.
 
 Ezt írd be helyette:
 ```yml
-            - name: Build all apps
+            - name: Install and Build
               run: |
-                # 1. Létrehozzuk a dist mappát és az apps almappát benne
-                mkdir -p dist/apps
+                  npm install
+                  npm run build
 
-                # 2. Átmásoljuk a főoldalt és annak esetleges függőségeit a gyökérből
-                cp index.html dist/
-                # Ha vannak egyéb fájlok a gyökérben (pl. style.css, képek), azokat is:
-                # cp -r assets dist/ 2>/dev/null || echo "Nincs assets mappa"
-
-                # 3. Buildeljük az al-alkalmazásokat az apps mappába
-                for dir in apps/*; do
-                  if [ -d "$dir" ]; then
-                    app=$(basename "$dir")
-                    echo "Building $app..."
-                    # Belépünk, buildelünk a dist/apps/app-neve mappába, majd visszalépünk
-                    cd $dir && APP_NAME=$app npm run build -- --outDir ../../dist/apps/$app
-                    cd ../..
-                  fi
-                done
+            - name: Upload artifact
+              uses: actions/upload-pages-artifact@v3
+              with:
+                  path: ./dist
 ```
 Ha más lenne a mappád neve, akkor a deployban is írd át. Szóközökre és tabulátorolra figyelj.
 

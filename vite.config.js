@@ -1,17 +1,30 @@
 import { defineConfig } from "vite";
+import { resolve } from "path";
+import { readdirSync } from "fs";
 
-const appName = process.env.APP_NAME || "";
+// Automatikusan megkeressük az összes mappát az apps alatt
+const getAppInputs = () => {
+    const appsDir = resolve(__dirname, "apps");
+    const appFolders = readdirSync(appsDir, { withFileTypes: true })
+        .filter((dirent) => dirent.isDirectory())
+        .map((dirent) => dirent.name);
+
+    const inputs = {
+        main: resolve(__dirname, "index.html"), // A főoldal
+    };
+
+    appFolders.forEach((app) => {
+        inputs[app] = resolve(__dirname, `apps/${app}/index.html`);
+    });
+
+    return inputs;
+};
 
 export default defineConfig({
-    // Dinamikus bázis útvonal a GitHub Pages-hez
-    base: appName ? `/web-projects/apps/${appName}/` : "/",
-
-    // Itt javítjuk a változókat:
-    root: appName ? `apps/${appName}` : ".",
-
+    base: "/web-projects/", // A GitHub Pages elérése
     build: {
-        // Itt is a process.env-ből származó appName-et használjuk
-        outDir: appName ? `../../dist/apps/${appName}` : "./dist",
-        emptyOutDir: false,
+        rollupOptions: {
+            input: getAppInputs(), // Itt adjuk át az összes talált HTML-t
+        },
     },
 });
