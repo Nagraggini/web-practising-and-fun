@@ -61,6 +61,7 @@ Tartalomjegyzék
     - [vite.config.js GitHub Pages esetén (publikus a forráskód)](#viteconfigjs-github-pages-esetén-publikus-a-forráskód)
 - [Playwright beállítása](#playwright-beállítása)
 - [Playwright használata](#playwright-használata)
+- [main branch védése](#main-branch-védése)
 - [Lefedettség ellenőrzése](#lefedettség-ellenőrzése)
 - [Multi pages beállítása](#multi-pages-beállítása)
 - [Local teszthez](#local-teszthez)
@@ -548,6 +549,25 @@ Többi hasznos terminál parancs a teszteléshez:
 npx playwright test --headed
 npx playwright test --ui
 npx playwright test --debug
+
+# main branch védése
+
+Github repodat nyisd meg a böngészőben. -> Settings -> Rules -> Rulesets -> New branch ruleset -> 
+NRuleset Name: Main Protection
+Enforcement status: Active
+
+Görgess lejebb -> Add Target -> Include default branch 
+Görgess lejebb a Branch rules részhez:
+
+Ezeket pipáld be:
+
+Restrict deletions: Így senki nem tudja véletlenül letörölni a fő ágat.
+Block force pushes: Megakadályozza, hogy valaki felülírja a korábbi commitokat.
+Require a pull request before merging:
+Ez a legfontosabb rész. Ha ezt bekapcsolod, megadhatod a Required approvals számát (például 1), 
+ami azt jelenti, hogy valakinek rá kell bólintania a kódodra, mielőtt egyesítenéd.
+
+Görgess lejebb -> Create gomb
 
 # Lefedettség ellenőrzése
 
