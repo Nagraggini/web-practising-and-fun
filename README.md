@@ -636,7 +636,7 @@ jobs:
             - name: Setup Node.js
               uses: actions/setup-node@v4
               with:
-                  node-version: 20
+                  node-version: 22
                   cache: "npm"
 
             # 3. Függőségek telepítése (gyorsabb, mint az npm install)
