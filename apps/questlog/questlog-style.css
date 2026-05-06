@@ -28,7 +28,7 @@ html {
 body {
     font-family:
         "Press Start 2P", sans-serif; /* Beállítjuk a retró betűtípust az egész oldalra. */
-    font-size: 13px;
+    font-size: 1.5rem;
     color: var(--font-color);
     background-color: var(--background-color);
     line-height: 2.5rem; /* Az alapértelmezett ~1.2 helyett nagyobb térközt állítunk be.*/
@@ -83,6 +83,58 @@ h2 {
     gap: 9px; /*Vízszintes távolság a flex:row miatt.*/
     padding: 2px; /*Függőleges távolság.*/
 }
+
+select {
+    appearance: base-select; /*Modern megjelenést biztosítja. */
+}
+
+/*Csak a  kiválasztott elemre vonatkozik.*/
+select::picker(select) {
+    appearence: base-select;
+    border-radius: 0.2rem;
+    -webkit-border-radius: 0.2rem;
+    -moz-border-radius: 0.2rem;
+    -ms-border-radius: 0.2rem;
+    -o-border-radius: 0.2rem;
+}
+
+select::picker-icon {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    align-content: center;
+    margin-right: 0.5rem; /*Jobb szélén lévő távolság.*/
+    transition: 150ms ease;
+}
+
+select:open::picker-icon {
+    /*Megfordul a kicsi nyíl.*/
+    rotate: -180deg;
+}
+
+select option {
+    padding: 0.5rem;
+}
+
+/* A pipa formázása */
+select option:checked {
+    color: black;
+    /*Apipaszíne*/
+    font-size: 1.5rem;
+    background-color: #f0f0f0;
+    border-radius: 50%;
+    padding: 0.5rem;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+/* A pipa lecserélése valami másra */
+/*
+option::check-mark {
+    content: "⭐"; 
+}
+*/
 
 option[value="Low"] {
     background-color: var(--low-color);

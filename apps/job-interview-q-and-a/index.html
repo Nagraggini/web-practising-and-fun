@@ -1,384 +1,427 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="hu">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Állásinterjús kérdések és válaszok</title>
-  </head>
-  <body>
-    <link
-      rel="stylesheet"
-      href="Styles_Állásinterjús_kérdések_és_válaszok.css"
-    />
+        <title>Állásinterjús kérdések és válaszok</title>
+    </head>
+    <body>
+        <link rel="stylesheet" href="./job-interview-q-and-a-style.css" />
 
-    <h1>Állásinterjús kérdések és válaszok – hálózat, programozás, SQL, OOP</h1>
+        <h1>
+            Állásinterjús kérdések és válaszok – hálózat, programozás, SQL, OOP
+        </h1>
 
-    <div class="section">
-      <h2>CV készítéshez</h2>
-      <ul>
-        <li><a href="https://rxresu.me/">RX Resume</a></li>
-        <li><a href="https://www.canva.com/">Canva</a></li>
-        <li>
-          <a href="https://www.linkedin.com">LinkedIn profil frissítése</a>
-        </li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>IP cím</h2>
-      <ul>
-        <li><b>Teljes nevén:</b> Internet Protocol (szabványos azonosító)</li>
-        <li>
-          Egyedi számsor, ami minden hálózatra csatlakozó eszközt azonosít (pl.
-          számítógép, telefon, nyomtató).
-        </li>
-        <li>
-          Olyan, mint egy lakcím: ezen keresztül találják meg egymást az
-          eszközök a hálózaton.
-        </li>
-        <li>
-          <b>Két fajtája van:</b>
-          <ul>
-            <li>
-              <b>IPv4:</b> pl. <code>192.168.1.5</code> (32 bit, 4 db 0-255
-              közötti szám, oktet)
-            </li>
-            <li>
-              <b>IPv6:</b> hosszabb, 128 bit, 8 db 4-es blokkból áll (hextet)
-            </li>
-          </ul>
-        </li>
-        <li>
-          Az IP cím logikai cím, ami változhat (pl. router újraindítás után).
-        </li>
-        <li>
-          <b>Külső IP:</b>
-          <a href="https://whatismyipaddress.com/" target="_blank"
-            >What is my IP</a
-          >
-          oldalon nézhető.
-        </li>
-        <li>
-          <b>Belső IP:</b> Windows parancssorban: <code>ipconfig /all</code>
-        </li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>MAC cím</h2>
-      <ul>
-        <li><b>Teljes nevén:</b> Media Access Control cím</li>
-        <li>Fizikai azonosító, amit a hálózati kártya gyártásakor kap.</li>
-        <li>
-          Egyedi az egész világon (mint egy sorozatszám): pl.
-          <code>00:1A:2B:3C:4D:5E</code>
-        </li>
-        <li>
-          A hálózaton belül segít eldönteni, melyik adatcsomag melyik eszközhöz
-          menjen.
-        </li>
-        <li>Általában nem változik (de vannak technikák a módosítására).</li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>DHCP</h2>
-      <ul>
-        <li><b>Teljes nevén:</b> Dynamic Host Configuration Protocol</li>
-        <li>
-          Szolgáltatás/protokoll, ami automatikusan ad IP címet az eszközödnek.
-        </li>
-        <li>
-          Ha csatlakozol egy Wi-Fi-hez, nem kell kézzel beírnod az IP címet – a
-          DHCP szerver kiosztja neked.
-        </li>
-        <li>
-          Egy router gyakran DHCP szerverként működik otthoni hálózatokban.
-        </li>
-        <li>
-          Nemcsak IP címet ad, hanem más beállításokat is: pl. alapértelmezett
-          átjáró (gateway), DNS szerver címe.
-        </li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>Fogalmak röviden</h2>
-      <table>
-        <tr>
-          <th>Fogalom</th>
-          <th>Jelentés</th>
-        </tr>
-        <tr>
-          <td>IP cím</td>
-          <td>
-            Egyedi hálózati cím, ami az eszközöket az interneten vagy helyi
-            hálózaton azonosítja.
-          </td>
-        </tr>
-        <tr>
-          <td>MAC cím</td>
-          <td>
-            Egyedi hardverazonosító cím, amit a hálózati eszköz gyártásakor kap.
-          </td>
-        </tr>
-        <tr>
-          <td>DHCP</td>
-          <td>
-            Egy protokoll, ami automatikusan kiosztja az IP címeket és egyéb
-            hálózati beállításokat.
-          </td>
-        </tr>
-      </table>
-    </div>
-
-    <div class="section">
-      <h2>Internet nélkül is működik a helyi hálózat?</h2>
-      <div class="tip">
-        Internet <b>nem kell</b> ahhoz, hogy számítógépek kommunikáljanak
-        egymással egy helyi hálózaton (LAN) belül.
-      </div>
-      <h3>Hogyan köss össze 3 gépet internet nélkül?</h3>
-      <ol>
-        <li>
-          <b>Router / switch / hub használatával</b>
-          <ul>
-            <li>
-              Kell: 1 router vagy switch, Ethernet kábelek, 3 számítógép LAN
-              kártyával
-            </li>
-            <li>
-              Lépések:
-              <ol>
+        <div class="section">
+            <h2>CV készítéshez</h2>
+            <ul>
+                <li><a href="https://rxresu.me/">RX Resume</a></li>
+                <li><a href="https://www.canva.com/">Canva</a></li>
                 <li>
-                  Minden gépet kábellel csatlakoztatsz a routerhez vagy
-                  switchhez.
+                    <a href="https://www.linkedin.com"
+                        >LinkedIn profil frissítése</a
+                    >
+                </li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>IP cím</h2>
+            <ul>
+                <li>
+                    <b>Teljes nevén:</b> Internet Protocol (szabványos
+                    azonosító)
                 </li>
                 <li>
-                  A gépek automatikusan láthatják egymást (ha a tűzfal nem
-                  tiltja).
+                    Egyedi számsor, ami minden hálózatra csatlakozó eszközt
+                    azonosít (pl. számítógép, telefon, nyomtató).
                 </li>
-                <li>Ha van DHCP a routeren: kioszt IP-címeket.</li>
                 <li>
-                  Ha nincs DHCP: állíts be statikus IP-címet kézzel (pl.
-                  192.168.1.2, 192.168.1.3, 192.168.1.4).
+                    Olyan, mint egy lakcím: ezen keresztül találják meg egymást
+                    az eszközök a hálózaton.
                 </li>
-              </ol>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <b>Közvetlen összekötés</b>
-          <ul>
-            <li>
-              Régen cross-over kábel kellett, ma már a legtöbb hálózati kártya
-              automatikusan érzékeli.
-            </li>
-            <li>
-              3 géphez bonyolult, mert csak 2 gépet lehet közvetlenül összekötni
-              egy kábellel.
-            </li>
-            <li>Több géphez mindenképp kell egy switch vagy router!</li>
-          </ul>
-        </li>
-        <li>
-          <b>Wi-Fi Ad-hoc</b>
-          <ul>
-            <li>
-              Egy gép létrehoz egy Wi-Fi hotspotot (Access Point), a másik 2 gép
-              rácsatlakozik.
-            </li>
-            <li>Ez is csak helyi kapcsolat, nincs internet.</li>
-          </ul>
-        </li>
-      </ol>
-      <h3>Példa statikus IP-vel:</h3>
-      <ul>
-        <li>Gép 1 IP: <code>192.168.1.2</code></li>
-        <li>Gép 2 IP: <code>192.168.1.3</code></li>
-        <li>Gép 3 IP: <code>192.168.1.4</code></li>
-        <li>Alhálózati maszk: <code>255.255.255.0</code></li>
-        <li>Átjáró: hagyható üresen (nincs internet)</li>
-      </ul>
-      <h3>Mire jó?</h3>
-      <ul>
-        <li>Fájlmegosztás</li>
-        <li>Lokális játékok (LAN game)</li>
-        <li>Szerver–kliens tesztelés</li>
-        <li>Nyomtató megosztás</li>
-      </ul>
-    </div>
+                <li>
+                    <b>Két fajtája van:</b>
+                    <ul>
+                        <li>
+                            <b>IPv4:</b> pl. <code>192.168.1.5</code> (32 bit, 4
+                            db 0-255 közötti szám, oktet)
+                        </li>
+                        <li>
+                            <b>IPv6:</b> hosszabb, 128 bit, 8 db 4-es blokkból
+                            áll (hextet)
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    Az IP cím logikai cím, ami változhat (pl. router újraindítás
+                    után).
+                </li>
+                <li>
+                    <b>Külső IP:</b>
+                    <a href="https://whatismyipaddress.com/" target="_blank"
+                        >What is my IP</a
+                    >
+                    oldalon nézhető.
+                </li>
+                <li>
+                    <b>Belső IP:</b> Windows parancssorban:
+                    <code>ipconfig /all</code>
+                </li>
+            </ul>
+        </div>
 
-    <div class="section">
-      <h2>Összefoglaló táblázat</h2>
-      <table>
-        <tr>
-          <th>Kellék</th>
-          <th>Mit csinálj?</th>
-        </tr>
-        <tr>
-          <td>Switch/Router</td>
-          <td>Minden gépet kábellel csatlakoztass.</td>
-        </tr>
-        <tr>
-          <td>Ethernet kábel</td>
-          <td>3 géphez mindenképp switch/router kell.</td>
-        </tr>
-        <tr>
-          <td>Wi-Fi Ad-hoc</td>
-          <td>Egy gép hoz létre hotspotot, a többiek csatlakoznak.</td>
-        </tr>
-        <tr>
-          <td>IP-címek</td>
-          <td>Ha nincs DHCP, kézzel add meg a címeket.</td>
-        </tr>
-      </table>
-    </div>
+        <div class="section">
+            <h2>MAC cím</h2>
+            <ul>
+                <li><b>Teljes nevén:</b> Media Access Control cím</li>
+                <li>
+                    Fizikai azonosító, amit a hálózati kártya gyártásakor kap.
+                </li>
+                <li>
+                    Egyedi az egész világon (mint egy sorozatszám): pl.
+                    <code>00:1A:2B:3C:4D:5E</code>
+                </li>
+                <li>
+                    A hálózaton belül segít eldönteni, melyik adatcsomag melyik
+                    eszközhöz menjen.
+                </li>
+                <li>
+                    Általában nem változik (de vannak technikák a módosítására).
+                </li>
+            </ul>
+        </div>
 
-    <div class="section">
-      <h2>Helyi hálózat (LAN) kialakítása (internet nélkül)</h2>
-      <ol>
-        <li>
-          <b>Mi az, hogy hálózat?</b>
-          <div>
-            Egy hálózat (LAN) összeköti az eszközöket, hogy tudjanak egymással
-            adatot cserélni (pl. fájlmegosztás, közös nyomtató, LAN játék, helyi
-            szerver).
-          </div>
-        </li>
-        <li>
-          <b>Miket kell hozzá kitalálni?</b>
-          <ul>
-            <li>
-              <b>Milyen eszközök lesznek?</b> (PC-k, laptopok, nyomtató stb.)
-            </li>
-            <li>
-              <b>Hogy kötöd össze őket?</b>
-              <ul>
+        <div class="section">
+            <h2>DHCP</h2>
+            <ul>
                 <li>
-                  Vezetékes LAN: Ethernet kábellel (UTP) → routerhez vagy
-                  switchhez dugod az eszközöket.
+                    <b>Teljes nevén:</b> Dynamic Host Configuration Protocol
                 </li>
                 <li>
-                  Vezeték nélküli LAN (Wi-Fi): Egy router biztosítja a Wi-Fi-t
-                  vagy létrehozol egy Ad-hoc Wi-Fi hálózatot.
+                    Szolgáltatás/protokoll, ami automatikusan ad IP címet az
+                    eszközödnek.
                 </li>
-              </ul>
-            </li>
-            <li>
-              <b>Kell IP-cím terv!</b>
-              <ul>
-                <li>DHCP-vel: router automatikusan kiosztja.</li>
                 <li>
-                  Statikus IP-vel: kézzel állítod be (pl. 192.168.1.2 –
-                  192.168.1.254)
+                    Ha csatlakozol egy Wi-Fi-hez, nem kell kézzel beírnod az IP
+                    címet – a DHCP szerver kiosztja neked.
                 </li>
-                <li>Alhálózati maszk: 255.255.255.0</li>
-                <li>Átjáró: lehet üres (nincs internet)</li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <b>Példa: 3 gépes LAN routerrel</b>
-          <pre>
+                <li>
+                    Egy router gyakran DHCP szerverként működik otthoni
+                    hálózatokban.
+                </li>
+                <li>
+                    Nemcsak IP címet ad, hanem más beállításokat is: pl.
+                    alapértelmezett átjáró (gateway), DNS szerver címe.
+                </li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Fogalmak röviden</h2>
+            <table>
+                <tr>
+                    <th>Fogalom</th>
+                    <th>Jelentés</th>
+                </tr>
+                <tr>
+                    <td>IP cím</td>
+                    <td>
+                        Egyedi hálózati cím, ami az eszközöket az interneten
+                        vagy helyi hálózaton azonosítja.
+                    </td>
+                </tr>
+                <tr>
+                    <td>MAC cím</td>
+                    <td>
+                        Egyedi hardverazonosító cím, amit a hálózati eszköz
+                        gyártásakor kap.
+                    </td>
+                </tr>
+                <tr>
+                    <td>DHCP</td>
+                    <td>
+                        Egy protokoll, ami automatikusan kiosztja az IP címeket
+                        és egyéb hálózati beállításokat.
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>Internet nélkül is működik a helyi hálózat?</h2>
+            <div class="tip">
+                Internet <b>nem kell</b> ahhoz, hogy számítógépek
+                kommunikáljanak egymással egy helyi hálózaton (LAN) belül.
+            </div>
+            <h3>Hogyan köss össze 3 gépet internet nélkül?</h3>
+            <ol>
+                <li>
+                    <b>Router / switch / hub használatával</b>
+                    <ul>
+                        <li>
+                            Kell: 1 router vagy switch, Ethernet kábelek, 3
+                            számítógép LAN kártyával
+                        </li>
+                        <li>
+                            Lépések:
+                            <ol>
+                                <li>
+                                    Minden gépet kábellel csatlakoztatsz a
+                                    routerhez vagy switchhez.
+                                </li>
+                                <li>
+                                    A gépek automatikusan láthatják egymást (ha
+                                    a tűzfal nem tiltja).
+                                </li>
+                                <li>
+                                    Ha van DHCP a routeren: kioszt IP-címeket.
+                                </li>
+                                <li>
+                                    Ha nincs DHCP: állíts be statikus IP-címet
+                                    kézzel (pl. 192.168.1.2, 192.168.1.3,
+                                    192.168.1.4).
+                                </li>
+                            </ol>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <b>Közvetlen összekötés</b>
+                    <ul>
+                        <li>
+                            Régen cross-over kábel kellett, ma már a legtöbb
+                            hálózati kártya automatikusan érzékeli.
+                        </li>
+                        <li>
+                            3 géphez bonyolult, mert csak 2 gépet lehet
+                            közvetlenül összekötni egy kábellel.
+                        </li>
+                        <li>
+                            Több géphez mindenképp kell egy switch vagy router!
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <b>Wi-Fi Ad-hoc</b>
+                    <ul>
+                        <li>
+                            Egy gép létrehoz egy Wi-Fi hotspotot (Access Point),
+                            a másik 2 gép rácsatlakozik.
+                        </li>
+                        <li>Ez is csak helyi kapcsolat, nincs internet.</li>
+                    </ul>
+                </li>
+            </ol>
+            <h3>Példa statikus IP-vel:</h3>
+            <ul>
+                <li>Gép 1 IP: <code>192.168.1.2</code></li>
+                <li>Gép 2 IP: <code>192.168.1.3</code></li>
+                <li>Gép 3 IP: <code>192.168.1.4</code></li>
+                <li>Alhálózati maszk: <code>255.255.255.0</code></li>
+                <li>Átjáró: hagyható üresen (nincs internet)</li>
+            </ul>
+            <h3>Mire jó?</h3>
+            <ul>
+                <li>Fájlmegosztás</li>
+                <li>Lokális játékok (LAN game)</li>
+                <li>Szerver–kliens tesztelés</li>
+                <li>Nyomtató megosztás</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Összefoglaló táblázat</h2>
+            <table>
+                <tr>
+                    <th>Kellék</th>
+                    <th>Mit csinálj?</th>
+                </tr>
+                <tr>
+                    <td>Switch/Router</td>
+                    <td>Minden gépet kábellel csatlakoztass.</td>
+                </tr>
+                <tr>
+                    <td>Ethernet kábel</td>
+                    <td>3 géphez mindenképp switch/router kell.</td>
+                </tr>
+                <tr>
+                    <td>Wi-Fi Ad-hoc</td>
+                    <td>
+                        Egy gép hoz létre hotspotot, a többiek csatlakoznak.
+                    </td>
+                </tr>
+                <tr>
+                    <td>IP-címek</td>
+                    <td>Ha nincs DHCP, kézzel add meg a címeket.</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>Helyi hálózat (LAN) kialakítása (internet nélkül)</h2>
+            <ol>
+                <li>
+                    <b>Mi az, hogy hálózat?</b>
+                    <div>
+                        Egy hálózat (LAN) összeköti az eszközöket, hogy tudjanak
+                        egymással adatot cserélni (pl. fájlmegosztás, közös
+                        nyomtató, LAN játék, helyi szerver).
+                    </div>
+                </li>
+                <li>
+                    <b>Miket kell hozzá kitalálni?</b>
+                    <ul>
+                        <li>
+                            <b>Milyen eszközök lesznek?</b> (PC-k, laptopok,
+                            nyomtató stb.)
+                        </li>
+                        <li>
+                            <b>Hogy kötöd össze őket?</b>
+                            <ul>
+                                <li>
+                                    Vezetékes LAN: Ethernet kábellel (UTP) →
+                                    routerhez vagy switchhez dugod az
+                                    eszközöket.
+                                </li>
+                                <li>
+                                    Vezeték nélküli LAN (Wi-Fi): Egy router
+                                    biztosítja a Wi-Fi-t vagy létrehozol egy
+                                    Ad-hoc Wi-Fi hálózatot.
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <b>Kell IP-cím terv!</b>
+                            <ul>
+                                <li>
+                                    DHCP-vel: router automatikusan kiosztja.
+                                </li>
+                                <li>
+                                    Statikus IP-vel: kézzel állítod be (pl.
+                                    192.168.1.2 – 192.168.1.254)
+                                </li>
+                                <li>Alhálózati maszk: 255.255.255.0</li>
+                                <li>Átjáró: lehet üres (nincs internet)</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <b>Példa: 3 gépes LAN routerrel</b>
+                    <pre>
 PC1 ──┐
        │
 PC2 ──┼─ Router/Switch ── (esetleg nyomtató)
        │
 PC3 ──┘
-          </pre>
-          <ol>
-            <li>
-              Csatlakoztasd a gépeket kábellel a routerhez vagy switchhez.
-            </li>
-            <li>
-              Ellenőrizd, hogy ugyanabban a hálózatban vannak (pl. minden gép
-              IP-je 192.168.1.x).
-            </li>
-            <li>
-              Engedélyezd a fájlmegosztást, ha szeretnél fájlokat átküldeni.
-            </li>
-            <li>
-              Próbáld ki: <code>ping</code> paranccsal ellenőrizd, látják-e
-              egymást (pl. <code>ping 192.168.1.3</code>).
-            </li>
-          </ol>
-        </li>
-        <li>
-          <b>Wi-Fi-s megoldás</b>
-          <ul>
-            <li>
-              Egy gép is csinálhat hotspotot (Ad-hoc), a többiek erre
-              csatlakoznak.
-            </li>
-            <li>
-              IP-cím kiosztás lehet automatikus (ha van DHCP szoftver) vagy
-              manuális.
-            </li>
-          </ul>
-        </li>
-        <li>
-          <b>Tűzfal</b>
-          <div class="warn">
-            Gyakori hiba: a Windows tűzfal vagy vírusirtó blokkolja a
-            fájlmegosztást! Helyi hálózatnál engedélyezd a helyi forgalmat.
-          </div>
-        </li>
-      </ol>
-    </div>
+          </pre
+                    >
+                    <ol>
+                        <li>
+                            Csatlakoztasd a gépeket kábellel a routerhez vagy
+                            switchhez.
+                        </li>
+                        <li>
+                            Ellenőrizd, hogy ugyanabban a hálózatban vannak (pl.
+                            minden gép IP-je 192.168.1.x).
+                        </li>
+                        <li>
+                            Engedélyezd a fájlmegosztást, ha szeretnél fájlokat
+                            átküldeni.
+                        </li>
+                        <li>
+                            Próbáld ki: <code>ping</code> paranccsal ellenőrizd,
+                            látják-e egymást (pl.
+                            <code>ping 192.168.1.3</code>).
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    <b>Wi-Fi-s megoldás</b>
+                    <ul>
+                        <li>
+                            Egy gép is csinálhat hotspotot (Ad-hoc), a többiek
+                            erre csatlakoznak.
+                        </li>
+                        <li>
+                            IP-cím kiosztás lehet automatikus (ha van DHCP
+                            szoftver) vagy manuális.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <b>Tűzfal</b>
+                    <div class="warn">
+                        Gyakori hiba: a Windows tűzfal vagy vírusirtó blokkolja
+                        a fájlmegosztást! Helyi hálózatnál engedélyezd a helyi
+                        forgalmat.
+                    </div>
+                </li>
+            </ol>
+        </div>
 
-    <div class="section">
-      <h2>Hogyan kötöd össze a weboldaladat egy SQL Serverrel?</h2>
-      <ol>
-        <li>
-          <b>Alapgondolat</b>
-          <div>
-            A weboldalad (front-end + back-end) nem közvetlenül kapcsolódik az
-            adatbázishoz, hanem a szerveroldali kód (back-end) kapcsolódik.
-          </div>
-          <ul>
-            <li>Backend létrehozza a kapcsolatot az SQL Serverhez</li>
-            <li>Futtatja a lekérdezéseket (SQL)</li>
-            <li>Visszaadja az adatokat a weboldalnak (általában JSON-ban)</li>
-          </ul>
-        </li>
-        <li>
-          <b>Általános lépések</b>
-          <ol>
-            <li>
-              <b>SQL Server beállítása</b>
-              <ul>
-                <li>Telepítve van az SQL Server (pl. MSSQL Express)</li>
-                <li>Létrehozol egy adatbázist, táblákat</li>
+        <div class="section">
+            <h2>Hogyan kötöd össze a weboldaladat egy SQL Serverrel?</h2>
+            <ol>
                 <li>
-                  Biztosítasz egy felhasználót (pl. SQL Server Authentication
-                  vagy Windows Auth)
+                    <b>Alapgondolat</b>
+                    <div>
+                        A weboldalad (front-end + back-end) nem közvetlenül
+                        kapcsolódik az adatbázishoz, hanem a szerveroldali kód
+                        (back-end) kapcsolódik.
+                    </div>
+                    <ul>
+                        <li>
+                            Backend létrehozza a kapcsolatot az SQL Serverhez
+                        </li>
+                        <li>Futtatja a lekérdezéseket (SQL)</li>
+                        <li>
+                            Visszaadja az adatokat a weboldalnak (általában
+                            JSON-ban)
+                        </li>
+                    </ul>
                 </li>
                 <li>
-                  Megjegyzed a Connection String-et:<br />
-                  <code
-                    >Server=localhost;Database=mydb;User
-                    Id=myuser;Password=mypassword;</code
-                  >
-                </li>
-              </ul>
-            </li>
-            <li>
-              <b>Backend oldali nyelv / framework</b>
-              <ul>
-                <li>Node.js → <code>mssql</code> csomag</li>
-                <li>.NET → <code>SqlConnection</code></li>
-                <li>
-                  Python → <code>pyodbc</code> vagy <code>SQLAlchemy</code>
-                </li>
-                <li>PHP, Java stb.</li>
-              </ul>
-            </li>
-            <li>
-              <b>Kapcsolódás és lekérdezés (példa C# .NET):</b>
-              <pre>
+                    <b>Általános lépések</b>
+                    <ol>
+                        <li>
+                            <b>SQL Server beállítása</b>
+                            <ul>
+                                <li>
+                                    Telepítve van az SQL Server (pl. MSSQL
+                                    Express)
+                                </li>
+                                <li>Létrehozol egy adatbázist, táblákat</li>
+                                <li>
+                                    Biztosítasz egy felhasználót (pl. SQL Server
+                                    Authentication vagy Windows Auth)
+                                </li>
+                                <li>
+                                    Megjegyzed a Connection String-et:<br />
+                                    <code
+                                        >Server=localhost;Database=mydb;User
+                                        Id=myuser;Password=mypassword;</code
+                                    >
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <b>Backend oldali nyelv / framework</b>
+                            <ul>
+                                <li>Node.js → <code>mssql</code> csomag</li>
+                                <li>.NET → <code>SqlConnection</code></li>
+                                <li>
+                                    Python → <code>pyodbc</code> vagy
+                                    <code>SQLAlchemy</code>
+                                </li>
+                                <li>PHP, Java stb.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <b>Kapcsolódás és lekérdezés (példa C# .NET):</b>
+                            <pre>
 using System.Data.SqlClient;
 
 string connectionString = "Server=localhost;Database=MyDB;User Id=myuser;Password=mypassword;";
@@ -395,362 +438,398 @@ using (SqlConnection connection = new SqlConnection(connectionString))
         Console.WriteLine(reader["Name"].ToString());
     }
 }
-              </pre>
-            </li>
-            <li>
-              <b>Adatok visszaadása a front-endnek</b>
-              <ul>
-                <li>
-                  A back-end API-t szolgáltat, pl. <code>/api/users</code>
-                </li>
-                <li>Ez JSON-t küld vissza a böngészőnek</li>
-                <li>A front-end AJAX kéréssel lekéri:</li>
-              </ul>
-              <pre>
+              </pre
+                            >
+                        </li>
+                        <li>
+                            <b>Adatok visszaadása a front-endnek</b>
+                            <ul>
+                                <li>
+                                    A back-end API-t szolgáltat, pl.
+                                    <code>/api/users</code>
+                                </li>
+                                <li>Ez JSON-t küld vissza a böngészőnek</li>
+                                <li>A front-end AJAX kéréssel lekéri:</li>
+                            </ul>
+                            <pre>
 fetch('/api/users')
   .then(res => res.json())
   .then(data => console.log(data));
-              </pre>
-            </li>
-          </ol>
-        </li>
-        <li>
-          <b>Összefoglalva</b>
-          <ul>
-            <li>Frontend (weboldal): kérést küld (HTTP)</li>
-            <li>Backend (szerveroldali kód): SQL Server-hez csatlakozik</li>
-            <li>SQL Server: válaszol a lekérdezésre</li>
-            <li>Backend: visszaküldi JSON-ban</li>
-            <li>Frontend: megjeleníti</li>
-          </ul>
-        </li>
-        <li>
-          <b>Biztonsági szempontok</b>
-          <ul>
-            <li>Soha ne tedd ki közvetlenül az adatbázist internetre!</li>
-            <li>
-              Soha ne engedd, hogy a böngésző közvetlenül kapcsolódjon SQL
-              Serverhez – mindig legyen köztes szerveroldali kód.
-            </li>
-            <li>
-              Használj prepared statementet vagy ORM-et az SQL injection ellen.
-            </li>
-          </ul>
-        </li>
-        <li>
-          <b>Röviden</b>
-          <div>Backend nyelv + Connection String + SQL driver + API réteg.</div>
-        </li>
-      </ol>
-    </div>
+              </pre
+                            >
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    <b>Összefoglalva</b>
+                    <ul>
+                        <li>Frontend (weboldal): kérést küld (HTTP)</li>
+                        <li>
+                            Backend (szerveroldali kód): SQL Server-hez
+                            csatlakozik
+                        </li>
+                        <li>SQL Server: válaszol a lekérdezésre</li>
+                        <li>Backend: visszaküldi JSON-ban</li>
+                        <li>Frontend: megjeleníti</li>
+                    </ul>
+                </li>
+                <li>
+                    <b>Biztonsági szempontok</b>
+                    <ul>
+                        <li>
+                            Soha ne tedd ki közvetlenül az adatbázist
+                            internetre!
+                        </li>
+                        <li>
+                            Soha ne engedd, hogy a böngésző közvetlenül
+                            kapcsolódjon SQL Serverhez – mindig legyen köztes
+                            szerveroldali kód.
+                        </li>
+                        <li>
+                            Használj prepared statementet vagy ORM-et az SQL
+                            injection ellen.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <b>Röviden</b>
+                    <div>
+                        Backend nyelv + Connection String + SQL driver + API
+                        réteg.
+                    </div>
+                </li>
+            </ol>
+        </div>
 
-    <div class="section">
-      <h2>Mi az ORM?</h2>
-      <div>
-        <b>ORM = Object-Relational Mapping</b> – Programozási technika, amivel
-        objektum-orientált nyelvek (Java, C#, Python, PHP, Ruby stb.) táblákhoz
-        kapcsolódnak.
-      </div>
-      <ul>
-        <li>
-          Az ORM réteg gondoskodik arról, hogy adatbázis táblák és a programbeli
-          osztályok között legyen kapcsolat.
-        </li>
-        <li>
-          Példa: Adatbázis tábla: <code>users</code> → a kódban:
-          <code>User</code> osztály, a sorok User objektumok.
-        </li>
-      </ul>
-      <h3>Miért jó az ORM?</h3>
-      <ul>
-        <li>Nem kell kézzel SQL-t írnod minden CRUD művelethez.</li>
-        <li>Biztonságosabb (SQL injection elleni védelem beépítve).</li>
-        <li>Könnyebben karbantartható, újrahasznosítható kód.</li>
-        <li>Platformfüggetlen.</li>
-      </ul>
-      <h3>ORM példák SQL Server-hez</h3>
-      <table>
-        <tr>
-          <th>Platform</th>
-          <th>Példa ORM</th>
-        </tr>
-        <tr>
-          <td>.NET</td>
-          <td>Entity Framework, Dapper</td>
-        </tr>
-        <tr>
-          <td>Java</td>
-          <td>Hibernate, JPA</td>
-        </tr>
-        <tr>
-          <td>Python</td>
-          <td>SQLAlchemy, Django ORM</td>
-        </tr>
-        <tr>
-          <td>PHP</td>
-          <td>Doctrine, Eloquent (Laravel ORM)</td>
-        </tr>
-        <tr>
-          <td>Ruby</td>
-          <td>ActiveRecord (Ruby on Rails)</td>
-        </tr>
-      </table>
-    </div>
+        <div class="section">
+            <h2>Mi az ORM?</h2>
+            <div>
+                <b>ORM = Object-Relational Mapping</b> – Programozási technika,
+                amivel objektum-orientált nyelvek (Java, C#, Python, PHP, Ruby
+                stb.) táblákhoz kapcsolódnak.
+            </div>
+            <ul>
+                <li>
+                    Az ORM réteg gondoskodik arról, hogy adatbázis táblák és a
+                    programbeli osztályok között legyen kapcsolat.
+                </li>
+                <li>
+                    Példa: Adatbázis tábla: <code>users</code> → a kódban:
+                    <code>User</code> osztály, a sorok User objektumok.
+                </li>
+            </ul>
+            <h3>Miért jó az ORM?</h3>
+            <ul>
+                <li>Nem kell kézzel SQL-t írnod minden CRUD művelethez.</li>
+                <li>Biztonságosabb (SQL injection elleni védelem beépítve).</li>
+                <li>Könnyebben karbantartható, újrahasznosítható kód.</li>
+                <li>Platformfüggetlen.</li>
+            </ul>
+            <h3>ORM példák SQL Server-hez</h3>
+            <table>
+                <tr>
+                    <th>Platform</th>
+                    <th>Példa ORM</th>
+                </tr>
+                <tr>
+                    <td>.NET</td>
+                    <td>Entity Framework, Dapper</td>
+                </tr>
+                <tr>
+                    <td>Java</td>
+                    <td>Hibernate, JPA</td>
+                </tr>
+                <tr>
+                    <td>Python</td>
+                    <td>SQLAlchemy, Django ORM</td>
+                </tr>
+                <tr>
+                    <td>PHP</td>
+                    <td>Doctrine, Eloquent (Laravel ORM)</td>
+                </tr>
+                <tr>
+                    <td>Ruby</td>
+                    <td>ActiveRecord (Ruby on Rails)</td>
+                </tr>
+            </table>
+        </div>
 
-    <div class="section">
-      <h2>Mi az OOP?</h2>
-      <div>
-        Az objektum-orientált programozás (OOP, Object-Oriented Programming) egy
-        programozási szemlélet, ahol a program objektumokból épül fel, amelyek a
-        valós világ dolgait modellezik adattal és viselkedéssel együtt.
-      </div>
-      <h3>Kulcsfogalmak:</h3>
-      <ol>
-        <li>
-          <b>Objektum (Object):</b> Egy konkrét példány, ami adatokat
-          (attribútumok, property-k) és műveleteket (metódusok) tartalmaz.
-        </li>
-        <li>
-          <b>Osztály (Class):</b> Egy sablon, ami meghatározza, hogy az objektum
-          milyen tulajdonságokkal és viselkedéssel rendelkezik.
-        </li>
-        <li>
-          <b>Attribútum (Tulajdonság):</b> Az objektum adatai (pl. név, kor,
-          fajta).
-        </li>
-        <li>
-          <b>Metódus (Művelet):</b> Az objektum viselkedése, amit végre tud
-          hajtani (pl. ugat(), eszik()).
-        </li>
-      </ol>
-      <h3>OOP 4 fő alapelve:</h3>
-      <ul>
-        <li>
-          <b>Encapsulation (Adat elrejtés):</b> Az adatok és a hozzájuk tartozó
-          műveletek egy egységben (osztályban) vannak.
-        </li>
-        <li>
-          <b>Inheritance (Öröklődés):</b> Egy osztály örökölhet egy másik
-          osztályból, így kódot lehet újrahasználni.
-        </li>
-        <li>
-          <b>Polymorphism (Polimorfizmus):</b> Ugyanaz a művelet többféleképpen
-          viselkedhet.
-        </li>
-        <li>
-          <b>Abstraction (Absztrakció):</b> Csak a lényeges dolgokat mutatja
-          meg, a részleteket elrejti.
-        </li>
-      </ul>
-    </div>
+        <div class="section">
+            <h2>Mi az OOP?</h2>
+            <div>
+                Az objektum-orientált programozás (OOP, Object-Oriented
+                Programming) egy programozási szemlélet, ahol a program
+                objektumokból épül fel, amelyek a valós világ dolgait modellezik
+                adattal és viselkedéssel együtt.
+            </div>
+            <h3>Kulcsfogalmak:</h3>
+            <ol>
+                <li>
+                    <b>Objektum (Object):</b> Egy konkrét példány, ami adatokat
+                    (attribútumok, property-k) és műveleteket (metódusok)
+                    tartalmaz.
+                </li>
+                <li>
+                    <b>Osztály (Class):</b> Egy sablon, ami meghatározza, hogy
+                    az objektum milyen tulajdonságokkal és viselkedéssel
+                    rendelkezik.
+                </li>
+                <li>
+                    <b>Attribútum (Tulajdonság):</b> Az objektum adatai (pl.
+                    név, kor, fajta).
+                </li>
+                <li>
+                    <b>Metódus (Művelet):</b> Az objektum viselkedése, amit
+                    végre tud hajtani (pl. ugat(), eszik()).
+                </li>
+            </ol>
+            <h3>OOP 4 fő alapelve:</h3>
+            <ul>
+                <li>
+                    <b>Encapsulation (Adat elrejtés):</b> Az adatok és a
+                    hozzájuk tartozó műveletek egy egységben (osztályban)
+                    vannak.
+                </li>
+                <li>
+                    <b>Inheritance (Öröklődés):</b> Egy osztály örökölhet egy
+                    másik osztályból, így kódot lehet újrahasználni.
+                </li>
+                <li>
+                    <b>Polymorphism (Polimorfizmus):</b> Ugyanaz a művelet
+                    többféleképpen viselkedhet.
+                </li>
+                <li>
+                    <b>Abstraction (Absztrakció):</b> Csak a lényeges dolgokat
+                    mutatja meg, a részleteket elrejti.
+                </li>
+            </ul>
+        </div>
 
-    <div class="section">
-      <h2>Linkelés és fordítás</h2>
-      <h3>Fordítás (Compilation)</h3>
-      <ul>
-        <li>
-          A fordítóprogram (compiler) átalakítja az általad írt forráskódot gép
-          által érthető gépi kódra vagy egy köztes nyelvre (bytecode).
-        </li>
-        <li>
-          Példák:
-          <ul>
-            <li>C/C++: <code>.c</code> → <code>.o</code> (object file)</li>
-            <li>Java: <code>.java</code> → <code>.class</code> (bytecode)</li>
-          </ul>
-        </li>
-        <li>Szintaktikai ellenőrzés, szimbolikus átalakítás, optimalizálás.</li>
-      </ul>
-      <h3>Linkelés (Linking)</h3>
-      <ul>
-        <li>
-          A linker (összekötő program) összeilleszti a fordított object fájlokat
-          és a külső könyvtárakat, hogy létrejöjjön egy futtatható állomány.
-        </li>
-        <li>
-          Példa: több fájlod van (<code>main.o</code>, <code>utils.o</code>), a
-          linker mindent „összeragaszt” → <code>program.exe</code>
-        </li>
-        <li>
-          A fordítás csak lefordítja a kódot gépi utasításokra, de a külső
-          függőségeket még nem rendezi el. A linker gondoskodik arról, hogy
-          minden függvény, változó helye egyértelmű legyen a végleges
-          programban.
-        </li>
-      </ul>
-    </div>
+        <div class="section">
+            <h2>Linkelés és fordítás</h2>
+            <h3>Fordítás (Compilation)</h3>
+            <ul>
+                <li>
+                    A fordítóprogram (compiler) átalakítja az általad írt
+                    forráskódot gép által érthető gépi kódra vagy egy köztes
+                    nyelvre (bytecode).
+                </li>
+                <li>
+                    Példák:
+                    <ul>
+                        <li>
+                            C/C++: <code>.c</code> → <code>.o</code> (object
+                            file)
+                        </li>
+                        <li>
+                            Java: <code>.java</code> →
+                            <code>.class</code> (bytecode)
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    Szintaktikai ellenőrzés, szimbolikus átalakítás,
+                    optimalizálás.
+                </li>
+            </ul>
+            <h3>Linkelés (Linking)</h3>
+            <ul>
+                <li>
+                    A linker (összekötő program) összeilleszti a fordított
+                    object fájlokat és a külső könyvtárakat, hogy létrejöjjön
+                    egy futtatható állomány.
+                </li>
+                <li>
+                    Példa: több fájlod van (<code>main.o</code>,
+                    <code>utils.o</code>), a linker mindent „összeragaszt” →
+                    <code>program.exe</code>
+                </li>
+                <li>
+                    A fordítás csak lefordítja a kódot gépi utasításokra, de a
+                    külső függőségeket még nem rendezi el. A linker gondoskodik
+                    arról, hogy minden függvény, változó helye egyértelmű legyen
+                    a végleges programban.
+                </li>
+            </ul>
+        </div>
 
-    <div class="section">
-      <h2>Mi az Entity?</h2>
-      <ul>
-        <li>
-          Egy entitás (entity) egy valós világban létező dolgot jelöl, amit az
-          alkalmazásban modellezünk (pl. Felhasználó, Termék, Megrendelés).
-        </li>
-        <li>
-          OOP szempontból: egy entitás gyakran egy osztály példánya, amely
-          tartalmazza az adatokat (attribútumok) és a hozzájuk kapcsolódó
-          viselkedést (metódusok).
-        </li>
-        <li>
-          Adatbázis szempontból: egy entitás megfeleltethető egy
-          adatbázis-táblának, ahol minden sor egy-egy entitás példány.
-        </li>
-        <li>
-          ORM-ben: az „entity” az adatbázis-tábla leképezése egy objektumra,
-          amit a kódodban használsz.
-        </li>
-      </ul>
-    </div>
+        <div class="section">
+            <h2>Mi az Entity?</h2>
+            <ul>
+                <li>
+                    Egy entitás (entity) egy valós világban létező dolgot jelöl,
+                    amit az alkalmazásban modellezünk (pl. Felhasználó, Termék,
+                    Megrendelés).
+                </li>
+                <li>
+                    OOP szempontból: egy entitás gyakran egy osztály példánya,
+                    amely tartalmazza az adatokat (attribútumok) és a hozzájuk
+                    kapcsolódó viselkedést (metódusok).
+                </li>
+                <li>
+                    Adatbázis szempontból: egy entitás megfeleltethető egy
+                    adatbázis-táblának, ahol minden sor egy-egy entitás példány.
+                </li>
+                <li>
+                    ORM-ben: az „entity” az adatbázis-tábla leképezése egy
+                    objektumra, amit a kódodban használsz.
+                </li>
+            </ul>
+        </div>
 
-    <div class="section">
-      <h2>JavaScript típusossága</h2>
-      <ul>
-        <li>
-          <b>Dynamically typed:</b> A változók nem kötöttek egy adott típushoz,
-          futás közben változhatnak.
-        </li>
-        <li>
-          <b>Weakly typed:</b> JavaScript automatikusan konvertálja az
-          adattípusokat (type coercion).
-        </li>
-      </ul>
-      <div class="example">
-        <b>Példa:</b><br />
-        <code
-          >let valtozo = 42; // Number<br />
-          valtozo = "szöveg"; // String<br />
-          valtozo = true; // Boolean</code
-        >
-      </div>
-      <div class="example">
-        <b>Példa:</b><br />
-        <code
-          >console.log("5" + 1); // "51"<br />
-          console.log("5" - 1); // 4<br />
-          console.log(true + 1); // 2</code
-        >
-      </div>
-      <table>
-        <tr>
-          <th>Tulajdonság</th>
-          <th>JavaScript-ben</th>
-        </tr>
-        <tr>
-          <td>Típusosság</td>
-          <td>Dinamikus, gyengén típusos</td>
-        </tr>
-        <tr>
-          <td>Változó típusa</td>
-          <td>Nem kötött, futás közben változhat</td>
-        </tr>
-        <tr>
-          <td>Típuskényszerítés</td>
-          <td>Automatikus, sokszor implicit</td>
-        </tr>
-      </table>
-      <div>
-        <b>Előnyök:</b> Rugalmas, gyors prototípus fejlesztéshez.<br />
-        <b>Hátrányok:</b> Könnyebben fordulhatnak elő típushibák, nehezebb hibát
-        találni.
-      </div>
-      <div class="tip">
-        Ha erősebb típusosságot szeretnél JS-ben: <b>Használj TypeScript-et!</b>
-      </div>
-    </div>
+        <div class="section">
+            <h2>JavaScript típusossága</h2>
+            <ul>
+                <li>
+                    <b>Dynamically typed:</b> A változók nem kötöttek egy adott
+                    típushoz, futás közben változhatnak.
+                </li>
+                <li>
+                    <b>Weakly typed:</b> JavaScript automatikusan konvertálja az
+                    adattípusokat (type coercion).
+                </li>
+            </ul>
+            <div class="example">
+                <b>Példa:</b><br />
+                <code
+                    >let valtozo = 42; // Number<br />
+                    valtozo = "szöveg"; // String<br />
+                    valtozo = true; // Boolean</code
+                >
+            </div>
+            <div class="example">
+                <b>Példa:</b><br />
+                <code
+                    >console.log("5" + 1); // "51"<br />
+                    console.log("5" - 1); // 4<br />
+                    console.log(true + 1); // 2</code
+                >
+            </div>
+            <table>
+                <tr>
+                    <th>Tulajdonság</th>
+                    <th>JavaScript-ben</th>
+                </tr>
+                <tr>
+                    <td>Típusosság</td>
+                    <td>Dinamikus, gyengén típusos</td>
+                </tr>
+                <tr>
+                    <td>Változó típusa</td>
+                    <td>Nem kötött, futás közben változhat</td>
+                </tr>
+                <tr>
+                    <td>Típuskényszerítés</td>
+                    <td>Automatikus, sokszor implicit</td>
+                </tr>
+            </table>
+            <div>
+                <b>Előnyök:</b> Rugalmas, gyors prototípus fejlesztéshez.<br />
+                <b>Hátrányok:</b> Könnyebben fordulhatnak elő típushibák,
+                nehezebb hibát találni.
+            </div>
+            <div class="tip">
+                Ha erősebb típusosságot szeretnél JS-ben:
+                <b>Használj TypeScript-et!</b>
+            </div>
+        </div>
 
-    <div class="section">
-      <h2>JS adattípusok</h2>
-      <h3>1) Primitív típusok</h3>
-      <table>
-        <tr>
-          <th>Típus</th>
-          <th>Példa</th>
-        </tr>
-        <tr>
-          <td>Number</td>
-          <td>42, 3.14, -7</td>
-        </tr>
-        <tr>
-          <td>String</td>
-          <td>"Helló", 'ChatGPT'</td>
-        </tr>
-        <tr>
-          <td>Boolean</td>
-          <td>true, false</td>
-        </tr>
-        <tr>
-          <td>Null</td>
-          <td>null</td>
-        </tr>
-        <tr>
-          <td>Undefined</td>
-          <td>undefined</td>
-        </tr>
-        <tr>
-          <td>BigInt</td>
-          <td>12345678901234567890n</td>
-        </tr>
-        <tr>
-          <td>Symbol</td>
-          <td>Symbol("egyedi")</td>
-        </tr>
-      </table>
-      <div>Érték szerint tárolódnak, nem módosíthatók (immutable).</div>
-      <h3>2) Objektum típusok</h3>
-      <ul>
-        <li>Object: <code>const ember = { nev: "Anna", kor: 25 };</code></li>
-        <li>Array (Tömb): <code>const lista = [1, 2, 3, 4];</code></li>
-        <li>
-          Function: <code>function hello() { console.log("Helló!"); }</code>
-        </li>
-        <li>Date: <code>const datum = new Date();</code></li>
-        <li>RegExp: <code>const regex = /[A-Z]+/g;</code></li>
-        <li>
-          Map, Set: <code>const map = new Map(); const set = new Set();</code>
-        </li>
-        <li>Error: <code>throw new Error("Hiba történt!");</code></li>
-      </ul>
-      <table>
-        <tr>
-          <th></th>
-          <th>Primitív típus</th>
-          <th>Objektum típus</th>
-        </tr>
-        <tr>
-          <td>Tárolás</td>
-          <td>Érték szerint</td>
-          <td>Hivatkozás szerint</td>
-        </tr>
-        <tr>
-          <td>Módosítás</td>
-          <td>Nem lehet</td>
-          <td>Lehet property-ket módosítani</td>
-        </tr>
-        <tr>
-          <td>Példa</td>
-          <td>42</td>
-          <td>{ nev: "Anna" }</td>
-        </tr>
-      </table>
-      <div class="tip">
-        JavaScript-ben minden, ami nem primitív, az objektum! Még a tömb (Array)
-        és a függvény (Function) is!
-      </div>
-    </div>
+        <div class="section">
+            <h2>JS adattípusok</h2>
+            <h3>1) Primitív típusok</h3>
+            <table>
+                <tr>
+                    <th>Típus</th>
+                    <th>Példa</th>
+                </tr>
+                <tr>
+                    <td>Number</td>
+                    <td>42, 3.14, -7</td>
+                </tr>
+                <tr>
+                    <td>String</td>
+                    <td>"Helló", 'ChatGPT'</td>
+                </tr>
+                <tr>
+                    <td>Boolean</td>
+                    <td>true, false</td>
+                </tr>
+                <tr>
+                    <td>Null</td>
+                    <td>null</td>
+                </tr>
+                <tr>
+                    <td>Undefined</td>
+                    <td>undefined</td>
+                </tr>
+                <tr>
+                    <td>BigInt</td>
+                    <td>12345678901234567890n</td>
+                </tr>
+                <tr>
+                    <td>Symbol</td>
+                    <td>Symbol("egyedi")</td>
+                </tr>
+            </table>
+            <div>Érték szerint tárolódnak, nem módosíthatók (immutable).</div>
+            <h3>2) Objektum típusok</h3>
+            <ul>
+                <li>
+                    Object: <code>const ember = { nev: "Anna", kor: 25 };</code>
+                </li>
+                <li>Array (Tömb): <code>const lista = [1, 2, 3, 4];</code></li>
+                <li>
+                    Function:
+                    <code>function hello() { console.log("Helló!"); }</code>
+                </li>
+                <li>Date: <code>const datum = new Date();</code></li>
+                <li>RegExp: <code>const regex = /[A-Z]+/g;</code></li>
+                <li>
+                    Map, Set:
+                    <code>const map = new Map(); const set = new Set();</code>
+                </li>
+                <li>Error: <code>throw new Error("Hiba történt!");</code></li>
+            </ul>
+            <table>
+                <tr>
+                    <th></th>
+                    <th>Primitív típus</th>
+                    <th>Objektum típus</th>
+                </tr>
+                <tr>
+                    <td>Tárolás</td>
+                    <td>Érték szerint</td>
+                    <td>Hivatkozás szerint</td>
+                </tr>
+                <tr>
+                    <td>Módosítás</td>
+                    <td>Nem lehet</td>
+                    <td>Lehet property-ket módosítani</td>
+                </tr>
+                <tr>
+                    <td>Példa</td>
+                    <td>42</td>
+                    <td>{ nev: "Anna" }</td>
+                </tr>
+            </table>
+            <div class="tip">
+                JavaScript-ben minden, ami nem primitív, az objektum! Még a tömb
+                (Array) és a függvény (Function) is!
+            </div>
+        </div>
 
-    <div class="section">
-      <h2>Az interjú végén</h2>
-      <div>
-        Az interjú végén kérdezd meg, hogy hány körös szokott lenni. Milyen
-        előre lépési lehetőséget vannak. Mekkora a fluktuáció. Miért keresnek új
-        kollégát. Mi történt az előzővel.<br />
-        Valamit mindenféleképpen kérdezz!
-      </div>
-    </div>
-    <button type="back-btn " onclick="location.href='../../Main.html'">
-      <!-- onclick esemény: kattintásra átirányít a főoldalra -->
-      Vissza
-    </button>
-  </body>
+        <div class="section">
+            <h2>Az interjú végén</h2>
+            <div>
+                Az interjú végén kérdezd meg, hogy hány körös szokott lenni.
+                Milyen előre lépési lehetőséget vannak. Mekkora a fluktuáció.
+                Miért keresnek új kollégát. Mi történt az előzővel.<br />
+                Valamit mindenféleképpen kérdezz!
+            </div>
+        </div>
+        <button type="back-btn " onclick="location.href = '../../Main.html'">
+            <!-- onclick esemény: kattintásra átirányít a főoldalra -->
+            Vissza
+        </button>
+    </body>
 </html>
