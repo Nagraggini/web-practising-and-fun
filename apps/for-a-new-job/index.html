@@ -1,1238 +1,1463 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="hu">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="Styles_For_new_job.css" />
-    <title>Tematika</title>
-  </head>
-  <body>
-    <h1>Tematika a tesztelés gyakorlásához</h1>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./for-a-new-job-style.css" />
+        <title>Tematika</title>
+    </head>
+    <body>
+        <h1>Tematika a tesztelés gyakorlásához</h1>
 
-    <div class="section">
-      <h2>
-        1. Saját fejlesztésű hardver és szoftver tesztelése, hibák rögzítése
-      </h2>
-      <ul>
-        <li>
-          <b>Szoftvertesztelés alapjai:</b>
-          <span>
-            Kézi tesztelés (<b>funkcionális</b>, <b>regressziós</b>,
-            <b>integrációs tesztek</b>).
-          </span>
-        </li>
-      </ul>
-      <h3>1.1 A tesztelés, mint a szoftverfejlesztés hajtóereje</h3>
-      <div>
-        <p>
-          A TDD, ATDD és BDD hasonló fejlesztési megközelítések, ahol a tesztek
-          meghatározása a fejlesztés irányításának eszközeként szolgál.
-          Mindegyik megközelítés megvalósítja a korai tesztelés elvét és követi
-          a shift left megközelítést, mivel a tesztek meghatározása előbb
-          történik, mint a kód megírásra. Ezek a megközelítések az iteratív
-          fejlesztési modellt támogatják és az alábbiak szerint lehet jellemezni
-          őket:
-        </p>
-        <p><b>Tesztvezérelt fejlesztés (TDD):</b></p>
-        <ul>
-          <li>
-            A kódolást tesztesetek irányítják (az átfogó szoftvertervek helyett)
-            (Beck 2003)
-          </li>
-          <li>
-            Először a tesztek kerülnek megírásra, majd azt követően a kód, olyan
-            módon, hogy a teszteknek megfeleljen. Végül a teszteket és a kódot
-            is refaktorálják.
-          </li>
-        </ul>
-        <p><b>Elfogadásiteszt-vezérelt fejlesztés (ATDD):</b></p>
-        <ul>
-          <li>
-            A teszteket elfogadási feltételekből származtatja a
-            rendszertervezési folyamat részeként (Gärtner 2011)
-          </li>
-          <li>
-            A teszteket az előtt írják meg, hogy lefejesztésre kerülne az
-            alkalmazás azon része, mely kielégíti ezeket a teszteket.
-          </li>
-        </ul>
-        <p><b>Viselkedésvezérelt fejlesztés (BDD):</b></p>
-        <ul>
-          <li>
-            Kifejezi az alkalmazás kívánt viselkedését olyan tesztesetekkel,
-            melyek egyszerű formában, természetes nyelven vannak megírva, és így
-            könnyen érthető az érdekelt felek számára – általában a
-            "Given/When/Then" formát használva (Chelimsky 2010).
-          </li>
-          <li>
-            A teszteseteket ezután automatikusan végrehajtható tesztekké
-            alakítják.
-          </li>
-        </ul>
-        <p>
-          A fent említett megközelítések alkalmazása során, a tesztek
-          megmaradhatnak automatizált tesztek formájában, hogy biztosítsák a kód
-          minőségét jövőbeli módosítások esetén.
-        </p>
-        <h3>1.2 DevOps és tesztelés</h3>
-        <p>
-          DevOps egy szervezeti megközelítés, melynek célja a szinergia
-          létrehozása a fejlesztés (beleértve a tesztelést) és az üzemeltetés
-          között, hogy közös célokat érjenek el. A DevOps egy kulturális
-          változást igényel a szervezeten belül, hogy áthidalja a fejlesztés
-          (beleértve a tesztelést) és az üzemeltetés közötti réseket, miközben
-          azok szerepét egyenértékűnek tekinti. A DevOps támogatja a csapat
-          önállóságát, a gyors visszajelzést, az integrált eszközrendszerrel
-          való munkát, valamint olyan technikai gyakorlatokat, mint a folyamatos
-          integráció (CI) és a folyamatos szállítás (CD). Ez lehetővé teszi a
-          csapatok számára, hogy a DevOps szállítási folyamatláncon (delivery
-          pipeline) keresztül gyorsabban készítsenek, teszteljenek és adjanak ki
-          magas minőségű kódot (Kim 2016).
-        </p>
-        <p>A tesztelés szempontjából nézve a DevOps néhány előnye:</p>
-        <ul>
-          <li>
-            Gyors visszajelzés a kód minőségéről és arról, hogy a változtatások
-            hogyan befolyásolják a már meglévő kódot.
-          </li>
-          <li>
-            A folyamatos integráció elősegíti a shift left megközelítést a
-            tesztelésben, mivel bátorítja a fejlesztőket, hogy jó minőségű kódot
-            adjanak át, komponenstesztekkel és statikus elemzéssel kísérve.
-          </li>
-          <li>
-            Támogatja az automatizált folyamatokat, mint például a folyamatos
-            integrációt/szállítást, amelyek segítik a stabil tesztkörnyezetek
-            kialakítását.
-          </li>
-          <li>
-            Növeli a fókuszt a nemfunkcionális jellemzőkön (pl. teljesítmény,
-            megbízhatóság).
-          </li>
-          <li>
-            Az automatizálás a szállítási folyamatláncon keresztül csökkenti az
-            ismétlődő manuális tesztek szükségességét.
-          </li>
-          <li>
-            Minimális a regresszió okozta kockázat az automatizált regressziós
-            tesztek méretének és hatókörének köszönhetően.
-          </li>
-        </ul>
-        <p>A DevOps sem mentes a kockázatoktól és kihívásoktól, például:</p>
-        <ul>
-          <li>
-            A DevOps szállítási folyamatláncot (delivery pipeline) meg kell
-            tervezni és meg kell valósítani.
-          </li>
-          <li>
-            A folyamatos integrációs/szállítási eszközöket be kell vezetni és
-            karban kell tartani.
-          </li>
-          <li>
-            A tesztautomatizálás további erőforrásokat igényel, illetve nehéz
-            lehet kialakítani és karbantartani.
-          </li>
-        </ul>
-        <p>
-          Bár a DevOps megköveteli egy magasabb fokú automatizált tesztelés
-          megvalósítását, a manuális tesztelés – különösen a felhasználó
-          szempontjából – továbbra is szükséges.
-        </p>
-        <h3>1.3 A shift left megközelítés</h3>
-        <p>
-          Az korai tesztelés elve éha <b>shift left</b> néven is említésre
-          kerül. A shift left esetén az a cél, hogy a szoftverfejlesztés
-          életciklusának folyamatában a tesztelés minél korábban legyen
-          elvégezve (pl. nem várni a kód megvalósítására vagy a komponensek
-          integrálására). Viszont ez nem jelenti azt, hogy a szoftverfejlesztés
-          életciklusának későbbi szakaszaiban a tesztelés elhanyagolható lenne.
-        </p>
-        <p>
-          A tesztelésben a shift left megvalósítását elősegítő számos jó
-          gyakorlat létezik, mint például:
-        </p>
-        <ul>
-          <li>
-            Specifikációk felülvizsgálata a tesztelés szempontjából. Ezek a
-            felülvizsgálatok gyakran fedeznek fel lehetséges hibákat, amik
-            például félreértésekből, hiányosságokból vagy ellentmondásokból
-            származnak.
-          </li>
-          <li>
-            Tesztesetek megírása a kód létrejötte előtt, majd a kód futtatása
-            egy teszttámogató szoftverkörnyezetben a kód implementálása közben.
-          </li>
-          <li>
-            Folyamatos integráció és még jobb esetben folyamatos szállítás
-            alkalmazása, mivel ezek gyors visszajelzést adnak, illetve
-            automatizált komponensteszteket biztosítanak a kód mellé, amikor
-            azok tárolóba (repository) kerülnek.
-          </li>
-          <li>
-            A forráskód statikus elemzése a dinamikus tesztelés előtt, vagy egy
-            automatizált folyamat részeként.
-          </li>
-          <li>
-            Nemfunkcionális tesztelés megvalósítása, lehetőség szerint
-            komponensteszt-szinten kezdve. Ez egy formája a shift left
-            megvalósításának, mert a nemfunkcionális teszttípus általában a
-            szoftverfejlesztési életciklus későbbi részeiben történik, mikor a
-            teljes rendszer és egy reprezentatív tesztkörnyezet már a
-            rendelkezésünkre áll.
-          </li>
-        </ul>
-        <p>
-          A shift left megközelítés extra képzést, költségeket eredményezhet a
-          folyamat korai szakaszaiban, de várható, hogy a későbbiekben
-          megtakarításhoz vezet.<br />
-          A shift left megközelítéshez fontos, hogy az érdekelt felek
-          elkötelezettek legyenek a koncepció irányában.
-        </p>
-        <h3>1.4 Tesztelési típusok</h3>
-        <ul>
-          <li>
-            <div style="margin: 0.5em 0 0.5em 1em">
-              Számos teszttípus létezik és alkalmazható egy projektben. Ebben a
-              tantervben a következő négy teszttípust említjük meg:
-              <ul style="margin-top: 0.5em">
-                <li>
-                  <b>Funkcionális tesztelés:</b>
-                  <span>
-                    A komponens vagy rendszer működését vizsgáljuk abból a
-                    szempontból, hogy elvégzi-e a meghatározott funkcióit.<br />
-                    A fő céljai: funkcionális teljesség, helyesség, megfelelőség
-                    ellenőrzése.
-                  </span>
-                </li>
-                <li>
-                  <b>Nemfunkcionális tesztelés:</b>
-                  <span>
-                    Olyan tulajdonságokat ellenőrzünk, amelyek nem a komponens
-                    vagy rendszer funkcionális jellemzői.<br />
-                    A fő cél: nemfunkcionális szoftver-minőségjellemzők
-                    ellenőrzése (ISO/IEC 25010 szabvány szerint):
-                    <ul style="margin-top: 0.3em">
-                      <li>Teljesítményhatékonyság</li>
-                      <li>Kompatibilitás</li>
-                      <li>Használhatóság</li>
-                      <li>Megbízhatóság</li>
-                      <li>Biztonság</li>
-                      <li>Karbantarthatóság</li>
-                      <li>Hordozhatóság</li>
-                    </ul>
-                    <span>
-                      Előfordulhat, hogy a nemfunkcionális tesztelés az
-                      életciklus korai szakaszában kezdődik (például a
-                      felülvizsgálatok, a komponenstesztelés vagy a
-                      rendszertesztelés részeként). Számos nemfunkcionális teszt
-                      származtatható funkcionális tesztekből, mivel egy már
-                      létező funkcionális teszt futtatása során ellenőrizhetünk
-                      nemfunkcionális jellemzőket is (például ellenőrizhetjük,
-                      hogy egy funkció végrehajtásához szükséges idő
-                      megfelelő-e, vagy végrehajtódik-e egy eltérő
-                      keretrendszeren belül). A későn megtalált nemfunkcionális
-                      hibák nagyban befolyásolhatják egy projekt sikerét.
-                      Nemfunkcionális tesztelés esetén néha szükségünk lehet
-                      specifikus tesztkörnyezetre, mint például használhatósági
-                      teszt esetén egy használhatósági laborra.
-                    </span>
-                    <br /><br />
-                  </span>
-                </li>
-                <li>
-                  <b>Feketedoboz tesztelés:</b>
-                  <span>
-                    Specifikációalapú teszttípus, ahol a teszteseteket a
-                    rendszer specifikációiból származtatjuk. Fő cél: a rendszer
-                    viselkedésének ellenőrzése a rendszer specifikációinak
-                    szempontjából.
-                  </span>
-                </li>
-                <li>
-                  <b>Fehérdoboz tesztelés:</b>
-                  <span>
-                    Struktúraalapú teszttípus, ahol a rendszer belső szerkezete
-                    vagy az implementációja (például: kód, architektúra,
-                    munkafolyamat, adatfolyam) alapján származtatjuk a
-                    teszteseteket. A fehérdoboz tesztelés fő célja, hogy
-                    tesztekkel elfogadható szinten lefedjük a rendszer alapvető
-                    struktúráját.
-                  </span>
-                </li>
-              </ul>
-              <p>
-                Mind a négy teszttípus alkalmazható minden tesztszinten, bár a
-                fókusz minden szinten más lesz. Számos különböző teszttechnika
-                használható a tesztfeltételek és tesztesetek származtatására
-                minden teszttípus esetében.
-              </p>
-            </div>
-          </li>
-        </ul>
-        <h3>1.5 Ellenőrző és regressziós tesztelés</h3>
-        <div>
-          <div>
-            Változásokat tipikusan akkor eszközölünk egy komponensen vagy
-            rendszeren, mikor új funkcionalitásokat szeretnénk bevezetni vagy
-            hibákat szeretnénk javítani. A tesztelésnek ebben az esetben
-            ellenőrző és regressziós tesztelést is tartalmaznia kell.
-            <br /><br />
-            Az ellenőrző tesztelés megerősíti, hogy az adott hiba sikeresen
-            javítva lett. A kockázattól függően, a javított szoftververziót több
-            módon is tesztelhetjük:
+        <div class="section">
+            <h2>
+                1. Saját fejlesztésű hardver és szoftver tesztelése, hibák
+                rögzítése
+            </h2>
             <ul>
-              <li>
-                újrafuttatva az összes tesztesetet, amelyek korábban elbuktak az
-                adott hiba miatt, vagy
-              </li>
-              <li>
-                kiegészítve a tesztfuttatást új tesztekkel, amelyek lefedik a
-                javítás által bevezetett módosításokat is
-              </li>
+                <li>
+                    <b>Szoftvertesztelés alapjai:</b>
+                    <span>
+                        Kézi tesztelés (<b>funkcionális</b>, <b>regressziós</b>,
+                        <b>integrációs tesztek</b>).
+                    </span>
+                </li>
             </ul>
-            Azonban, mikor hibajavítás során a rendelkezésre álló erőforrások
-            (idő és pénz) nem elegendőek, az ellenőrző tesztelés korlátozódhat
-            csak a meghibásodást előhozó lépések megismétlésére, és annak
-            ellenőrzésére, hogy a meghibásodás nem történik meg.
-            <br /><br />
-            A regressziós tesztelés megerősíti, hogy egy változtatásnak
-            nincsenek kedvezőtlen következményei. A változtatások közé értjük a
-            javításokat is, amelyek már átestek az ellenőrző tesztelésen. Ezek a
-            kedvezőtlen következmények hatással lehetnek az adott komponensre,
-            ahol a javítást végeztük, más komponensekre a rendszeren belül vagy
-            akár más kapcsolódó rendszerekre. A regressziós tesztelés nem
-            feltétlenül korlátozódik magára a teszt tárgyára, lehetséges, hogy a
-            tesztkörnyezet változása miatt szükséges a tesztelés. Annak
-            érdekében, hogy optimalizálni lehessen a szükséges regressziós
-            tesztelés mértékét, javasolt először egy hatáselemzés elvégzése. A
-            hatáselemzés megmutatja, hogy a szoftver mely részei lehetnek
-            érintettek a módosítás által.
-            <br /><br />
-            A regressziós tesztkészletek számos alkalommal futnak és
-            általánosságban a regressziós tesztek száma növekedik minden
-            iterációval vagy kiadással, ezért remek választás ezeket a teszteket
-            automatizálni. Ezen tesztek automatizációját a projekt korai
-            szakaszában ajánlatos elkezdeni. Ahol folyamatos integrációt
-            használnak, például DevOps esetén, ott jó gyakorlat az automatizált
-            regressziós tesztek alkalmazása. Ezért, a szituációtól függően,
-            regressziós tesztelés akár különböző tesztszinteken is alkalmazható.
-            <br /><br />
-            Az ellenőrző tesztelés és/vagy a regressziós tesztelés szükséges
-            minden tesztszinten, ha hibák kerülnek kijavításra és/vagy
-            változtatások történnek ezeken a tesztszinteken.
-          </div>
+            <h3>1.1 A tesztelés, mint a szoftverfejlesztés hajtóereje</h3>
+            <div>
+                <p>
+                    A TDD, ATDD és BDD hasonló fejlesztési megközelítések, ahol
+                    a tesztek meghatározása a fejlesztés irányításának
+                    eszközeként szolgál. Mindegyik megközelítés megvalósítja a
+                    korai tesztelés elvét és követi a shift left megközelítést,
+                    mivel a tesztek meghatározása előbb történik, mint a kód
+                    megírásra. Ezek a megközelítések az iteratív fejlesztési
+                    modellt támogatják és az alábbiak szerint lehet jellemezni
+                    őket:
+                </p>
+                <p><b>Tesztvezérelt fejlesztés (TDD):</b></p>
+                <ul>
+                    <li>
+                        A kódolást tesztesetek irányítják (az átfogó
+                        szoftvertervek helyett) (Beck 2003)
+                    </li>
+                    <li>
+                        Először a tesztek kerülnek megírásra, majd azt követően
+                        a kód, olyan módon, hogy a teszteknek megfeleljen. Végül
+                        a teszteket és a kódot is refaktorálják.
+                    </li>
+                </ul>
+                <p><b>Elfogadásiteszt-vezérelt fejlesztés (ATDD):</b></p>
+                <ul>
+                    <li>
+                        A teszteket elfogadási feltételekből származtatja a
+                        rendszertervezési folyamat részeként (Gärtner 2011)
+                    </li>
+                    <li>
+                        A teszteket az előtt írják meg, hogy lefejesztésre
+                        kerülne az alkalmazás azon része, mely kielégíti ezeket
+                        a teszteket.
+                    </li>
+                </ul>
+                <p><b>Viselkedésvezérelt fejlesztés (BDD):</b></p>
+                <ul>
+                    <li>
+                        Kifejezi az alkalmazás kívánt viselkedését olyan
+                        tesztesetekkel, melyek egyszerű formában, természetes
+                        nyelven vannak megírva, és így könnyen érthető az
+                        érdekelt felek számára – általában a "Given/When/Then"
+                        formát használva (Chelimsky 2010).
+                    </li>
+                    <li>
+                        A teszteseteket ezután automatikusan végrehajtható
+                        tesztekké alakítják.
+                    </li>
+                </ul>
+                <p>
+                    A fent említett megközelítések alkalmazása során, a tesztek
+                    megmaradhatnak automatizált tesztek formájában, hogy
+                    biztosítsák a kód minőségét jövőbeli módosítások esetén.
+                </p>
+                <h3>1.2 DevOps és tesztelés</h3>
+                <p>
+                    DevOps egy szervezeti megközelítés, melynek célja a
+                    szinergia létrehozása a fejlesztés (beleértve a tesztelést)
+                    és az üzemeltetés között, hogy közös célokat érjenek el. A
+                    DevOps egy kulturális változást igényel a szervezeten belül,
+                    hogy áthidalja a fejlesztés (beleértve a tesztelést) és az
+                    üzemeltetés közötti réseket, miközben azok szerepét
+                    egyenértékűnek tekinti. A DevOps támogatja a csapat
+                    önállóságát, a gyors visszajelzést, az integrált
+                    eszközrendszerrel való munkát, valamint olyan technikai
+                    gyakorlatokat, mint a folyamatos integráció (CI) és a
+                    folyamatos szállítás (CD). Ez lehetővé teszi a csapatok
+                    számára, hogy a DevOps szállítási folyamatláncon (delivery
+                    pipeline) keresztül gyorsabban készítsenek, teszteljenek és
+                    adjanak ki magas minőségű kódot (Kim 2016).
+                </p>
+                <p>A tesztelés szempontjából nézve a DevOps néhány előnye:</p>
+                <ul>
+                    <li>
+                        Gyors visszajelzés a kód minőségéről és arról, hogy a
+                        változtatások hogyan befolyásolják a már meglévő kódot.
+                    </li>
+                    <li>
+                        A folyamatos integráció elősegíti a shift left
+                        megközelítést a tesztelésben, mivel bátorítja a
+                        fejlesztőket, hogy jó minőségű kódot adjanak át,
+                        komponenstesztekkel és statikus elemzéssel kísérve.
+                    </li>
+                    <li>
+                        Támogatja az automatizált folyamatokat, mint például a
+                        folyamatos integrációt/szállítást, amelyek segítik a
+                        stabil tesztkörnyezetek kialakítását.
+                    </li>
+                    <li>
+                        Növeli a fókuszt a nemfunkcionális jellemzőkön (pl.
+                        teljesítmény, megbízhatóság).
+                    </li>
+                    <li>
+                        Az automatizálás a szállítási folyamatláncon keresztül
+                        csökkenti az ismétlődő manuális tesztek szükségességét.
+                    </li>
+                    <li>
+                        Minimális a regresszió okozta kockázat az automatizált
+                        regressziós tesztek méretének és hatókörének
+                        köszönhetően.
+                    </li>
+                </ul>
+                <p>
+                    A DevOps sem mentes a kockázatoktól és kihívásoktól,
+                    például:
+                </p>
+                <ul>
+                    <li>
+                        A DevOps szállítási folyamatláncot (delivery pipeline)
+                        meg kell tervezni és meg kell valósítani.
+                    </li>
+                    <li>
+                        A folyamatos integrációs/szállítási eszközöket be kell
+                        vezetni és karban kell tartani.
+                    </li>
+                    <li>
+                        A tesztautomatizálás további erőforrásokat igényel,
+                        illetve nehéz lehet kialakítani és karbantartani.
+                    </li>
+                </ul>
+                <p>
+                    Bár a DevOps megköveteli egy magasabb fokú automatizált
+                    tesztelés megvalósítását, a manuális tesztelés – különösen a
+                    felhasználó szempontjából – továbbra is szükséges.
+                </p>
+                <h3>1.3 A shift left megközelítés</h3>
+                <p>
+                    Az korai tesztelés elve éha <b>shift left</b> néven is
+                    említésre kerül. A shift left esetén az a cél, hogy a
+                    szoftverfejlesztés életciklusának folyamatában a tesztelés
+                    minél korábban legyen elvégezve (pl. nem várni a kód
+                    megvalósítására vagy a komponensek integrálására). Viszont
+                    ez nem jelenti azt, hogy a szoftverfejlesztés életciklusának
+                    későbbi szakaszaiban a tesztelés elhanyagolható lenne.
+                </p>
+                <p>
+                    A tesztelésben a shift left megvalósítását elősegítő számos
+                    jó gyakorlat létezik, mint például:
+                </p>
+                <ul>
+                    <li>
+                        Specifikációk felülvizsgálata a tesztelés szempontjából.
+                        Ezek a felülvizsgálatok gyakran fedeznek fel lehetséges
+                        hibákat, amik például félreértésekből, hiányosságokból
+                        vagy ellentmondásokból származnak.
+                    </li>
+                    <li>
+                        Tesztesetek megírása a kód létrejötte előtt, majd a kód
+                        futtatása egy teszttámogató szoftverkörnyezetben a kód
+                        implementálása közben.
+                    </li>
+                    <li>
+                        Folyamatos integráció és még jobb esetben folyamatos
+                        szállítás alkalmazása, mivel ezek gyors visszajelzést
+                        adnak, illetve automatizált komponensteszteket
+                        biztosítanak a kód mellé, amikor azok tárolóba
+                        (repository) kerülnek.
+                    </li>
+                    <li>
+                        A forráskód statikus elemzése a dinamikus tesztelés
+                        előtt, vagy egy automatizált folyamat részeként.
+                    </li>
+                    <li>
+                        Nemfunkcionális tesztelés megvalósítása, lehetőség
+                        szerint komponensteszt-szinten kezdve. Ez egy formája a
+                        shift left megvalósításának, mert a nemfunkcionális
+                        teszttípus általában a szoftverfejlesztési életciklus
+                        későbbi részeiben történik, mikor a teljes rendszer és
+                        egy reprezentatív tesztkörnyezet már a rendelkezésünkre
+                        áll.
+                    </li>
+                </ul>
+                <p>
+                    A shift left megközelítés extra képzést, költségeket
+                    eredményezhet a folyamat korai szakaszaiban, de várható,
+                    hogy a későbbiekben megtakarításhoz vezet.<br />
+                    A shift left megközelítéshez fontos, hogy az érdekelt felek
+                    elkötelezettek legyenek a koncepció irányában.
+                </p>
+                <h3>1.4 Tesztelési típusok</h3>
+                <ul>
+                    <li>
+                        <div style="margin: 0.5em 0 0.5em 1em">
+                            Számos teszttípus létezik és alkalmazható egy
+                            projektben. Ebben a tantervben a következő négy
+                            teszttípust említjük meg:
+                            <ul style="margin-top: 0.5em">
+                                <li>
+                                    <b>Funkcionális tesztelés:</b>
+                                    <span>
+                                        A komponens vagy rendszer működését
+                                        vizsgáljuk abból a szempontból, hogy
+                                        elvégzi-e a meghatározott funkcióit.<br />
+                                        A fő céljai: funkcionális teljesség,
+                                        helyesség, megfelelőség ellenőrzése.
+                                    </span>
+                                </li>
+                                <li>
+                                    <b>Nemfunkcionális tesztelés:</b>
+                                    <span>
+                                        Olyan tulajdonságokat ellenőrzünk,
+                                        amelyek nem a komponens vagy rendszer
+                                        funkcionális jellemzői.<br />
+                                        A fő cél: nemfunkcionális
+                                        szoftver-minőségjellemzők ellenőrzése
+                                        (ISO/IEC 25010 szabvány szerint):
+                                        <ul style="margin-top: 0.3em">
+                                            <li>Teljesítményhatékonyság</li>
+                                            <li>Kompatibilitás</li>
+                                            <li>Használhatóság</li>
+                                            <li>Megbízhatóság</li>
+                                            <li>Biztonság</li>
+                                            <li>Karbantarthatóság</li>
+                                            <li>Hordozhatóság</li>
+                                        </ul>
+                                        <span>
+                                            Előfordulhat, hogy a nemfunkcionális
+                                            tesztelés az életciklus korai
+                                            szakaszában kezdődik (például a
+                                            felülvizsgálatok, a
+                                            komponenstesztelés vagy a
+                                            rendszertesztelés részeként). Számos
+                                            nemfunkcionális teszt származtatható
+                                            funkcionális tesztekből, mivel egy
+                                            már létező funkcionális teszt
+                                            futtatása során ellenőrizhetünk
+                                            nemfunkcionális jellemzőket is
+                                            (például ellenőrizhetjük, hogy egy
+                                            funkció végrehajtásához szükséges
+                                            idő megfelelő-e, vagy
+                                            végrehajtódik-e egy eltérő
+                                            keretrendszeren belül). A későn
+                                            megtalált nemfunkcionális hibák
+                                            nagyban befolyásolhatják egy projekt
+                                            sikerét. Nemfunkcionális tesztelés
+                                            esetén néha szükségünk lehet
+                                            specifikus tesztkörnyezetre, mint
+                                            például használhatósági teszt esetén
+                                            egy használhatósági laborra.
+                                        </span>
+                                        <br /><br />
+                                    </span>
+                                </li>
+                                <li>
+                                    <b>Feketedoboz tesztelés:</b>
+                                    <span>
+                                        Specifikációalapú teszttípus, ahol a
+                                        teszteseteket a rendszer
+                                        specifikációiból származtatjuk. Fő cél:
+                                        a rendszer viselkedésének ellenőrzése a
+                                        rendszer specifikációinak szempontjából.
+                                    </span>
+                                </li>
+                                <li>
+                                    <b>Fehérdoboz tesztelés:</b>
+                                    <span>
+                                        Struktúraalapú teszttípus, ahol a
+                                        rendszer belső szerkezete vagy az
+                                        implementációja (például: kód,
+                                        architektúra, munkafolyamat, adatfolyam)
+                                        alapján származtatjuk a teszteseteket. A
+                                        fehérdoboz tesztelés fő célja, hogy
+                                        tesztekkel elfogadható szinten lefedjük
+                                        a rendszer alapvető struktúráját.
+                                    </span>
+                                </li>
+                            </ul>
+                            <p>
+                                Mind a négy teszttípus alkalmazható minden
+                                tesztszinten, bár a fókusz minden szinten más
+                                lesz. Számos különböző teszttechnika használható
+                                a tesztfeltételek és tesztesetek származtatására
+                                minden teszttípus esetében.
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+                <h3>1.5 Ellenőrző és regressziós tesztelés</h3>
+                <div>
+                    <div>
+                        Változásokat tipikusan akkor eszközölünk egy komponensen
+                        vagy rendszeren, mikor új funkcionalitásokat szeretnénk
+                        bevezetni vagy hibákat szeretnénk javítani. A
+                        tesztelésnek ebben az esetben ellenőrző és regressziós
+                        tesztelést is tartalmaznia kell.
+                        <br /><br />
+                        Az ellenőrző tesztelés megerősíti, hogy az adott hiba
+                        sikeresen javítva lett. A kockázattól függően, a
+                        javított szoftververziót több módon is tesztelhetjük:
+                        <ul>
+                            <li>
+                                újrafuttatva az összes tesztesetet, amelyek
+                                korábban elbuktak az adott hiba miatt, vagy
+                            </li>
+                            <li>
+                                kiegészítve a tesztfuttatást új tesztekkel,
+                                amelyek lefedik a javítás által bevezetett
+                                módosításokat is
+                            </li>
+                        </ul>
+                        Azonban, mikor hibajavítás során a rendelkezésre álló
+                        erőforrások (idő és pénz) nem elegendőek, az ellenőrző
+                        tesztelés korlátozódhat csak a meghibásodást előhozó
+                        lépések megismétlésére, és annak ellenőrzésére, hogy a
+                        meghibásodás nem történik meg.
+                        <br /><br />
+                        A regressziós tesztelés megerősíti, hogy egy
+                        változtatásnak nincsenek kedvezőtlen következményei. A
+                        változtatások közé értjük a javításokat is, amelyek már
+                        átestek az ellenőrző tesztelésen. Ezek a kedvezőtlen
+                        következmények hatással lehetnek az adott komponensre,
+                        ahol a javítást végeztük, más komponensekre a rendszeren
+                        belül vagy akár más kapcsolódó rendszerekre. A
+                        regressziós tesztelés nem feltétlenül korlátozódik
+                        magára a teszt tárgyára, lehetséges, hogy a
+                        tesztkörnyezet változása miatt szükséges a tesztelés.
+                        Annak érdekében, hogy optimalizálni lehessen a szükséges
+                        regressziós tesztelés mértékét, javasolt először egy
+                        hatáselemzés elvégzése. A hatáselemzés megmutatja, hogy
+                        a szoftver mely részei lehetnek érintettek a módosítás
+                        által.
+                        <br /><br />
+                        A regressziós tesztkészletek számos alkalommal futnak és
+                        általánosságban a regressziós tesztek száma növekedik
+                        minden iterációval vagy kiadással, ezért remek választás
+                        ezeket a teszteket automatizálni. Ezen tesztek
+                        automatizációját a projekt korai szakaszában ajánlatos
+                        elkezdeni. Ahol folyamatos integrációt használnak,
+                        például DevOps esetén, ott jó gyakorlat az automatizált
+                        regressziós tesztek alkalmazása. Ezért, a szituációtól
+                        függően, regressziós tesztelés akár különböző
+                        tesztszinteken is alkalmazható.
+                        <br /><br />
+                        Az ellenőrző tesztelés és/vagy a regressziós tesztelés
+                        szükséges minden tesztszinten, ha hibák kerülnek
+                        kijavításra és/vagy változtatások történnek ezeken a
+                        tesztszinteken.
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
 
-    <div class="section">
-      <h2>
-        2. Minta- és tesztrendszerek összeállítása, telepítése, konfigurálása
-      </h2>
-      <ul>
-        <li>
-          <b>Windows rendszergazdai ismeretek:</b> Telepítés, partíciókezelés
-          (Win + R → diskmgmt.msc), hálózati beállítások, szolgáltatások
-          kezelése.
-        </li>
-        <li>
-          <b>Alap Linux:</b> Parancssori alapok (<code>cd</code>,
-          <code>ls</code>, <code>cp</code>, <code>chmod</code>, <code>ps</code>,
-          <code>systemctl</code>, <code>ifconfig</code>, <code>clear</code>,
-          <code>pwd</code>)
-          <ul>
-            <li>
-              <b><code>cd</code> – könyvtárváltás</b>
-              <ul>
-                <li>Belép egy másik mappába.</li>
-                <li><code>cd Dokumentumok</code></li>
-                <li><code>cd /home/felhasznalo/Asztal</code></li>
-                <li><code>cd ..</code> – eggyel visszalép (szülőmappába).</li>
-              </ul>
-            </li>
-            <li>
-              <b><code>clear</code> és <code>pwd</code> – alapok</b>
-              <ul>
-                <li><code>clear</code> - képernyő törlése</li>
-                <li><code>pwd</code> - aktuális könyvtár megjelenítése</li>
-              </ul>
-            </li>
+        <div class="section">
+            <h2>
+                2. Minta- és tesztrendszerek összeállítása, telepítése,
+                konfigurálása
+            </h2>
+            <ul>
+                <li>
+                    <b>Windows rendszergazdai ismeretek:</b> Telepítés,
+                    partíciókezelés (Win + R → diskmgmt.msc), hálózati
+                    beállítások, szolgáltatások kezelése.
+                </li>
+                <li>
+                    <b>Alap Linux:</b> Parancssori alapok (<code>cd</code>,
+                    <code>ls</code>, <code>cp</code>, <code>chmod</code>,
+                    <code>ps</code>, <code>systemctl</code>,
+                    <code>ifconfig</code>, <code>clear</code>, <code>pwd</code>)
+                    <ul>
+                        <li>
+                            <b><code>cd</code> – könyvtárváltás</b>
+                            <ul>
+                                <li>Belép egy másik mappába.</li>
+                                <li><code>cd Dokumentumok</code></li>
+                                <li>
+                                    <code>cd /home/felhasznalo/Asztal</code>
+                                </li>
+                                <li>
+                                    <code>cd ..</code> – eggyel visszalép
+                                    (szülőmappába).
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <b
+                                ><code>clear</code> és <code>pwd</code> –
+                                alapok</b
+                            >
+                            <ul>
+                                <li><code>clear</code> - képernyő törlése</li>
+                                <li>
+                                    <code>pwd</code> - aktuális könyvtár
+                                    megjelenítése
+                                </li>
+                            </ul>
+                        </li>
 
-            <li>
-              <b><code>ls</code> – fájlok és mappák listázása</b>
-              <ul>
-                <li>
-                  Kilistázza az aktuális könyvtár tartalmát. A - után érzékeny a
-                  kis és nagy betűkre.
-                </li>
-                <li><code>ls</code> – egyszerű lista</li>
-                <li>
-                  <code>ls -l</code> – részletes (méret, jogosultság, dátum)
-                </li>
-                <li><code>ls -a</code> – rejtett fájlokat is mutatja</li>
-                <li>
-                  <code>ls -la</code> – részletes (méret, jogosultság, dátum) és
-                  a rejtett fájlokat is mutatja
-                </li>
-                <li>
-                  <code>ls -R</code> – listázza az aktuális könyvtár tartalmát
-                  és minden almappát is — rekurzívan, azaz „belülről kifelé”
-                  végigmegy minden könyvtáron
-                </li>
-                <li>
-                  <code>ls -laR</code> – részletes (méret, jogosultság, dátum)
-                  és a rejtett fájlokat is mutatja, listázza az aktuális
-                  könyvtár tartalmát és minden almappát is — rekurzívan, azaz
-                  „belülről kifelé” végigmegy minden könyvtáron.
-                </li>
-              </ul>
-            </li>
+                        <li>
+                            <b><code>ls</code> – fájlok és mappák listázása</b>
+                            <ul>
+                                <li>
+                                    Kilistázza az aktuális könyvtár tartalmát. A
+                                    - után érzékeny a kis és nagy betűkre.
+                                </li>
+                                <li><code>ls</code> – egyszerű lista</li>
+                                <li>
+                                    <code>ls -l</code> – részletes (méret,
+                                    jogosultság, dátum)
+                                </li>
+                                <li>
+                                    <code>ls -a</code> – rejtett fájlokat is
+                                    mutatja
+                                </li>
+                                <li>
+                                    <code>ls -la</code> – részletes (méret,
+                                    jogosultság, dátum) és a rejtett fájlokat is
+                                    mutatja
+                                </li>
+                                <li>
+                                    <code>ls -R</code> – listázza az aktuális
+                                    könyvtár tartalmát és minden almappát is —
+                                    rekurzívan, azaz „belülről kifelé” végigmegy
+                                    minden könyvtáron
+                                </li>
+                                <li>
+                                    <code>ls -laR</code> – részletes (méret,
+                                    jogosultság, dátum) és a rejtett fájlokat is
+                                    mutatja, listázza az aktuális könyvtár
+                                    tartalmát és minden almappát is —
+                                    rekurzívan, azaz „belülről kifelé” végigmegy
+                                    minden könyvtáron.
+                                </li>
+                            </ul>
+                        </li>
 
-            <li>
-              <b><code>mkdir</code> – könyvtár (mappa) létrehozása</b>
-              <ul>
-                <li>Új mappát hoz létre az aktuális könyvtárban.</li>
-                <li>
-                  <code>mkdir tesztek</code> – létrehoz egy "tesztek" nevű
-                  mappát.
-                </li>
-                <li>
-                  <code>mkdir /home/felhasznalo/projekt</code> – létrehoz egy
-                  mappát a megadott elérési úton
-                </li>
-                <li>
-                  <code>mkdir -v ujmappa</code> – a "-v" kapcsoló: tájékoztat,
-                  hogy létrejött-e a könyvtár (részletes kimenet).
-                </li>
-              </ul>
-            </li>
-            <li>
-              <b><code>cp</code> – másolás</b>
-              <ul>
-                <li>Fájlokat vagy mappákat másol.</li>
-                <li><code>cp fajl.txt /home/felhasznalo/Asztal</code></li>
-                <li>
-                  <code>cp -r mappa /home/felhasznalo/</code> – mappát
-                  rekurzívan (tartalommal együtt).
-                </li>
-              </ul>
-            </li>
-            <li>
-              <b><code>chmod</code> – jogosultságok módosítása</b>
-              <ul>
-                <li>
-                  Átállítja, hogy ki olvashatja, írhatja vagy futtathatja a
-                  fájlt.
-                </li>
-                <li>
-                  <code>chmod 755 script.sh</code> – tulajdonos futtathatja,
-                  mások csak olvashatják.
-                </li>
-                <li><code>chmod +x script.sh</code> – futtathatóvá teszi.</li>
-              </ul>
-            </li>
-            <li>
-              <b><code>ps</code> – folyamatok listázása</b>
-              <ul>
-                <li>Megmutatja a futó programokat (processzeket).</li>
-                <li><code>ps</code> – egyszerű lista</li>
-                <li><code>ps aux</code> – minden folyamat részletesen.</li>
-              </ul>
-            </li>
-            <li>
-              <b><code>systemctl</code> – szolgáltatások kezelése</b>
-              <ul>
-                <li>
-                  Elindít, leállít vagy újraindít rendszer-szolgáltatásokat (pl.
-                  webserver, adatbázis).
-                </li>
-                <li>
-                  <code>systemctl start apache2</code> – szolgáltatás indítása
-                </li>
-                <li>
-                  <code>systemctl stop apache2</code> – szolgáltatás leállítása
-                </li>
-                <li><code>systemctl restart apache2</code> – újraindítás</li>
-                <li>
-                  <code>systemctl status apache2</code> – állapot lekérdezése.
-                </li>
-              </ul>
-            </li>
-            <li>
-              <b><code>ifconfig</code> – hálózati beállítások megtekintése</b>
-              <ul>
-                <li>
-                  Megmutatja a számítógép hálózati interfészeinek (pl. Wi-Fi,
-                  Ethernet) IP-címét és beállításait.
-                </li>
-                <li><code>ifconfig</code> – hálózati interfészek állapota</li>
-                <li><code>enp0s3</code> – Ethernet (vezetékes) kártya</li>
-                <li><code>wlp2s0</code> – Wi-Fi kártya</li>
-                <li><code>lo</code> – loopback (sajátgép, localhost)</li>
-                <li><code>ping 127.0.0.1</code> – sajátgép pinnelése</li>
+                        <li>
+                            <b
+                                ><code>mkdir</code> – könyvtár (mappa)
+                                létrehozása</b
+                            >
+                            <ul>
+                                <li>
+                                    Új mappát hoz létre az aktuális könyvtárban.
+                                </li>
+                                <li>
+                                    <code>mkdir tesztek</code> – létrehoz egy
+                                    "tesztek" nevű mappát.
+                                </li>
+                                <li>
+                                    <code>mkdir /home/felhasznalo/projekt</code>
+                                    – létrehoz egy mappát a megadott elérési
+                                    úton
+                                </li>
+                                <li>
+                                    <code>mkdir -v ujmappa</code> – a "-v"
+                                    kapcsoló: tájékoztat, hogy létrejött-e a
+                                    könyvtár (részletes kimenet).
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <b><code>cp</code> – másolás</b>
+                            <ul>
+                                <li>Fájlokat vagy mappákat másol.</li>
+                                <li>
+                                    <code
+                                        >cp fajl.txt
+                                        /home/felhasznalo/Asztal</code
+                                    >
+                                </li>
+                                <li>
+                                    <code>cp -r mappa /home/felhasznalo/</code>
+                                    – mappát rekurzívan (tartalommal együtt).
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <b><code>chmod</code> – jogosultságok módosítása</b>
+                            <ul>
+                                <li>
+                                    Átállítja, hogy ki olvashatja, írhatja vagy
+                                    futtathatja a fájlt.
+                                </li>
+                                <li>
+                                    <code>chmod 755 script.sh</code> –
+                                    tulajdonos futtathatja, mások csak
+                                    olvashatják.
+                                </li>
+                                <li>
+                                    <code>chmod +x script.sh</code> –
+                                    futtathatóvá teszi.
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <b><code>ps</code> – folyamatok listázása</b>
+                            <ul>
+                                <li>
+                                    Megmutatja a futó programokat
+                                    (processzeket).
+                                </li>
+                                <li><code>ps</code> – egyszerű lista</li>
+                                <li>
+                                    <code>ps aux</code> – minden folyamat
+                                    részletesen.
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <b
+                                ><code>systemctl</code> – szolgáltatások
+                                kezelése</b
+                            >
+                            <ul>
+                                <li>
+                                    Elindít, leállít vagy újraindít
+                                    rendszer-szolgáltatásokat (pl. webserver,
+                                    adatbázis).
+                                </li>
+                                <li>
+                                    <code>systemctl start apache2</code> –
+                                    szolgáltatás indítása
+                                </li>
+                                <li>
+                                    <code>systemctl stop apache2</code> –
+                                    szolgáltatás leállítása
+                                </li>
+                                <li>
+                                    <code>systemctl restart apache2</code> –
+                                    újraindítás
+                                </li>
+                                <li>
+                                    <code>systemctl status apache2</code> –
+                                    állapot lekérdezése.
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <b
+                                ><code>ifconfig</code> – hálózati beállítások
+                                megtekintése</b
+                            >
+                            <ul>
+                                <li>
+                                    Megmutatja a számítógép hálózati
+                                    interfészeinek (pl. Wi-Fi, Ethernet)
+                                    IP-címét és beállításait.
+                                </li>
+                                <li>
+                                    <code>ifconfig</code> – hálózati interfészek
+                                    állapota
+                                </li>
+                                <li>
+                                    <code>enp0s3</code> – Ethernet (vezetékes)
+                                    kártya
+                                </li>
+                                <li><code>wlp2s0</code> – Wi-Fi kártya</li>
+                                <li>
+                                    <code>lo</code> – loopback (sajátgép,
+                                    localhost)
+                                </li>
+                                <li>
+                                    <code>ping 127.0.0.1</code> – sajátgép
+                                    pinnelése
+                                </li>
 
-                <li>
-                  <small
-                    >(Újabb rendszereken helyette: <code>ip a</code>)</small
-                  >
+                                <li>
+                                    <small
+                                        >(Újabb rendszereken helyette:
+                                        <code>ip a</code>)</small
+                                    >
+                                </li>
+                                <li>
+                                    <code>route n</code> – átjáró megjelenítése,
+                                    ezen kommunikál a gépünk azokkal akik
+                                    nincsenek vele egy hálózaton
+                                </li>
+
+                                <li>
+                                    <code>arp -a </code> – segítségével
+                                    felderíteni a hálózaton lévő eszközöket
+                                </li>
+
+                                <li>
+                                    <code>traceroute 8.8.8.8 </code> –
+                                    Windows-on
+                                    <code>tracert</code>
+                                    paranccsal segítségével meg tudjuk nézni,
+                                    hogy a gépünk milyen útvonalon keresztül éri
+                                    el a megadott IP-címet, és mennyi időbe
+                                    telik az egyes útvonalpontok elérése.
+                                    (8.8.8.8 -> dns.google)
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
                 </li>
                 <li>
-                  <code>route n</code> – átjáró megjelenítése, ezen kommunikál a
-                  gépünk azokkal akik nincsenek vele egy hálózaton
-                </li>
-
-                <li>
-                  <code>arp -a </code> – segítségével felderíteni a hálózaton
-                  lévő eszközöket
-                </li>
-
-                <li>
-                  <code>traceroute 8.8.8.8 </code> – Windows-on
-                  <code>tracert</code>
-                  paranccsal segítségével meg tudjuk nézni, hogy a gépünk milyen
-                  útvonalon keresztül éri el a megadott IP-címet, és mennyi
-                  időbe telik az egyes útvonalpontok elérése. (8.8.8.8 ->
-                  dns.google)
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <b>Egyszerű szoftvertelepítés:</b> <code>apt</code>, <code>yum</code>.
-        </li>
-        <li>
-          <b>Virtualizáció:</b> VirtualBox vagy VMware – készíts több virtuális
-          gépet, hálózatot konfigurálj.
-        </li>
-        <li>
-          <b>Android:</b> Android eszköz csatlakoztatása, logok lekérése
-          (Android Debug Bridge – ADB).
-        </li>
-      </ul>
-
-      <h3>Diskpart parancssori eszköz</h3>
-      <p>
-        Ez egy <strong>haladó, parancssoros eszköz</strong>, amivel részletesen
-        vezérelhetjük a lemezeket.
-      </p>
-      <p>
-        <strong>Elindítása:</strong> Futtatás rendszergazdaként:
-        <code>cmd</code> → <code>diskpart</code>
-      </p>
-
-      <h4>Gyakori parancsok:</h4>
-      <ul>
-        <li><code>list disk</code> – megjeleníti a lemezeket.</li>
-        <li><code>select disk X</code> – kiválasztja az X számú lemezt.</li>
-        <li>
-          <code>list partition</code> – a kiválasztott lemez partícióit
-          listázza.
-        </li>
-        <li>
-          <code>create partition primary size=10240</code> – új elsődleges
-          partíció létrehozása (pl. 10 GB).
-        </li>
-        <li><code>format fs=ntfs quick</code> – NTFS formázás gyors módban.</li>
-        <li><code>assign letter=E</code> – meghajtóbetűjel kiosztása.</li>
-        <li><code>delete partition</code> – partíció törlése.</li>
-      </ul>
-
-      <p>
-        <strong>Előnye:</strong> Olyan műveletek is elérhetők vele, amiket a
-        Lemezkezelő GUI nem enged (pl. MBR/GPT konverzió, teljes lemez törlése).
-      </p>
-    </div>
-
-    <div class="section">
-      <h2>3. Forráskód módosítás, fordítás, linkelés</h2>
-      <ul>
-        <li>
-          <b>Programozási alapismeretek:</b> Legalább C/C++ vagy C# alapszint
-          (változók, vezérlési szerkezetek, függvények).
-        </li>
-        <li>
-          <b>Build folyamat:</b> Visual Studio használata (projektek megnyitása,
-          fordítás).
-        </li>
-        <li><b>GCC / Makefile alapok:</b> Ha Linux oldalon kell dolgozni.</li>
-        <li>
-          <b>Verziókezelés:</b> Git alapok (klónozás, commit, push/pull,
-          branch).
-        </li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>4. Továbbfejlesztési javaslatok, együttműködés fejlesztőkkel</h2>
-      <ul>
-        <li>
-          <b>Kommunikáció:</b> Hibák és ötletek világos, rövid összefoglalása
-          (pl. „user story” formában).
-        </li>
-        <li>
-          <b>Dokumentáció:</b> Jegyzetek készítése, képernyőképek,
-          jegyzőkönyvek.
-        </li>
-        <li>
-          <b>Agilis módszertan:</b> Ismerkedj a Scrum / Kanban alapjaival (pl.
-          napi standup, backlog).
-        </li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>5. Rendszer bemutatása, oktatás</h2>
-      <ul>
-        <li>
-          <b>Prezentációkészítés:</b> PowerPoint alapok, képernyőfelvételek,
-          struktúrált oktatási anyagok készítése.
-        </li>
-        <li>
-          <b>Előadói készségek:</b> Próbálj ki magyarázni egyszerű feladatokat
-          ismerősnek (tanuld meg érthetően átadni az infót).
-        </li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>6. Felhasználók támogatása</h2>
-      <ul>
-        <li>
-          <b>Távoli elérés:</b> TeamViewer, RDP, AnyDesk – kapcsolatfelvétel és
-          alap hibaelhárítás.
-        </li>
-        <li>
-          <b>Ügyfélkommunikáció:</b> Udvarias, lényegretörő emailírás; alap
-          problémamegoldási forgatókönyvek.
-        </li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>7. Hálózati alapismeretek</h2>
-      <ul>
-        <li>
-          <b>IP-címzés, DHCP, DNS:</b> Ismerd meg az alapokat (pl. hogyan
-          ellenőrzöd <code>ipconfig /all</code> (Windows)/<code>ifconfig</code>
-          (Linux) paranccsal).
-        </li>
-        <li>
-          <b>Tesztelés hálózaton:</b> <code>ping</code>, <code>tracert</code>,
-          portellenőrzés (<code>telnet</code>, <code>nc</code>).
-        </li>
-      </ul>
-
-      <h3>IP cím</h3>
-      <ul>
-        <li><b>Teljes nevén:</b> Internet Protocol (szabványos azonosító)</li>
-        <li>
-          Egyedi számsor, ami minden hálózatra csatlakozó eszközt azonosít (pl.
-          számítógép, telefon, nyomtató).
-        </li>
-        <li>
-          Olyan, mint egy lakcím: ezen keresztül találják meg egymást az
-          eszközök a hálózaton.
-        </li>
-        <li>
-          <b>Két fajtája van:</b>
-          <ul>
-            <li>
-              <b>IPv4:</b> pl. <code>192.168.1.5</code> (32 bit, 4 db 0-255
-              közötti szám, oktet)
-            </li>
-            <li>
-              <b>IPv6:</b> hosszabb, 128 bit, 8 db 4-es blokkból áll (hextet)
-            </li>
-          </ul>
-        </li>
-        <li>
-          Az IP cím logikai cím, ami változhat (pl. router újraindítás után).
-        </li>
-        <li>
-          <b>Külső IP:</b>
-          <a href="https://whatismyipaddress.com/" target="_blank"
-            >What is my IP</a
-          >
-          oldalon nézhető.
-        </li>
-        <li>
-          <b>Belső IP:</b> Windows parancssorban: <code>ipconfig /all</code>
-        </li>
-      </ul>
-      <h3>Hogyan lehet IP címe egy gépnek?</h3>
-      <ul>
-        <li><b>Statikus IP:</b> Kézzel állítod be a gépen.</li>
-        <li>
-          <b>DHCP </b> szervertől kapja. (A szerver lehet egy router.)
-          <ul>
-            <li>
-              Ha nincs a hálózaton DHCP, akkor kézzel kell megadni az IP címet.
-            </li>
-            <li>
-              Ha van DHCP, akkor a gép automatikusan kap egy IP címet, amikor
-              csatlakozik a hálózathoz.
-            </li>
-            <li>
-              Alapvetően igyekszik ugyanannak a gépnek ugyanazt az IP címet
-              adni, van memóriája, de ha az IP cím már foglalt, akkor másikat
-              ad.
-            </li>
-          </ul>
-        </li>
-      </ul>
-
-      <h4>Mi az a netmaszk?</h4>
-      A netmaszk (vagy alhálózati maszk) egy 32 bites bitmaszk, amely IPv4-cím
-      esetén megmutatja, hogy az adott IP cím hány bitje azonosítja a hálózatot
-      és hány bit a gazdagépet.<br />
-      A bitmaszk bináris formában egymás után következő 1-esekből (hálózati
-      rész) és 0-ásokból (hoszt rész) áll. Például a 255.255.255.0 maszk
-      binárisan 11111111.11111111.11111111.00000000 és jelöli a /24
-      címtartományt. Ha azonos a gépet netmaszkja, akkor látják egymást a
-      hálózaton. Ha különböző switch-en vannak, akkor is látják egymást.<br />
-      <br />
-      <br />
-      <img
-        src="netmask.png"
-        alt="Subnet mask"
-        align="https://www.fourfaith.com/industry-news/what-is-netmask.html"
-      />
-
-      <h3>MAC cím</h3>
-      <ul>
-        <li><b>Teljes nevén:</b> Media Access Control cím</li>
-        <li>Fizikai azonosító, amit a hálózati kártya gyártásakor kap.</li>
-        <li>
-          Egyedi az egész világon (mint egy sorozatszám): pl.
-          <code>00:1A:2B:3C:4D:5E</code>
-        </li>
-        <li>
-          A hálózaton belül segít eldönteni, melyik adatcsomag melyik eszközhöz
-          menjen.
-        </li>
-        <li>Általában nem változik (de vannak technikák a módosítására).</li>
-      </ul>
-
-      <h3>DHCP</h3>
-      <ul>
-        <li><b>Teljes nevén:</b> Dynamic Host Configuration Protocol</li>
-        <li>
-          Szolgáltatás/protokoll, ami automatikusan ad IP címet az eszközödnek.
-        </li>
-        <li>
-          Ha csatlakozol egy Wi-Fi-hez, nem kell kézzel beírnod az IP címet – a
-          DHCP szerver kiosztja neked.
-        </li>
-        <li>
-          Egy router gyakran DHCP szerverként működik otthoni hálózatokban.
-        </li>
-        <li>
-          Nemcsak IP címet ad, hanem más beállításokat is: pl. alapértelmezett
-          átjáró (gateway), DNS szerver címe.
-        </li>
-      </ul>
-
-      <h3>Fogalmak röviden</h3>
-      <table>
-        <tr>
-          <th>Fogalom</th>
-          <th>Jelentés</th>
-        </tr>
-        <tr>
-          <td>IP cím</td>
-          <td>
-            Egyedi hálózati cím, ami az eszközöket az interneten vagy helyi
-            hálózaton azonosítja.
-          </td>
-        </tr>
-        <tr>
-          <td>MAC cím</td>
-          <td>
-            Egyedi hardverazonosító cím, amit a hálózati eszköz gyártásakor kap.
-          </td>
-        </tr>
-        <tr>
-          <td>DHCP</td>
-          <td>
-            Egy protokoll, ami automatikusan kiosztja az IP címeket és egyéb
-            hálózati beállításokat.
-          </td>
-        </tr>
-      </table>
-
-      <h3>Internet nélkül is működik a helyi hálózat?</h3>
-      <div class="tip">
-        Internet <b>nem kell</b> ahhoz, hogy számítógépek kommunikáljanak
-        egymással egy helyi hálózaton (LAN) belül.
-      </div>
-      <h3>Hogyan köss össze 3 gépet internet nélkül?</h3>
-      <ol>
-        <li>
-          <b>Router / switch / hub használatával</b>
-          <ul>
-            <li>
-              Kell: 1 router vagy switch, Ethernet kábelek, 3 számítógép LAN
-              kártyával
-            </li>
-            <li>
-              Lépések:
-              <ol>
-                <li>
-                  Minden gépet kábellel csatlakoztatsz a routerhez vagy
-                  switchhez.
+                    <b>Egyszerű szoftvertelepítés:</b> <code>apt</code>,
+                    <code>yum</code>.
                 </li>
                 <li>
-                  A gépek automatikusan láthatják egymást (ha a tűzfal nem
-                  tiltja).
+                    <b>Virtualizáció:</b> VirtualBox vagy VMware – készíts több
+                    virtuális gépet, hálózatot konfigurálj.
                 </li>
-                <li>Ha van DHCP a routeren: kioszt IP-címeket.</li>
                 <li>
-                  Ha nincs DHCP: állíts be statikus IP-címet kézzel (pl.
-                  192.168.1.2, 192.168.1.3, 192.168.1.4).
+                    <b>Android:</b> Android eszköz csatlakoztatása, logok
+                    lekérése (Android Debug Bridge – ADB).
                 </li>
-              </ol>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <b>Közvetlen összekötés</b>
-          <ul>
-            <li>
-              Régen cross-over kábel kellett, ma már a legtöbb hálózati kártya
-              automatikusan érzékeli.
-            </li>
-            <li>
-              3 géphez bonyolult, mert csak 2 gépet lehet közvetlenül összekötni
-              egy kábellel.
-            </li>
-            <li>Több géphez mindenképp kell egy switch vagy router!</li>
-          </ul>
-        </li>
-        <li>
-          <b>Wi-Fi Ad-hoc</b>
-          <ul>
-            <li>
-              Egy gép létrehoz egy Wi-Fi hotspotot (Access Point), a másik 2 gép
-              rácsatlakozik.
-            </li>
-            <li>Ez is csak helyi kapcsolat, nincs internet.</li>
-          </ul>
-        </li>
-      </ol>
-      <h4>Példa statikus IP-vel:</h4>
-      <ul>
-        <li>Gép 1 IP: <code>192.168.1.2</code></li>
-        <li>Gép 2 IP: <code>192.168.1.3</code></li>
-        <li>Gép 3 IP: <code>192.168.1.4</code></li>
-        <li>Alhálózati maszk: <code>255.255.255.0</code></li>
-        <li>Átjáró: hagyható üresen (nincs internet)</li>
-      </ul>
-      <h3>Mire jó?</h3>
-      <ul>
-        <li>Fájlmegosztás</li>
-        <li>Lokális játékok (LAN game)</li>
-        <li>Szerver–kliens tesztelés</li>
-        <li>Nyomtató megosztás</li>
-      </ul>
+            </ul>
 
-      <h3>Összefoglaló táblázat</h3>
-      <table>
-        <tr>
-          <th>Kellék</th>
-          <th>Mit csinálj?</th>
-        </tr>
-        <tr>
-          <td>Switch/Router</td>
-          <td>Minden gépet kábellel csatlakoztass.</td>
-        </tr>
-        <tr>
-          <td>Ethernet kábel</td>
-          <td>3 géphez mindenképp switch/router kell.</td>
-        </tr>
-        <tr>
-          <td>Wi-Fi Ad-hoc</td>
-          <td>Egy gép hoz létre hotspotot, a többiek csatlakoznak.</td>
-        </tr>
-        <tr>
-          <td>IP-címek</td>
-          <td>Ha nincs DHCP, kézzel add meg a címeket.</td>
-        </tr>
-      </table>
+            <h3>Diskpart parancssori eszköz</h3>
+            <p>
+                Ez egy <strong>haladó, parancssoros eszköz</strong>, amivel
+                részletesen vezérelhetjük a lemezeket.
+            </p>
+            <p>
+                <strong>Elindítása:</strong> Futtatás rendszergazdaként:
+                <code>cmd</code> → <code>diskpart</code>
+            </p>
 
-      <h3>Helyi hálózat (LAN) kialakítása (internet nélkül)</h3>
-      <ol>
-        <li>
-          <b>Mi az, hogy hálózat?</b>
-          <div>
-            Egy hálózat (LAN) összeköti az eszközöket, hogy tudjanak egymással
-            adatot cserélni (pl. fájlmegosztás, közös nyomtató, LAN játék, helyi
-            szerver).
-          </div>
-        </li>
-        <li>
-          <b>Miket kell hozzá kitalálni?</b>
-          <ul>
-            <li>
-              <b>Milyen eszközök lesznek?</b> (PC-k, laptopok, nyomtató stb.)
-            </li>
-            <li>
-              <b>Hogy kötöd össze őket?</b>
-              <ul>
+            <h4>Gyakori parancsok:</h4>
+            <ul>
+                <li><code>list disk</code> – megjeleníti a lemezeket.</li>
                 <li>
-                  Vezetékes LAN: Ethernet kábellel (UTP) → routerhez vagy
-                  switchhez dugod az eszközöket.
+                    <code>select disk X</code> – kiválasztja az X számú lemezt.
                 </li>
                 <li>
-                  Vezeték nélküli LAN (Wi-Fi): Egy router biztosítja a Wi-Fi-t
-                  vagy létrehozol egy Ad-hoc Wi-Fi hálózatot.
+                    <code>list partition</code> – a kiválasztott lemez
+                    partícióit listázza.
                 </li>
-              </ul>
-            </li>
-            <li>
-              <b>Kell IP-cím terv!</b>
-              <ul>
-                <li>DHCP-vel: router automatikusan kiosztja.</li>
                 <li>
-                  Statikus IP-vel: kézzel állítod be (pl. 192.168.1.2 –
-                  192.168.1.254)
+                    <code>create partition primary size=10240</code> – új
+                    elsődleges partíció létrehozása (pl. 10 GB).
                 </li>
-                <li>Alhálózati maszk: 255.255.255.0</li>
-                <li>Átjáró: lehet üres (nincs internet)</li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <b>Példa: 3 gépes LAN routerrel</b>
-          <pre>
+                <li>
+                    <code>format fs=ntfs quick</code> – NTFS formázás gyors
+                    módban.
+                </li>
+                <li>
+                    <code>assign letter=E</code> – meghajtóbetűjel kiosztása.
+                </li>
+                <li><code>delete partition</code> – partíció törlése.</li>
+            </ul>
+
+            <p>
+                <strong>Előnye:</strong> Olyan műveletek is elérhetők vele,
+                amiket a Lemezkezelő GUI nem enged (pl. MBR/GPT konverzió,
+                teljes lemez törlése).
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>3. Forráskód módosítás, fordítás, linkelés</h2>
+            <ul>
+                <li>
+                    <b>Programozási alapismeretek:</b> Legalább C/C++ vagy C#
+                    alapszint (változók, vezérlési szerkezetek, függvények).
+                </li>
+                <li>
+                    <b>Build folyamat:</b> Visual Studio használata (projektek
+                    megnyitása, fordítás).
+                </li>
+                <li>
+                    <b>GCC / Makefile alapok:</b> Ha Linux oldalon kell
+                    dolgozni.
+                </li>
+                <li>
+                    <b>Verziókezelés:</b> Git alapok (klónozás, commit,
+                    push/pull, branch).
+                </li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>
+                4. Továbbfejlesztési javaslatok, együttműködés fejlesztőkkel
+            </h2>
+            <ul>
+                <li>
+                    <b>Kommunikáció:</b> Hibák és ötletek világos, rövid
+                    összefoglalása (pl. „user story” formában).
+                </li>
+                <li>
+                    <b>Dokumentáció:</b> Jegyzetek készítése, képernyőképek,
+                    jegyzőkönyvek.
+                </li>
+                <li>
+                    <b>Agilis módszertan:</b> Ismerkedj a Scrum / Kanban
+                    alapjaival (pl. napi standup, backlog).
+                </li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>5. Rendszer bemutatása, oktatás</h2>
+            <ul>
+                <li>
+                    <b>Prezentációkészítés:</b> PowerPoint alapok,
+                    képernyőfelvételek, struktúrált oktatási anyagok készítése.
+                </li>
+                <li>
+                    <b>Előadói készségek:</b> Próbálj ki magyarázni egyszerű
+                    feladatokat ismerősnek (tanuld meg érthetően átadni az
+                    infót).
+                </li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>6. Felhasználók támogatása</h2>
+            <ul>
+                <li>
+                    <b>Távoli elérés:</b> TeamViewer, RDP, AnyDesk –
+                    kapcsolatfelvétel és alap hibaelhárítás.
+                </li>
+                <li>
+                    <b>Ügyfélkommunikáció:</b> Udvarias, lényegretörő emailírás;
+                    alap problémamegoldási forgatókönyvek.
+                </li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>7. Hálózati alapismeretek</h2>
+            <ul>
+                <li>
+                    <b>IP-címzés, DHCP, DNS:</b> Ismerd meg az alapokat (pl.
+                    hogyan ellenőrzöd <code>ipconfig /all</code> (Windows)/<code
+                        >ifconfig</code
+                    >
+                    (Linux) paranccsal).
+                </li>
+                <li>
+                    <b>Tesztelés hálózaton:</b> <code>ping</code>,
+                    <code>tracert</code>, portellenőrzés (<code>telnet</code>,
+                    <code>nc</code>).
+                </li>
+            </ul>
+
+            <h3>IP cím</h3>
+            <ul>
+                <li>
+                    <b>Teljes nevén:</b> Internet Protocol (szabványos
+                    azonosító)
+                </li>
+                <li>
+                    Egyedi számsor, ami minden hálózatra csatlakozó eszközt
+                    azonosít (pl. számítógép, telefon, nyomtató).
+                </li>
+                <li>
+                    Olyan, mint egy lakcím: ezen keresztül találják meg egymást
+                    az eszközök a hálózaton.
+                </li>
+                <li>
+                    <b>Két fajtája van:</b>
+                    <ul>
+                        <li>
+                            <b>IPv4:</b> pl. <code>192.168.1.5</code> (32 bit, 4
+                            db 0-255 közötti szám, oktet)
+                        </li>
+                        <li>
+                            <b>IPv6:</b> hosszabb, 128 bit, 8 db 4-es blokkból
+                            áll (hextet)
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    Az IP cím logikai cím, ami változhat (pl. router újraindítás
+                    után).
+                </li>
+                <li>
+                    <b>Külső IP:</b>
+                    <a href="https://whatismyipaddress.com/" target="_blank"
+                        >What is my IP</a
+                    >
+                    oldalon nézhető.
+                </li>
+                <li>
+                    <b>Belső IP:</b> Windows parancssorban:
+                    <code>ipconfig /all</code>
+                </li>
+            </ul>
+            <h3>Hogyan lehet IP címe egy gépnek?</h3>
+            <ul>
+                <li><b>Statikus IP:</b> Kézzel állítod be a gépen.</li>
+                <li>
+                    <b>DHCP </b> szervertől kapja. (A szerver lehet egy router.)
+                    <ul>
+                        <li>
+                            Ha nincs a hálózaton DHCP, akkor kézzel kell megadni
+                            az IP címet.
+                        </li>
+                        <li>
+                            Ha van DHCP, akkor a gép automatikusan kap egy IP
+                            címet, amikor csatlakozik a hálózathoz.
+                        </li>
+                        <li>
+                            Alapvetően igyekszik ugyanannak a gépnek ugyanazt az
+                            IP címet adni, van memóriája, de ha az IP cím már
+                            foglalt, akkor másikat ad.
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h4>Mi az a netmaszk?</h4>
+            A netmaszk (vagy alhálózati maszk) egy 32 bites bitmaszk, amely
+            IPv4-cím esetén megmutatja, hogy az adott IP cím hány bitje
+            azonosítja a hálózatot és hány bit a gazdagépet.<br />
+            A bitmaszk bináris formában egymás után következő 1-esekből
+            (hálózati rész) és 0-ásokból (hoszt rész) áll. Például a
+            255.255.255.0 maszk binárisan 11111111.11111111.11111111.00000000 és
+            jelöli a /24 címtartományt. Ha azonos a gépet netmaszkja, akkor
+            látják egymást a hálózaton. Ha különböző switch-en vannak, akkor is
+            látják egymást.<br />
+            <br />
+            <br />
+            <img
+                src="netmask.png"
+                alt="Subnet mask"
+                align="https://www.fourfaith.com/industry-news/what-is-netmask.html"
+            />
+
+            <h3>MAC cím</h3>
+            <ul>
+                <li><b>Teljes nevén:</b> Media Access Control cím</li>
+                <li>
+                    Fizikai azonosító, amit a hálózati kártya gyártásakor kap.
+                </li>
+                <li>
+                    Egyedi az egész világon (mint egy sorozatszám): pl.
+                    <code>00:1A:2B:3C:4D:5E</code>
+                </li>
+                <li>
+                    A hálózaton belül segít eldönteni, melyik adatcsomag melyik
+                    eszközhöz menjen.
+                </li>
+                <li>
+                    Általában nem változik (de vannak technikák a módosítására).
+                </li>
+            </ul>
+
+            <h3>DHCP</h3>
+            <ul>
+                <li>
+                    <b>Teljes nevén:</b> Dynamic Host Configuration Protocol
+                </li>
+                <li>
+                    Szolgáltatás/protokoll, ami automatikusan ad IP címet az
+                    eszközödnek.
+                </li>
+                <li>
+                    Ha csatlakozol egy Wi-Fi-hez, nem kell kézzel beírnod az IP
+                    címet – a DHCP szerver kiosztja neked.
+                </li>
+                <li>
+                    Egy router gyakran DHCP szerverként működik otthoni
+                    hálózatokban.
+                </li>
+                <li>
+                    Nemcsak IP címet ad, hanem más beállításokat is: pl.
+                    alapértelmezett átjáró (gateway), DNS szerver címe.
+                </li>
+            </ul>
+
+            <h3>Fogalmak röviden</h3>
+            <table>
+                <tr>
+                    <th>Fogalom</th>
+                    <th>Jelentés</th>
+                </tr>
+                <tr>
+                    <td>IP cím</td>
+                    <td>
+                        Egyedi hálózati cím, ami az eszközöket az interneten
+                        vagy helyi hálózaton azonosítja.
+                    </td>
+                </tr>
+                <tr>
+                    <td>MAC cím</td>
+                    <td>
+                        Egyedi hardverazonosító cím, amit a hálózati eszköz
+                        gyártásakor kap.
+                    </td>
+                </tr>
+                <tr>
+                    <td>DHCP</td>
+                    <td>
+                        Egy protokoll, ami automatikusan kiosztja az IP címeket
+                        és egyéb hálózati beállításokat.
+                    </td>
+                </tr>
+            </table>
+
+            <h3>Internet nélkül is működik a helyi hálózat?</h3>
+            <div class="tip">
+                Internet <b>nem kell</b> ahhoz, hogy számítógépek
+                kommunikáljanak egymással egy helyi hálózaton (LAN) belül.
+            </div>
+            <h3>Hogyan köss össze 3 gépet internet nélkül?</h3>
+            <ol>
+                <li>
+                    <b>Router / switch / hub használatával</b>
+                    <ul>
+                        <li>
+                            Kell: 1 router vagy switch, Ethernet kábelek, 3
+                            számítógép LAN kártyával
+                        </li>
+                        <li>
+                            Lépések:
+                            <ol>
+                                <li>
+                                    Minden gépet kábellel csatlakoztatsz a
+                                    routerhez vagy switchhez.
+                                </li>
+                                <li>
+                                    A gépek automatikusan láthatják egymást (ha
+                                    a tűzfal nem tiltja).
+                                </li>
+                                <li>
+                                    Ha van DHCP a routeren: kioszt IP-címeket.
+                                </li>
+                                <li>
+                                    Ha nincs DHCP: állíts be statikus IP-címet
+                                    kézzel (pl. 192.168.1.2, 192.168.1.3,
+                                    192.168.1.4).
+                                </li>
+                            </ol>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <b>Közvetlen összekötés</b>
+                    <ul>
+                        <li>
+                            Régen cross-over kábel kellett, ma már a legtöbb
+                            hálózati kártya automatikusan érzékeli.
+                        </li>
+                        <li>
+                            3 géphez bonyolult, mert csak 2 gépet lehet
+                            közvetlenül összekötni egy kábellel.
+                        </li>
+                        <li>
+                            Több géphez mindenképp kell egy switch vagy router!
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <b>Wi-Fi Ad-hoc</b>
+                    <ul>
+                        <li>
+                            Egy gép létrehoz egy Wi-Fi hotspotot (Access Point),
+                            a másik 2 gép rácsatlakozik.
+                        </li>
+                        <li>Ez is csak helyi kapcsolat, nincs internet.</li>
+                    </ul>
+                </li>
+            </ol>
+            <h4>Példa statikus IP-vel:</h4>
+            <ul>
+                <li>Gép 1 IP: <code>192.168.1.2</code></li>
+                <li>Gép 2 IP: <code>192.168.1.3</code></li>
+                <li>Gép 3 IP: <code>192.168.1.4</code></li>
+                <li>Alhálózati maszk: <code>255.255.255.0</code></li>
+                <li>Átjáró: hagyható üresen (nincs internet)</li>
+            </ul>
+            <h3>Mire jó?</h3>
+            <ul>
+                <li>Fájlmegosztás</li>
+                <li>Lokális játékok (LAN game)</li>
+                <li>Szerver–kliens tesztelés</li>
+                <li>Nyomtató megosztás</li>
+            </ul>
+
+            <h3>Összefoglaló táblázat</h3>
+            <table>
+                <tr>
+                    <th>Kellék</th>
+                    <th>Mit csinálj?</th>
+                </tr>
+                <tr>
+                    <td>Switch/Router</td>
+                    <td>Minden gépet kábellel csatlakoztass.</td>
+                </tr>
+                <tr>
+                    <td>Ethernet kábel</td>
+                    <td>3 géphez mindenképp switch/router kell.</td>
+                </tr>
+                <tr>
+                    <td>Wi-Fi Ad-hoc</td>
+                    <td>
+                        Egy gép hoz létre hotspotot, a többiek csatlakoznak.
+                    </td>
+                </tr>
+                <tr>
+                    <td>IP-címek</td>
+                    <td>Ha nincs DHCP, kézzel add meg a címeket.</td>
+                </tr>
+            </table>
+
+            <h3>Helyi hálózat (LAN) kialakítása (internet nélkül)</h3>
+            <ol>
+                <li>
+                    <b>Mi az, hogy hálózat?</b>
+                    <div>
+                        Egy hálózat (LAN) összeköti az eszközöket, hogy tudjanak
+                        egymással adatot cserélni (pl. fájlmegosztás, közös
+                        nyomtató, LAN játék, helyi szerver).
+                    </div>
+                </li>
+                <li>
+                    <b>Miket kell hozzá kitalálni?</b>
+                    <ul>
+                        <li>
+                            <b>Milyen eszközök lesznek?</b> (PC-k, laptopok,
+                            nyomtató stb.)
+                        </li>
+                        <li>
+                            <b>Hogy kötöd össze őket?</b>
+                            <ul>
+                                <li>
+                                    Vezetékes LAN: Ethernet kábellel (UTP) →
+                                    routerhez vagy switchhez dugod az
+                                    eszközöket.
+                                </li>
+                                <li>
+                                    Vezeték nélküli LAN (Wi-Fi): Egy router
+                                    biztosítja a Wi-Fi-t vagy létrehozol egy
+                                    Ad-hoc Wi-Fi hálózatot.
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <b>Kell IP-cím terv!</b>
+                            <ul>
+                                <li>
+                                    DHCP-vel: router automatikusan kiosztja.
+                                </li>
+                                <li>
+                                    Statikus IP-vel: kézzel állítod be (pl.
+                                    192.168.1.2 – 192.168.1.254)
+                                </li>
+                                <li>Alhálózati maszk: 255.255.255.0</li>
+                                <li>Átjáró: lehet üres (nincs internet)</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <b>Példa: 3 gépes LAN routerrel</b>
+                    <pre>
 PC1 ──┐
        │
 PC2 ──┼─ Router/Switch ── (esetleg nyomtató)
        │
 PC3 ──┘
-          </pre>
-          <ol>
-            <li>
-              Csatlakoztasd a gépeket kábellel a routerhez vagy switchhez.
-            </li>
-            <li>
-              Ellenőrizd, hogy ugyanabban a hálózatban vannak (pl. minden gép
-              IP-je 192.168.1.x).
-            </li>
-            <li>
-              Engedélyezd a fájlmegosztást, ha szeretnél fájlokat átküldeni.
-            </li>
-            <li>
-              Próbáld ki: <code>ping</code> paranccsal ellenőrizd, látják-e
-              egymást (pl. <code>ping 192.168.1.3</code>).
-            </li>
-          </ol>
-        </li>
-        <li>
-          <b>Wi-Fi-s megoldás</b>
-          <ul>
-            <li>
-              Egy gép is csinálhat hotspotot (Ad-hoc), a többiek erre
-              csatlakoznak.
-            </li>
-            <li>
-              IP-cím kiosztás lehet automatikus (ha van DHCP szoftver) vagy
-              manuális.
-            </li>
-          </ul>
-        </li>
-        <li>
-          <b>Tűzfal</b>
-          <div class="warn">
-            Gyakori hiba: a Windows tűzfal vagy vírusirtó blokkolja a
-            fájlmegosztást! Helyi hálózatnál engedélyezd a helyi forgalmat.
-          </div>
-        </li>
-      </ol>
-    </div>
+          </pre
+                    >
+                    <ol>
+                        <li>
+                            Csatlakoztasd a gépeket kábellel a routerhez vagy
+                            switchhez.
+                        </li>
+                        <li>
+                            Ellenőrizd, hogy ugyanabban a hálózatban vannak (pl.
+                            minden gép IP-je 192.168.1.x).
+                        </li>
+                        <li>
+                            Engedélyezd a fájlmegosztást, ha szeretnél fájlokat
+                            átküldeni.
+                        </li>
+                        <li>
+                            Próbáld ki: <code>ping</code> paranccsal ellenőrizd,
+                            látják-e egymást (pl.
+                            <code>ping 192.168.1.3</code>).
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    <b>Wi-Fi-s megoldás</b>
+                    <ul>
+                        <li>
+                            Egy gép is csinálhat hotspotot (Ad-hoc), a többiek
+                            erre csatlakoznak.
+                        </li>
+                        <li>
+                            IP-cím kiosztás lehet automatikus (ha van DHCP
+                            szoftver) vagy manuális.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <b>Tűzfal</b>
+                    <div class="warn">
+                        Gyakori hiba: a Windows tűzfal vagy vírusirtó blokkolja
+                        a fájlmegosztást! Helyi hálózatnál engedélyezd a helyi
+                        forgalmat.
+                    </div>
+                </li>
+            </ol>
+        </div>
 
-    <div class="section">
-      <h2>8. Szakmai angol</h2>
-      <ul>
-        <li>
-          <b>Angol technikai dokumentáció olvasása:</b> (pl. Microsoft Docs,
-          GitHub README).
-        </li>
-        <li>
-          <b>Tesztelés közben:</b> Angol nyelvű bugreport és changelog
-          megértése.
-        </li>
-      </ul>
-    </div>
+        <div class="section">
+            <h2>8. Szakmai angol</h2>
+            <ul>
+                <li>
+                    <b>Angol technikai dokumentáció olvasása:</b> (pl. Microsoft
+                    Docs, GitHub README).
+                </li>
+                <li>
+                    <b>Tesztelés közben:</b> Angol nyelvű bugreport és changelog
+                    megértése.
+                </li>
+            </ul>
+        </div>
 
-    <div class="section">
-      <h2>9. Microsoft DevOps Server</h2>
+        <div class="section">
+            <h2>9. Microsoft DevOps Server</h2>
 
-      <ul>
-        <li>Ingyenes verzió: Azure DevOps Server</li>
-      </ul>
-      <h3>9.1 Alapok</h3>
-      <h4>9.1.1 Mi az az Azure DevOps Server?</h4>
-      <p>
-        Egy Microsoft által fejlesztett eszköz, amivel a fejlesztőcsapatok meg
-        tudják tervezni, fejleszteni, tesztelni és kiadni a szoftvereiket.
-      </p>
-      <p>Régi nevén <em>Team Foundation Server (TFS)</em>.</p>
-      <p>
-        Cégek belső hálózatán is telepíthető (nem csak felhőben, mint az Azure
-        DevOps Services).
-      </p>
+            <ul>
+                <li>Ingyenes verzió: Azure DevOps Server</li>
+            </ul>
+            <h3>9.1 Alapok</h3>
+            <h4>9.1.1 Mi az az Azure DevOps Server?</h4>
+            <p>
+                Egy Microsoft által fejlesztett eszköz, amivel a
+                fejlesztőcsapatok meg tudják tervezni, fejleszteni, tesztelni és
+                kiadni a szoftvereiket.
+            </p>
+            <p>Régi nevén <em>Team Foundation Server (TFS)</em>.</p>
+            <p>
+                Cégek belső hálózatán is telepíthető (nem csak felhőben, mint az
+                Azure DevOps Services).
+            </p>
 
-      <h4>9.1.2 Mire való?</h4>
-      <p>Fő célja, hogy minden fejlesztési lépést egy helyen kezeljetek:</p>
-      <ul>
-        <li>
-          <strong>Tervezés</strong> – feladatok, hibajegyek, user story-k
-          nyilvántartása.
-        </li>
-        <li>
-          <strong>Kódkezelés</strong> – verziókövetés Git vagy TFVC (Team
-          Foundation Version Control) segítségével.
-        </li>
-        <li>
-          <strong>Automatizált build</strong> – a kód lefordítása, tesztek
-          futtatása.
-        </li>
-        <li>
-          <strong>Release (kiadás)</strong> – a kész szoftver telepítése teszt
-          vagy éles környezetbe.
-        </li>
-        <li>
-          <strong>Tesztelés</strong> – manuális és automatizált tesztek
-          kezelése.
-        </li>
-      </ul>
-      <img
-        src="Software_development_models.png"
-        alt=" Software development models"
-      />
+            <h4>9.1.2 Mire való?</h4>
+            <p>
+                Fő célja, hogy minden fejlesztési lépést egy helyen kezeljetek:
+            </p>
+            <ul>
+                <li>
+                    <strong>Tervezés</strong> – feladatok, hibajegyek, user
+                    story-k nyilvántartása.
+                </li>
+                <li>
+                    <strong>Kódkezelés</strong> – verziókövetés Git vagy TFVC
+                    (Team Foundation Version Control) segítségével.
+                </li>
+                <li>
+                    <strong>Automatizált build</strong> – a kód lefordítása,
+                    tesztek futtatása.
+                </li>
+                <li>
+                    <strong>Release (kiadás)</strong> – a kész szoftver
+                    telepítése teszt vagy éles környezetbe.
+                </li>
+                <li>
+                    <strong>Tesztelés</strong> – manuális és automatizált
+                    tesztek kezelése.
+                </li>
+            </ul>
+            <img
+                src="Software_development_models.png"
+                alt=" Software development models"
+            />
 
-      <h3>9.1.3 Fő részei (moduljai)</h3>
-      <ul>
-        <li>
-          <strong>Azure Boards</strong>
-          <ul>
-            <li>Feladatkezelő rendszer.</li>
-            <li>
-              Láthatod, ki mit csinál, milyen hibák vannak, hol tart a projekt.
-            </li>
-            <li>Kanban-tábla vagy Scrum sprintek formájában.</li>
-          </ul>
-        </li>
-        <li>
-          <strong>Azure Repos</strong>
-          <ul>
-            <li>Kód tárolása és verziókezelése Git vagy TFVC segítségével.</li>
-            <li>Itt vannak a pull requestek, branchek, merge-ek.</li>
-          </ul>
-        </li>
-        <li>
-          <strong>Azure Pipelines</strong>
-          <ul>
-            <li>
-              Automatizált folyamatok, amik a kódot:
-              <ul>
-                <li>Build-elik (lefordítják, csomagolják)</li>
-                <li>Tesztelik</li>
-                <li>Deploy-olják (telepítik)</li>
-              </ul>
-            </li>
-            <li>
-              CI/CD (Continuous Integration / Continuous Delivery)
-              megvalósítására.
-            </li>
-          </ul>
-        </li>
-        <li>
-          <strong>Azure Test Plans</strong>
-          <ul>
-            <li>Manuális és automatizált tesztek nyilvántartása, futtatása.</li>
-            <li>Tesztelési eredmények követése.</li>
-          </ul>
-        </li>
-        <li>
-          <strong>Azure Artifacts</strong>
-          <ul>
-            <li>
-              Különböző csomagok (NuGet, npm, Maven stb.) tárolása és megosztása
-              a csapaton belül.
-            </li>
-          </ul>
-        </li>
-      </ul>
+            <h3>9.1.3 Fő részei (moduljai)</h3>
+            <ul>
+                <li>
+                    <strong>Azure Boards</strong>
+                    <ul>
+                        <li>Feladatkezelő rendszer.</li>
+                        <li>
+                            Láthatod, ki mit csinál, milyen hibák vannak, hol
+                            tart a projekt.
+                        </li>
+                        <li>Kanban-tábla vagy Scrum sprintek formájában.</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Azure Repos</strong>
+                    <ul>
+                        <li>
+                            Kód tárolása és verziókezelése Git vagy TFVC
+                            segítségével.
+                        </li>
+                        <li>
+                            Itt vannak a pull requestek, branchek, merge-ek.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Azure Pipelines</strong>
+                    <ul>
+                        <li>
+                            Automatizált folyamatok, amik a kódot:
+                            <ul>
+                                <li>Build-elik (lefordítják, csomagolják)</li>
+                                <li>Tesztelik</li>
+                                <li>Deploy-olják (telepítik)</li>
+                            </ul>
+                        </li>
+                        <li>
+                            CI/CD (Continuous Integration / Continuous Delivery)
+                            megvalósítására.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Azure Test Plans</strong>
+                    <ul>
+                        <li>
+                            Manuális és automatizált tesztek nyilvántartása,
+                            futtatása.
+                        </li>
+                        <li>Tesztelési eredmények követése.</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Azure Artifacts</strong>
+                    <ul>
+                        <li>
+                            Különböző csomagok (NuGet, npm, Maven stb.) tárolása
+                            és megosztása a csapaton belül.
+                        </li>
+                    </ul>
+                </li>
+            </ul>
 
-      <h4>9.1.4 Hogyan illeszkedik a munkába?</h4>
-      <ol>
-        <li>A projektvezető beírja a feladatokat a Boards-ba.</li>
-        <li>A fejlesztő a Repos-ban dolgozik a kódon, commitol, pushol.</li>
-        <li>A Pipelines automatikusan buildel és tesztel.</li>
-        <li>A sikeres build után Release Pipeline telepíti a kódot.</li>
-        <li>
-          A tesztelők a Test Plans-ben rögzítik a hibákat, amiket visszadobnak a
-          fejlesztőknek.
-        </li>
-      </ol>
+            <h4>9.1.4 Hogyan illeszkedik a munkába?</h4>
+            <ol>
+                <li>A projektvezető beírja a feladatokat a Boards-ba.</li>
+                <li>
+                    A fejlesztő a Repos-ban dolgozik a kódon, commitol, pushol.
+                </li>
+                <li>A Pipelines automatikusan buildel és tesztel.</li>
+                <li>A sikeres build után Release Pipeline telepíti a kódot.</li>
+                <li>
+                    A tesztelők a Test Plans-ben rögzítik a hibákat, amiket
+                    visszadobnak a fejlesztőknek.
+                </li>
+            </ol>
 
-      <h4>9.1.5 Miért jó?</h4>
-      <ul>
-        <li><strong>Átlátható</strong> – mindenki látja, mi történik.</li>
-        <li>
-          <strong>Automatizált</strong> – nem kell kézzel telepítgetni vagy
-          fordítani.
-        </li>
-        <li>
-          <strong>Biztonságos</strong> – verziókezelés, jogosultságok, naplózás.
-        </li>
-        <li>
-          <strong>Rugalmas</strong> – kisebb és nagyobb csapatoknak is működik.
-        </li>
-      </ul>
-    </div>
+            <h4>9.1.5 Miért jó?</h4>
+            <ul>
+                <li>
+                    <strong>Átlátható</strong> – mindenki látja, mi történik.
+                </li>
+                <li>
+                    <strong>Automatizált</strong> – nem kell kézzel telepítgetni
+                    vagy fordítani.
+                </li>
+                <li>
+                    <strong>Biztonságos</strong> – verziókezelés, jogosultságok,
+                    naplózás.
+                </li>
+                <li>
+                    <strong>Rugalmas</strong> – kisebb és nagyobb csapatoknak is
+                    működik.
+                </li>
+            </ul>
+        </div>
 
-    <div class="section">
-      <h3>9.2 Alapfogalmak, kifejezések</h3>
+        <div class="section">
+            <h3>9.2 Alapfogalmak, kifejezések</h3>
 
-      A DevOps alapfogalmak és kulcselemek a következők:
+            A DevOps alapfogalmak és kulcselemek a következők:
 
-      <ul>
-        <li>
-          <strong>Folyamatos integráció (CI):</strong> A fejlesztés során a kód
-          változtatásait rendszeresen egy közös tárba integrálják, automatikus
-          teszteléssel biztosítva a minőséget.
-        </li>
+            <ul>
+                <li>
+                    <strong>Folyamatos integráció (CI):</strong> A fejlesztés
+                    során a kód változtatásait rendszeresen egy közös tárba
+                    integrálják, automatikus teszteléssel biztosítva a
+                    minőséget.
+                </li>
 
-        <li>
-          <strong>Folyamatos szállítás (Continuous Delivery, CD):</strong> Olyan
-          folyamat, amely biztosítja, hogy a kód mindig telepíthető állapotban
-          legyen, de a kiadás manuális jóváhagyáshoz kötött.
-        </li>
+                <li>
+                    <strong
+                        >Folyamatos szállítás (Continuous Delivery, CD):</strong
+                    >
+                    Olyan folyamat, amely biztosítja, hogy a kód mindig
+                    telepíthető állapotban legyen, de a kiadás manuális
+                    jóváhagyáshoz kötött.
+                </li>
 
-        <li>
-          <strong>Folyamatos bevezetés (Continuous Deployment):</strong> A
-          kódváltoztatások automatikus, kézi beavatkozás nélküli élesítését
-          jelenti.
-        </li>
+                <li>
+                    <strong
+                        >Folyamatos bevezetés (Continuous Deployment):</strong
+                    >
+                    A kódváltoztatások automatikus, kézi beavatkozás nélküli
+                    élesítését jelenti.
+                </li>
 
-        <li>
-          <strong
-            >Infrastruktúra mint kód (Infrastructure as Code, IaC):</strong
-          >
-          Az IT infrastruktúra programozott, automatizált kezelése, mely
-          biztosítja az állandóan azonos környezeteket fejlesztés és éles
-          rendszer között.
-        </li>
+                <li>
+                    <strong
+                        >Infrastruktúra mint kód (Infrastructure as Code,
+                        IaC):</strong
+                    >
+                    Az IT infrastruktúra programozott, automatizált kezelése,
+                    mely biztosítja az állandóan azonos környezeteket fejlesztés
+                    és éles rendszer között.
+                </li>
 
-        <li>
-          <strong>Automatizálás:</strong> Az ismétlődő feladatok automatizálása
-          a hibák minimalizálása és a gyorsabb kiadás érdekében.
-        </li>
+                <li>
+                    <strong>Automatizálás:</strong> Az ismétlődő feladatok
+                    automatizálása a hibák minimalizálása és a gyorsabb kiadás
+                    érdekében.
+                </li>
 
-        <li>
-          <strong>Megfigyelés és naplózás:</strong> A rendszerek folyamatos
-          figyelése a megfelelő működés és a gyors problémakezelés érdekében.
-        </li>
+                <li>
+                    <strong>Megfigyelés és naplózás:</strong> A rendszerek
+                    folyamatos figyelése a megfelelő működés és a gyors
+                    problémakezelés érdekében.
+                </li>
 
-        <li>
-          <strong>Együttműködés és kommunikáció:</strong> A fejlesztők,
-          tesztelők és üzemeltetők szoros, folyamatos együttműködése a teljes
-          szoftverfejlesztési életciklus során.
-        </li>
-      </ul>
+                <li>
+                    <strong>Együttműködés és kommunikáció:</strong> A
+                    fejlesztők, tesztelők és üzemeltetők szoros, folyamatos
+                    együttműködése a teljes szoftverfejlesztési életciklus
+                    során.
+                </li>
+            </ul>
 
-      A DevOps életciklus jellemzően a következő fázisokat foglalja magában:
-      tervezés, fejlesztés, integráció, tesztelés, bevezetés, megfigyelés és
-      visszajelzés.
-    </div>
+            A DevOps életciklus jellemzően a következő fázisokat foglalja
+            magában: tervezés, fejlesztés, integráció, tesztelés, bevezetés,
+            megfigyelés és visszajelzés.
+        </div>
 
-    <div class="section extra">
-      <b>Előnyt adó extra dolgok (ha időd van):</b>
-      <ul>
-        <li>Automatizált tesztelés: Pl. Selenium vagy Postman (API-teszt).</li>
-        <li>Microsoft DevOps Server: Feladatok, build pipeline-ok alapja.</li>
-        <li>
-          Alap rádió/telekommunikációs fogalmak (ha a cég profilja érinti).
-        </li>
-      </ul>
-    </div>
+        <div class="section extra">
+            <b>Előnyt adó extra dolgok (ha időd van):</b>
+            <ul>
+                <li>
+                    Automatizált tesztelés: Pl. Selenium vagy Postman
+                    (API-teszt).
+                </li>
+                <li>
+                    Microsoft DevOps Server: Feladatok, build pipeline-ok
+                    alapja.
+                </li>
+                <li>
+                    Alap rádió/telekommunikációs fogalmak (ha a cég profilja
+                    érinti).
+                </li>
+            </ul>
+        </div>
 
-    <button type="button" onclick="location.href='../../Main.html'">
-      Vissza
-    </button>
-    <br />
-    <div class="section">
-      <h3>Források</h3>
-      <ul style="list-style: none; padding-left: 0">
-        <li style="margin-bottom: 0.7em">
-          <a
-            href="ISTQB-CTFL-Syllabus-4.0-magyar.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            style="text-decoration: none; color: #fff; font-weight: bold"
-          >
-            📄 ISTQB-CTFL Syllabus 4.0 (magyar, PDF)
-          </a>
-        </li>
-        <li style="margin-bottom: 0.7em">
-          <span style="color: #fff; font-weight: bold"
-            >📝 Saját jegyzetek, melyeket a Ruander junior szoftvertesztelői
-            tanfolyamon készítettem.</span
-          >
-        </li>
-        <li>
-          <a
-            href="https://www.youtube.com/watch?v=x75rST1j2Oc&list=PLih210Tv6IOTG2SCA9W6zOPyE21k4t86a"
-            target="_blank"
-            style="text-decoration: none; color: #fff; font-weight: bold"
-          >
-            ▶️ YouTube: Hálózati alapismeretek playlist
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://www.youtube.com/watch?v=ZyQELacHYzU&list=PLX7PhJYdwFyD3q6J3LZhIz-Xx46ybBDvr"
-            target="_blank"
-            style="text-decoration: none; color: #fff; font-weight: bold"
-          >
-            ▶️ YouTube: Linux parancssor alapok playlist
-          </a>
-        </li>
+        <button type="button" onclick="location.href = '../../Main.html'">
+            Vissza
+        </button>
+        <br />
+        <div class="section">
+            <h3>Források</h3>
+            <ul style="list-style: none; padding-left: 0">
+                <li style="margin-bottom: 0.7em">
+                    <a
+                        href="ISTQB-CTFL-Syllabus-4.0-magyar.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style="
+                            text-decoration: none;
+                            color: #fff;
+                            font-weight: bold;
+                        "
+                    >
+                        📄 ISTQB-CTFL Syllabus 4.0 (magyar, PDF)
+                    </a>
+                </li>
+                <li style="margin-bottom: 0.7em">
+                    <span style="color: #fff; font-weight: bold"
+                        >📝 Saját jegyzetek, melyeket a Ruander junior
+                        szoftvertesztelői tanfolyamon készítettem.</span
+                    >
+                </li>
+                <li>
+                    <a
+                        href="https://www.youtube.com/watch?v=x75rST1j2Oc&list=PLih210Tv6IOTG2SCA9W6zOPyE21k4t86a"
+                        target="_blank"
+                        style="
+                            text-decoration: none;
+                            color: #fff;
+                            font-weight: bold;
+                        "
+                    >
+                        ▶️ YouTube: Hálózati alapismeretek playlist
+                    </a>
+                </li>
+                <li>
+                    <a
+                        href="https://www.youtube.com/watch?v=ZyQELacHYzU&list=PLX7PhJYdwFyD3q6J3LZhIz-Xx46ybBDvr"
+                        target="_blank"
+                        style="
+                            text-decoration: none;
+                            color: #fff;
+                            font-weight: bold;
+                        "
+                    >
+                        ▶️ YouTube: Linux parancssor alapok playlist
+                    </a>
+                </li>
 
-        <li>
-          <a
-            href="https://nixstech.com/hu/hirek/devops-interjukerdesek-es-valaszok-kezdoknek/"
-            target="_blank"
-            style="text-decoration: none; color: #fff; font-weight: bold"
-          >
-            📄 DevOps állásinterjún kezdőknek feltett leggyakoribb kérdések
-          </a>
-        </li>
+                <li>
+                    <a
+                        href="https://nixstech.com/hu/hirek/devops-interjukerdesek-es-valaszok-kezdoknek/"
+                        target="_blank"
+                        style="
+                            text-decoration: none;
+                            color: #fff;
+                            font-weight: bold;
+                        "
+                    >
+                        📄 DevOps állásinterjún kezdőknek feltett leggyakoribb
+                        kérdések
+                    </a>
+                </li>
 
-        <li>
-          <a
-            href="https://devopsakademia.com/course/devops-alapjai-eszkozkeszlet-kezdoknek/?order-complete=order-689ad3ed4e2ce"
-            target="_blank"
-            style="text-decoration: none; color: #fff; font-weight: bold"
-          >
-            📄 DevOps Alapjai Eszközkészlet Kezdőknek
-          </a>
-        </li>
+                <li>
+                    <a
+                        href="https://devopsakademia.com/course/devops-alapjai-eszkozkeszlet-kezdoknek/?order-complete=order-689ad3ed4e2ce"
+                        target="_blank"
+                        style="
+                            text-decoration: none;
+                            color: #fff;
+                            font-weight: bold;
+                        "
+                    >
+                        📄 DevOps Alapjai Eszközkészlet Kezdőknek
+                    </a>
+                </li>
 
-        <li>
-          <a
-            href="https://analyze.co.za/the-transition-to-devops/"
-            target="_blank"
-            style="text-decoration: none; color: #fff; font-weight: bold"
-          >
-            📄 The Transition to DevOps
-          </a>
-        </li>
-      </ul>
-    </div>
-  </body>
+                <li>
+                    <a
+                        href="https://analyze.co.za/the-transition-to-devops/"
+                        target="_blank"
+                        style="
+                            text-decoration: none;
+                            color: #fff;
+                            font-weight: bold;
+                        "
+                    >
+                        📄 The Transition to DevOps
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </body>
 </html>

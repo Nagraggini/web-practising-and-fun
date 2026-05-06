@@ -4,7 +4,6 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Main site</title>
-        <link rel="stylesheet" href="/src/css/main.css" />
     </head>
 
     <body>
@@ -12,7 +11,7 @@
         <header class="header">
             <nav>
                 <ul class="sidebar">
-                    <li onclick="hideSidebar()">
+                    <li class="close-sidebar">
                         <a href="#"
                             ><svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -31,7 +30,7 @@
 
                 <ul>
                     <img
-                        src="./assets/icons/unicorn.png"
+                        src="/assets/icons/unicorn.png"
                         alt="Unicorn"
                         class="unicorning"
                     />
@@ -45,9 +44,7 @@
                         <a href="./pages/about-me.html">About me</a>
                     </li>
 
-                    <!--TODO <li class="hideOnMobile"><a href="#">Settings</a></li>-->
-
-                    <li class="menu-button" onclick="showSidebar()">
+                    <li class="menu-button">
                         <a href="#"
                             ><svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -80,7 +77,7 @@
 
                     <a
                         class="btn colorful-animated-effect"
-                        href="./playgrounds/js-zero-to-expert/guess-my-number/guess-my-number.html"
+                        href="./apps/guess-my-number/index.html"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
@@ -94,6 +91,15 @@
                         rel="noopener noreferrer"
                     >
                         Questlog
+                    </a>
+
+                    <a
+                        class="btn colorful-animated-effect"
+                        href="./apps/rock-band/index.html"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Rock Band
                     </a>
 
                     <a
@@ -129,7 +135,7 @@
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    <img src="./src/assets/icons/small-link.png" alt="link" />
+                    <img src="/assets/icons/small-link.png" alt="link" />
                     My source code</a
                 >
 
@@ -139,7 +145,7 @@
                 </p>
             </div>
         </footer>
-        <script type="module" src="/src/js/main.js"></script>
+        <script type="module" src="./src/js/main.js"></script>
     </body>
 </html>
 <!--TODO: https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-custom-404-page-for-your-github-pages-site-->

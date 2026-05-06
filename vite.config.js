@@ -1,40 +1,37 @@
 import { defineConfig } from "vite";
-import { resolve } from "path";
+import { resolve, basename } from "path";
 
-// Konkrét mappáim listája - ez a "Whitelist"
+//Mappa nevekre figyelj.
 const VALID_APPS = [
     "for-a-new-job",
-    "guest-number",
+    "guess-my-number",
     "job-interview-q-and-a",
     "questlog",
     "rock-band",
 ];
 
-const requestedApp = process.env.APP_NAME || "";
-const isSubApp = VALID_APPS.includes(requestedApp);
-const appName = isSubApp ? requestedApp : "";
+// Megoldás: Object.create(null) használata, így az objektumnak nincsenek
+// sérülékeny prototípus metódusai (pl. __proto__), amiket támadni lehetne.
+const input = Object.assign(Object.create(null), {
+    main: resolve(__dirname, "index.html"), // A főoldal
+    about: resolve(__dirname, "pages/about-me.html"), // Másik aloldal.
+});
+
+VALID_APPS.forEach((app) => {
+    // Biztonsági ellenőrzés: csak akkor adjuk hozzá, ha nem egy tiltott kulcsszó
+    if (app !== "__proto__" && app !== "constructor") {
+        const safeApp = basename(app);
+        input[safeApp] = resolve(__dirname, "apps", safeApp, "index.html");
+    }
+});
 
 export default defineConfig({
-    // Ha al-appot buildelünk, az apps/mappa az alap, különben a gyökér
-    root: isSubApp ? resolve(__dirname, "apps", appName) : resolve(__dirname),
-
-    base: isSubApp ? `/web-projects/apps/${appName}/` : "/web-projects/",
+    base: "/web-projects/", // Fontos: Ha a repo neve web-projects, ez maradjon így
 
     build: {
-        // A kimeneti mappa is igazodik: dist/apps/név VAGY simán a dist/ gyökér
-        outDir: isSubApp
-            ? resolve(__dirname, "dist", "apps", appName)
-            : resolve(__dirname, "dist"),
-
-        emptyOutDir: isSubApp ? false : true, // A fő buildnél takarítunk, al-appnál nem töröljük a többit
-
+        outDir: "dist",
         rollupOptions: {
-            input: {
-                // Dinamikusan meghatározzuk a belépési pontot
-                main: isSubApp
-                    ? resolve(__dirname, "apps", appName, "index.html")
-                    : resolve(__dirname, "index.html"),
-            },
+            input: input, // Itt adjuk át az összes HTML-t
         },
     },
 });

@@ -14,24 +14,14 @@ ol {
     text-shadow: 2px 2px #22096b;
 }
 
-/*Saját betűkészlet importálása:*/
-@font-face {
-    font-family: "Momo Signature";
-    src: url("../../assets/fonts/Momo_Signature/MomoSignature-Regular.ttf")
-        format("truetype");
-}
-
 body {
     background-color: black;
     /*Saját betűkészlet használata:*/
-    font: normal 16px "Momo Signature";
+    font: normal 16px Arial;
     /*Sorok közötti magasság megadása:*/
     line-height: 1.6em;
     /*A sorok mekkora távolságra legyenek az oldal szélétől.*/
     margin: 10px;
-    background-image: url("../../assets/images/guitar.jpg");
-    background-repeat: no-repeat;
-    background-position: center top;
 }
 
 .box-2 img {
