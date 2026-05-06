@@ -1,55 +1,60 @@
-name: Deploy to GitHub Pages
+name: Full Pipeline (Build + Test + Deploy)
 
 on:
     push:
-        branches: [main] # A fenti branch névvel egyeznie kell!
-
-permissions: # Engedélyek: olvasás, írás meg a token írás, ha van.
-    contents: read
-    pages: write
-    id-token: write
-
-concurrency: # Erőforrás optimalizálása és a felesleges várakozás elkerülése.
-    group: pages
-    cancel-in-progress: true
+        branches: [main, master]
+    pull_request:
+        branches: [main, master]
 
 jobs:
-    build-and-deploy:
+    quality-and-test:
+        timeout-minutes: 60
         runs-on: ubuntu-latest
-        steps:
-            - name: Checkout
-              uses: actions/checkout@v4 # Marketplace-ről: Letölti a kódot.
 
-            - name: Set up Node
-              uses: actions/setup-node@v4 # Marketplace-ről: Beállítja a Node.js-t.
+        steps:
+            # 1. Kód letöltése
+            - name: Checkout repository
+              uses: actions/checkout@v4
+
+            # 2. Node.js beállítása
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
               with:
-                  node-version: 22 # Verziót csekkold le. LTS-t használj.
+                  node-version: 20
                   cache: "npm"
 
+            # 3. Függőségek telepítése (gyorsabb, mint az npm install)
             - name: Install dependencies
-              run: npm ci # Continuous Integration
+              run: npm ci
 
-            - name: Build all apps
-              run: |
-                  mkdir -p dist/apps   
-                  cp index.html dist/
-                  for dir in apps/*; do
-                    if [ -d "$dir" ]; then
-                      app=$(basename "$dir")
-                      echo "Building $app..."                    
-                      cd $dir && APP_NAME=$app npm run build -- --outDir ../../dist/apps/$app
-                      cd ../..
-                    fi
-                  done
+            # 4. BUILD TESZT (Vite)
+            # Ha a Vite hibát talál (pl. rossz import), itt megáll a folyamat.
+            - name: Vite Build
+              run: npm run build
 
-            - name: Setup Pages
-              uses: actions/configure-pages@v5 # Beállítja a környezetet. v5 a verzió száma. Mindig használd az újabbat ebből legalábbis.
+            # 5. PLAYWRIGHT TESZTELÉS
+            - name: Install Playwright Browsers
+              run: npx playwright install --with-deps
 
-            - name: Upload artifact
-              uses: actions/upload-pages-artifact@v3 # Feltölti az újonnan létrehozott 'dist' mappát.
+            - name: Run Playwright tests
+              run: npx playwright test
+
+            # 6. TESZT JELENTÉS MENTÉSE (Hiba esetén jól jön)
+            - name: Upload Playwright report
+              uses: actions/upload-artifact@v4
+              if: ${{ !cancelled() }}
               with:
-                  path: "./dist"
+                  name: playwright-report
+                  path: playwright-report/
+                  retention-days: 30
 
-            - name: Deploy to GitHub Pages
-              id: deployment
-              uses: actions/deploy-pages@v4 # Publikálja az oldalt.
+            # 7. DEPLOY A VERCEL-RE
+            # Ez a lépés CSAK akkor fut le, ha az összes fenti lépés SIKERES volt.
+            - name: Deploy to Vercel
+              if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+              uses: amondnet/vercel-action@v25
+              with:
+                  vercel-token: ${{ secrets.VERCEL_TOKEN }}
+                  vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+                  vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+                  vercel-args: "--prod" # Élesítés!
