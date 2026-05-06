@@ -6,7 +6,7 @@
     --gradient-end: rgba(7, 3, 21, 0.9);
 }
 
-html {
+body {
     background-color: rgb(217, 241, 250); /*régi böngészőknek*/
     min-height: 100%;
     background-image: linear-gradient(
@@ -16,5 +16,8 @@ html {
         var(--gradient-stop-3),
         var(--gradient-end)
     );
+    /* Ezzel a háttér fixen ott marad a sidebar alatt.*/
+    background-attachment: fixed;
+
     color: var(--primary-color);
 }
