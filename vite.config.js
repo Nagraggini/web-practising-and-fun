@@ -28,7 +28,7 @@ VALID_APPS.forEach((app) => {
 });
 
 export default defineConfig({
-    base: "/web-projects/", // Fontos: Ha a repo neve web-projects, ez maradjon így
+    base: "/", // Mivel Vercel-en deployolsz.
 
     build: {
         outDir: "dist",
