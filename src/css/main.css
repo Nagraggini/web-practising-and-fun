@@ -14,7 +14,7 @@
 
 .hero,
 .modern-projects,
-.old-school-projects {
+.my-other-works {
     display: flex;
     flex-wrap: wrap; /*Ha nem férnek el egy sorban, törjenek új sorba*/
     gap: 1rem; /* Ez a kulcs: fix távolság a gombok között minden irányban*/
@@ -48,7 +48,8 @@ body {
 }
 
 nav {
-    background-color: rgba(89, 61, 192, 0.9);
+    background-color: rgba(117, 85, 244, 0.3);
+    backdrop-filter: blur(1.5rem);
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -60,20 +61,23 @@ nav ul {
     align-items: center;
 }
 nav li {
-    height: 50px;
+    height: 4rem;
 }
 nav a {
     height: 100%;
-    padding: 0 30px;
+    padding: 2rem;
     text-decoration: none;
     display: flex;
     align-items: center;
     color: var(--nav-a-color);
+    font-size: 1.3rem;
+    font-weight: bold;
 }
 nav a:hover {
     background-color: #f0f0f0;
 }
 
+/*Mobilos oldalsó bár.*/
 .sidebar {
     position: fixed;
     top: 0;
@@ -81,7 +85,7 @@ nav a:hover {
     height: 100vh;
     width: 250px;
     /*Az utolsó érték felel az átlátszóságért.*/
-    background-color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px); /* Safari támogatás! */
     z-index: 9999; /* Legyen minden felett */
@@ -96,6 +100,8 @@ nav a:hover {
 .sidebar li {
     width: 100%;
 }
+
+/*Mobilos oldalsó bár.*/
 .sidebar a {
     font-size: 1.3rem;
     font-weight: bold;
