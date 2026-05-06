@@ -695,7 +695,7 @@ vite.config.js-t írd át erre:
 
 ```js
 import { defineConfig } from "vite";
-import { resolve } from "path";
+import { resolve, basename } from "path";
 
 //Mappa nevekre figyelj.
 const VALID_APPS = [
@@ -706,14 +706,19 @@ const VALID_APPS = [
     "rock-band",
 ];
 
-// Legeneráljuk az összes belépési pontot a Rollup számára
-const input = {
+// Megoldás: Object.create(null) használata, így az objektumnak nincsenek 
+// sérülékeny prototípus metódusai (pl. __proto__), amiket támadni lehetne.
+const input = Object.assign(Object.create(null), {
     main: resolve(__dirname, "index.html"), // A főoldal
     about: resolve(__dirname, "pages/about-me.html"), // Másik aloldal.
-};
+});
 
 VALID_APPS.forEach((app) => {
-    input[app] = resolve(__dirname, "apps", app, "index.html");
+    // Biztonsági ellenőrzés: csak akkor adjuk hozzá, ha nem egy tiltott kulcsszó
+    if (app !== "__proto__" && app !== "constructor") {
+        const safeApp = basename(app);
+        input[safeApp] = resolve(__dirname, "apps", safeApp, "index.html");
+    }
 });
 
 export default defineConfig({
@@ -726,7 +731,6 @@ export default defineConfig({
         },
     },
 });
-
 ```
 
 Ha nem az apps mappában vannak a projektjeid, akkor írd át a fenti konfigban.
