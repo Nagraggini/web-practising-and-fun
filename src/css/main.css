@@ -63,9 +63,10 @@ nav ul {
 nav li {
     height: 4rem;
 }
-nav a {
+nav a,
+.sidebar a {
     height: 100%;
-    padding: 2rem;
+    padding: 1.5rem;
     text-decoration: none;
     display: flex;
     align-items: center;
@@ -86,8 +87,8 @@ nav a:hover {
     width: 250px;
     /*Az utolsó érték felel az átlátszóságért.*/
     background-color: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px); /* Safari támogatás! */
+    backdrop-filter: blur(1rem);
+    -webkit-backdrop-filter: blur(1rem); /* Safari támogatás! */
     z-index: 9999; /* Legyen minden felett */
 
     box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
