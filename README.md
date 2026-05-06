@@ -1,7 +1,10 @@
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/3cf9aee428234585ab4f3f7bcfe9c63e)](https://app.codacy.com/gh/Nagraggini/web-projects/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
-![Workflow neve](https://github.com/Nagraggini/web-projects/actions/workflows/playwright.yml/badge.svg)
+![Full Pipeline (Build + Test + Deploy)](https://github.com/nagraggini/web-projects/actions/workflows/deploy.yml/badge.svg)
+[![Build Status](https://img.shields.io/github/check-runs/Nagraggini/web-projects/main)](https://github.com/Nagraggini/web-projects/actions)
 
-![Top Language](https://img.shields.io/github/languages/top/Nagraggini/web-projects)
+
+[![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat&logo=vite&logoColor=white)](https://vitejs.dev/)
+![Top Language](https://img.shields.io/github/languages/top/nagraggini/web-projects)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
 ## Web Projects
@@ -777,14 +780,20 @@ Utána offline csekkold a pipeline-t ezzel:
 
 Töröld ki a dist és node_modules mappákat.
 Terminálban: 
+  rm -rf dist node_modules .vercel/output
   npm install
-npm run build && npx playwright test
+  npm run build 
+
+  vercel build
+
+Ha ezt látod: ✅ Build Completed  Akkor Vercel kompatibilis a kódod. 
+  npx playwright test
 
 A workflow fájl lokális futtatásához Docker kell és ez:
 [Act](https://github.com/nektos/act)
 
-Vercel környezet szimulálásához:
-npx vercel dev
+Hely vercel szerver csekk:
+  npx vercel dev
 
 # Local teszthez
 
