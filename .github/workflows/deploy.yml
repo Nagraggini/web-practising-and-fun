@@ -52,7 +52,7 @@ jobs:
             # Ez a lépés CSAK akkor fut le, ha az összes fenti lépés SIKERES volt.
             - name: Deploy to Vercel
               if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-              uses: amondnet/vercel-action@fb282a306440268f773663a8904791e8bc7c5b65 # v25
+              uses: amondnet/vercel-action@v25 # v25
               with:
                   vercel-token: ${{ secrets.VERCEL_TOKEN }}
                   vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
