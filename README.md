@@ -1,16 +1,20 @@
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/3cf9aee428234585ab4f3f7bcfe9c63e)](https://app.codacy.com/gh/Nagraggini/web-projects/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 ![Workflow neve](https://github.com/Nagraggini/web-projects/actions/workflows/playwright.yml/badge.svg)
+
 ![Top Language](https://img.shields.io/github/languages/top/Nagraggini/web-projects)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
-## Web Practising & Fun
+## Web Projects
 
 This repository is a collection of small web development projects, experiments, and practice work.
 
 I use it to improve my skills in HTML, CSS, and JavaScript while building fun and simple applications.
 
+**Pipeline: Coding (Vite with Vanilla JS) ->Commit & Push (Github + Codacy) -> Build -> CI + Playwright on GitHub Actions -> CD -> Deploy on Vercel.**
+
 ## Live Demo
 
-👉 https://nagraggini.github.io/web-projects/
+👉 https://web-projects-sepia.vercel.app/
 
 ## IT Blog
 
@@ -23,7 +27,7 @@ Currently available only in Hungarian:
 
 ## 🇭🇺 Magyar verzió - Hungarian version
 
-## Web gyakorlás és fun projektek
+## Web Projektjeim
 
 Ez a repository kisebb webes projektekből és gyakorló feladatokból áll.
 
@@ -31,7 +35,7 @@ Célja, hogy fejlesszem a HTML, CSS és JavaScript tudásomat, miközben egyszer
 
 ## Élő verzió
 
-👉 https://nagraggini.github.io/web-projects/
+👉 https://web-projects-sepia.vercel.app/
 
 ## IT Blog
 
@@ -64,6 +68,10 @@ Tartalomjegyzék
 - [main branch védése](#main-branch-védése)
 - [Lefedettség ellenőrzése](#lefedettség-ellenőrzése)
 - [Multi pages beállítása](#multi-pages-beállítása)
+  - [Vercel beállítása](#vercel-beállítása-1)
+  - [vite.config.js](#viteconfigjs)
+  - [Tokenek és ID-k beállítása a pipeline-ban](#tokenek-és-id-k-beállítása-a-pipeline-ban)
+  - [Offline pipeline csekk](#offline-pipeline-csekk)
 - [Local teszthez](#local-teszthez)
 
 # Források
@@ -74,6 +82,7 @@ https://www.youtube.com/watch?v=HmaQwuKUYTc
 https://www.freecodecamp.org/learn/javascript-v9/lecture-working-with-the-dom-click-events-and-web-apis/how-do-you-create-new-nodes-using-innerhtml-and-createelement
 [10 CSS PRO Tips and Tricks you NEED to know](https://www.youtube.com/watch?v=44FTAS-qT8Q&list=WL&index=11)
 [How to create a Responsive Navigation Bar (for beginners)](https://www.youtube.com/watch?v=U8smiWQ8Seg)
+[The native select was finally fixed](https://www.youtube.com/watch?v=op4YGYoD36o&list=WL&index=14&t=25s)
 
 # Előkészületek
 
@@ -158,7 +167,10 @@ my-web-app/
 A fenti mappa szerkezetet, így tudod profin létre hozni:
 Terminal -> New Terminal
 
-mkdir -p src/assets/{images,icons,fonts,vendor} src/css/{base,components,layouts} src/js/{components,services,utils,config} .github tests && touch src/css/main.css src/js/main.js README.md .gitignore && rm src/counter.js src/main.js src/style.css && rm src/assets/javascript.svg src/assets/vite.svg&& find src -type d -empty -not -path '*/.*' -exec touch {}/.gitkeep \;
+mkdir -p public/assets/{images,icons,fonts,vendor} src/css/{base,components,layouts} src/js/{components,services,utils,config} .github tests && \
+touch src/css/main.css src/js/main.js README.md .gitignore && \
+rm -f src/counter.js src/main.js src/style.css src/assets/javascript.svg src/assets/vite.svg && \
+find public src -type d -empty -not -path '*/.*' -exec touch {}/.gitkeep \;
 
 index.html fájlba ezt írd be:
 ```html
@@ -238,7 +250,7 @@ Jobb oldalt Add New ...-> Projects -> Választ ki a privát repo-t a listából 
 
 Application Preset: Vite //Ha nem jól mutatná. -> Deploy -> Várj kicsit. -> Continue to Dashboard
 
-A Domains részen láthatod a weboldalad linkjét. Jelen esetben: https://webfejlesztes-modulzaro-260117-f-an.vercel.app/
+A Domains részen láthatod a weboldalad linkjét. Jelen esetben: https://web-projects-sepia.vercel.app/
 
 ### vite.config.js vercel esetén.
 
@@ -591,75 +603,184 @@ Látni fogsz egy listát a fájljaidról. A Unused Bytes oszlop mutatja meg, men
 
 # Multi pages beállítása
 
+MPA =Multi Pages Applications
+
+A github-on az alap beállításnak kell maradni. Github repo -> Settings -> Pages -> Source: Deploy from a branch.
+Branch: main
+A Settings-en belül a Environments részen a github-pages-t is töröld ki.
+
+".github/workflows/deploy.yml" fájlod, így nézzen ki:
+```yml
+name: Tuti Pipeline (Build + Test + Deploy)
+
+on:
+    push:
+        branches: [main, master]
+    pull_request:
+        branches: [main, master]
+
+jobs:
+    quality-and-test:
+        timeout-minutes: 60
+        runs-on: ubuntu-latest
+
+        steps:
+            # 1. Kód letöltése
+            - name: Checkout repository
+              uses: actions/checkout@v4
+
+            # 2. Node.js beállítása
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 20
+                  cache: "npm"
+
+            # 3. Függőségek telepítése (gyorsabb, mint az npm install)
+            - name: Install dependencies
+              run: npm ci
+
+            # 4. BUILD TESZT (Vite)
+            # Ha a Vite hibát talál (pl. rossz import), itt megáll a folyamat.
+            - name: Vite Build
+              run: npm run build
+
+            # 5. PLAYWRIGHT TESZTELÉS
+            - name: Install Playwright Browsers
+              run: npx playwright install --with-deps
+
+            - name: Run Playwright tests
+              run: npx playwright test
+
+            # 6. TESZT JELENTÉS MENTÉSE (Hiba esetén jól jön)
+            - name: Upload Playwright report
+              uses: actions/upload-artifact@v4
+              if: ${{ !cancelled() }}
+              with:
+                  name: playwright-report
+                  path: playwright-report/
+                  retention-days: 30
+
+            # 7. DEPLOY A VERCEL-RE
+            # Ez a lépés CSAK akkor fut le, ha az összes fenti lépés SIKERES volt.
+            - name: Deploy to Vercel
+              if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+              uses: amondnet/vercel-action@v25
+              with:
+                  vercel-token: ${{ secrets.VERCEL_TOKEN }}
+                  vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+                  vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+                  vercel-args: "--prod" # Élesítés!
+```
+
+Ha a workflows-ban van playwright.yml fájlod akkor azt törölni ki, mert a fenti yml-ben már az is benne van.
+
+A token meg id-kat később állítjuk be.
+
+## Vercel beállítása
+
+Vercel-el érdemes deployolni.
+
+https://vercel.com/-ra regisztrálj.
+
+Jobb oldalt Add New ...-> Projects -> Választ ki a privát repo-t a listából Import gombbal.
+
+Application Preset: Vite //Ha nem jól mutatná. -> Deploy -> Várj kicsit. -> Continue to Dashboard
+
+A Domains részen láthatod a weboldalad linkjét. Jelen esetben: https://web-projects-sepia.vercel.app/
+
+## vite.config.js
+
 vite.config.js-t írd át erre:
 
 ```js
 import { defineConfig } from "vite";
 import { resolve } from "path";
 
-// Konkrét mappáim listája - ez a "Whitelist"
+//Mappa nevekre figyelj.
 const VALID_APPS = [
     "for-a-new-job",
-    "guest-number",
+    "guess-my-number",
     "job-interview-q-and-a",
     "questlog",
     "rock-band",
 ];
 
-const requestedApp = process.env.APP_NAME || "";
-const isSubApp = VALID_APPS.includes(requestedApp);
-const appName = isSubApp ? requestedApp : "";
+// Legeneráljuk az összes belépési pontot a Rollup számára
+const input = {
+    main: resolve(__dirname, "index.html"), // A főoldal
+    about: resolve(__dirname, "pages/about-me.html"), // Másik aloldal.
+};
+
+VALID_APPS.forEach((app) => {
+    input[app] = resolve(__dirname, "apps", app, "index.html");
+});
 
 export default defineConfig({
-    // Ha al-appot buildelünk, az apps/mappa az alap, különben a gyökér
-    root: isSubApp ? resolve(__dirname, "apps", appName) : resolve(__dirname),
-
-    base: isSubApp ? `/web-projects/apps/${appName}/` : "/web-projects/",
+    base: "/web-projects/", // Fontos: Ha a repo neve web-projects, ez maradjon így
 
     build: {
-        // A kimeneti mappa is igazodik: dist/apps/név VAGY simán a dist/ gyökér
-        outDir: isSubApp
-            ? resolve(__dirname, "dist", "apps", appName)
-            : resolve(__dirname, "dist"),
-
-        emptyOutDir: isSubApp ? false : true, // A fő buildnél takarítunk, al-appnál nem töröljük a többit
-
+        outDir: "dist",
         rollupOptions: {
-            input: {
-                // Dinamikusan meghatározzuk a belépési pontot
-                main: isSubApp
-                    ? resolve(__dirname, "apps", appName, "index.html")
-                    : resolve(__dirname, "index.html"),
-            },
+            input: input, // Itt adjuk át az összes HTML-t
         },
     },
 });
 
 ```
-Ha nem apps mappában vannak a projektjeid, akkor írd át a konfigban. 
 
-.github/workflows/deploy.yml fájlban töröld ezt:
-```yml
-            - name: Build
-              run: npm run build # Ez hozza létre a 'dist' mappát.
-```
+Ha nem az apps mappában vannak a projektjeid, akkor írd át a fenti konfigban.
 
-Ezt írd be helyette:
-```yml
-            - name: Build all apps
-              run: |         
-                mkdir -p dist/apps
-                cp index.html dist/
-                for dir in apps/*; do
-                  if [ -d "$dir" ]; then
-                    app=$(basename "$dir")
-                    echo "Building $app..."
-                    cd $dir && APP_NAME=$app npm run build -- --outDir ../../dist/apps/$app
-                    cd ../..
-                  fi
-                done
-```
-Ha más lenne a mappád neve, akkor a deployban is írd át. Szóközökre és tabulátorolra figyelj.
+## Tokenek és ID-k beállítása a pipeline-ban
+
+Terminálba:
+npx vercel dev
+-> yes -> yes -> Would you like to pull environment variables now? no
+
+A token és id-k automatikusan be kerülnek a git ignore-ba, de még előtte létrejött a .vercel mappa.
+
+Menj a GitHub-ra, és nyisd meg a repod (Settings > Secrets and variables > Actions)
+-> New repository secret 
+
+.vercel/project.json fájlból másold ki ezeket:
+ 
+"projectId":" ", 
+-> A github-on ezen a néven mentsd el, mert a workflow fájlban is így szerepel: 
+VERCEL_PROJECT_ID
+
+Add secret gomb.
+
+"orgId":" ", 
+-> A github-on ezen a néven mentsd el, mert a workflow fájlban is így szerepel: 
+VERCEL_ORG_ID
+
+Add secret gomb.
+
+Utána  tokent állítjuk be. Menj a https://vercel.com/-ra. -> Bal alul katt a profilképedre. -> Aztán fogaskerék ikon. -> Tokens (bal alul)
+Vigyázz, csak egyszer fogja mutatni, szóval nyid meg a Github-on a Secrets, úgy mint fentebb írtam.
+
+GitHub-on ez legyen a neve (ua. szerepel a pipeline-ban is): VERCEL_TOKEN
+
+Vercel-en TOKEN NAME: GitHub Actions Pipeline
+SCOPE: saját felhazsnálónevedet válaszd ki.
+EXPIRATION: No Expiration
+
+A GitHub-on másold be a VERCEL_TOKEN alatti beviteli mezőbe.
+
+## Offline pipeline csekk
+
+Utána offline csekkold a pipeline-t ezzel:
+
+Töröld ki a dist és node_modules mappákat.
+Terminálban: 
+  npm install
+npm run build && npx playwright test
+
+A workflow fájl lokális futtatásához Docker kell és ez:
+[Act](https://github.com/nektos/act)
+
+Vercel környezet szimulálásához:
+npx vercel dev
 
 # Local teszthez
 
@@ -669,7 +790,9 @@ Fejlesztés:
     Leállításhoz a terminálba kattintsd beel és ctrl+c      
 
 Playwright teszteléshez:
-   Terminálba ezt írd be: npm run preview -> Katt a terminálban lévő linkre, más lesz az ip cím, mint az előző, nem véletlenül. Ilyenkor a dist mappát teszteled (ezt látja a Playwright).
+   Terminálba ezt írd be: npm run build -> Megnézed, minden rendben van-e a végleges fájlokkal. Legenerálod a dist mappát és a benne lévő index.html fájlt csekkold.  
+   
+   npm run preview -> Katt a terminálban lévő linkre, más lesz az ip cím, mint az előző, nem véletlenül. Ilyenkor a dist mappát teszteled (ezt látja a Playwright).
 
 
 Ellenőrzés (opcionális):            

@@ -1,40 +1,32 @@
 import { defineConfig } from "vite";
 import { resolve } from "path";
 
-// Konkrét mappáim listája - ez a "Whitelist"
+//Mappa nevekre figyelj.
 const VALID_APPS = [
     "for-a-new-job",
-    "guest-number",
+    "guess-my-number",
     "job-interview-q-and-a",
     "questlog",
     "rock-band",
 ];
 
-const requestedApp = process.env.APP_NAME || "";
-const isSubApp = VALID_APPS.includes(requestedApp);
-const appName = isSubApp ? requestedApp : "";
+// Legeneráljuk az összes belépési pontot a Rollup számára
+const input = {
+    main: resolve(__dirname, "index.html"), // A főoldal
+    about: resolve(__dirname, "pages/about-me.html"), // Másik aloldal.
+};
+
+VALID_APPS.forEach((app) => {
+    input[app] = resolve(__dirname, "apps", app, "index.html");
+});
 
 export default defineConfig({
-    // Ha al-appot buildelünk, az apps/mappa az alap, különben a gyökér
-    root: isSubApp ? resolve(__dirname, "apps", appName) : resolve(__dirname),
-
-    base: isSubApp ? `/web-projects/apps/${appName}/` : "/web-projects/",
+    base: "/web-projects/", // Fontos: Ha a repo neve web-projects, ez maradjon így
 
     build: {
-        // A kimeneti mappa is igazodik: dist/apps/név VAGY simán a dist/ gyökér
-        outDir: isSubApp
-            ? resolve(__dirname, "dist", "apps", appName)
-            : resolve(__dirname, "dist"),
-
-        emptyOutDir: isSubApp ? false : true, // A fő buildnél takarítunk, al-appnál nem töröljük a többit
-
+        outDir: "dist",
         rollupOptions: {
-            input: {
-                // Dinamikusan meghatározzuk a belépési pontot
-                main: isSubApp
-                    ? resolve(__dirname, "apps", appName, "index.html")
-                    : resolve(__dirname, "index.html"),
-            },
+            input: input, // Itt adjuk át az összes HTML-t
         },
     },
 });
