@@ -7,7 +7,8 @@
 
 :root {
     --font-color: white;
-    --bg-color: rgb(28, 26, 26);
+    --bg-color: black;
+    --primary-color: rgb(165, 64, 27);
     --section-bg-color: rgb(49, 54, 58);
     --gradient-start: rgba(93, 113, 132, 0.9);
     --gradient-stop-2: rgba(39, 32, 66, 0.9);
@@ -36,21 +37,43 @@ h6 {
     text-align: center;
 }
 
+.pre-order-link {
+    text-decoration: none;
+    color: var(--font-color);
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.right-arrow {
+    display: flex;
+
+    align-self: center;
+}
+.pre-order-article {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+}
+.pre-order-section {
+    background-color: var(--primary-color);
+}
+
 .rock-band-gif,
-.pic-of-the-concert {
+.pic-of-the-band {
     text-align: center !important;
 }
 
-section {
-    background-color: var(--section-bg-color);
+.section-1 {
+    /*Három szín az elmosódás hatás miatt kell.*/
+    box-shadow:
+        0.1rem 0.1rem 0.1rem rgba(39, 39, 40, 0.9),
+        0.2rem 0.2rem 0.2rem rgba(27, 27, 28, 0.9),
+        0.5rem 0.5rem 0.5rem rgba(6, 6, 6, 0.9);
     display: flexbox;
     margin: 1rem;
-
-    border: 0.15rem solid var(--section-bg-color);
+    border: 0.1rem solid var(--section-bg-color);
     padding: 1rem;
 
-    backdrop-filter: blur(1rem);
-
+    background-color: var(--section-bg-color); /*Régi böngészőnek.*/
     /*Háttérszín*/
 
     min-height: 100%;
