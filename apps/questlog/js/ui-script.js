@@ -58,15 +58,27 @@ export class UI {
 
     setColorfulQuestList(ujSorNode, priorityOld) {
         console.log("setColorfulQuestList()");
+
+        // Kiválasztjuk az elemet (gyakran a :root-on vannak a változók)
+        const root = document.documentElement;
+
+        // Lekérjük a stílusokat
+        const styles = getComputedStyle(root);
+
+        // Kiolvassuk a konkrét változót
+        const highColor = styles.getPropertyValue("--high-color").trim();
+        const mediumColor = styles.getPropertyValue("--medium-color").trim();
+        const lowColor = styles.getPropertyValue("--low-color").trim();
+
         switch (priorityOld) {
             case "High":
-                ujSorNode.style.backgroundColor = "var(--high-color)";
+                ujSorNode.style.backgroundColor = highColor;
                 break;
             case "Medium":
-                ujSorNode.style.backgroundColor = "var(--medium-color)";
+                ujSorNode.style.backgroundColor = mediumColor;
                 break;
             case "Low":
-                ujSorNode.style.backgroundColor = "var(--low-color)";
+                ujSorNode.style.backgroundColor = lowColor;
                 break;
             default: //Error
                 ujSorNode.style.backgroundColor = "purple";

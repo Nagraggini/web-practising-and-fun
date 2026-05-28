@@ -86,6 +86,7 @@ https://www.freecodecamp.org/learn/javascript-v9/lecture-working-with-the-dom-cl
 [10 CSS PRO Tips and Tricks you NEED to know](https://www.youtube.com/watch?v=44FTAS-qT8Q&list=WL&index=11)
 [How to create a Responsive Navigation Bar (for beginners)](https://www.youtube.com/watch?v=U8smiWQ8Seg)
 [The native select was finally fixed](https://www.youtube.com/watch?v=op4YGYoD36o&list=WL&index=14&t=25s)
+[CSS Navbar Hover Effects](https://menuhover.com/)
 
 # Előkészületek
 
